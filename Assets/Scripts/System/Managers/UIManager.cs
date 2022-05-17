@@ -9,6 +9,11 @@ public class UIManager : Singleton<UIManager>
 {
     public Image interactionKey;
 
+    public GameObject[] minigames;
+    public Ease ease;
+
+    int minigameId;
+
     public void OpenUI()
     {
         
@@ -30,6 +35,32 @@ public class UIManager : Singleton<UIManager>
         interactionKey.DOFade(0, 0.5f);
 
         interactionKey.transform.GetChild(0).gameObject.SetActive(false);
+    }
+
+    public void OpenMinigameView(int id)
+    {
+        switch(id)
+        {
+            case 1:
+
+                break;
+            case 2:
+                minigames[id].SetActive(true);
+                minigames[id].GetComponent<RectTransform>().DOAnchorPosX(-480, 0.8f).SetEase(ease);
+                minigameId = id;
+                break;
+        }
+
+
+    }
+
+    public void CloseMinigameView()
+    {
+        minigames[minigameId].GetComponent<RectTransform>().DOAnchorPosX(480, 0.8f).SetEase(ease)
+            .OnComplete(() => {
+                minigames[minigameId].SetActive(false);
+            });
+        minigameId = 0;
     }
 
 }

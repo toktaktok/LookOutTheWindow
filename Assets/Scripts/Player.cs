@@ -15,7 +15,7 @@ public class Player : MonoBehaviour
 
     //bool isStaying = false;
 
-    Collider interactingObject;
+    Collider interactingObject; //상호작용한 오브젝트
 
     private void Start()
     {
@@ -59,6 +59,10 @@ public class Player : MonoBehaviour
 
     }
 
+    /*
+     * 함수 이름 : Interact
+     * 기능 : InputAction을 통해 상효작용 할 시(input E) 미니게임이 있는지 확인한다.
+     */
     public void Interact(InputAction.CallbackContext ctx)
     {
         if(interactingObject != null)
@@ -83,7 +87,11 @@ public class Player : MonoBehaviour
         UIManager.Instance.CloseInteractionUI();
         //isStaying = false;
         interactingObject = null;
-        CameraController.Instance.CloseMinigameView();
+
+
+        //CameraController.Instance.CloseMinigameView();
+        UIManager.Instance.CloseMinigameView();
+        CameraController.Instance.ReturnMinigameView();
     }
 
 

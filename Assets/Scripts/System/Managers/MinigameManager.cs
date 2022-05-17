@@ -8,8 +8,9 @@ public class MinigameManager : Singleton<MinigameManager>
 
     public void StartSetting(int gameId)
     {
-        CameraController.Instance.OpenMinigameView();
+        CameraController.Instance.MakeMinigameView();
         UIManager.Instance.CloseInteractionUI();
+        UIManager.Instance.OpenMinigameView(gameId);
     }
 
 

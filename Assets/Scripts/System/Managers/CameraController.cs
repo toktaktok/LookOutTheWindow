@@ -88,15 +88,22 @@ public class CameraController : Singleton<CameraController>
 
     }
 
-    public void OpenMinigameView()
+    public void MakeMinigameView()
     {
-        main.DORect(new Rect(0, 0, 0.5f, 1), 0.5f);
-        mini.DORect(new Rect(0.5f, 0, 0.5f, 1), 0.5f);
+        main.DORect(new Rect(0, 0, 0.5f, 1), 0.8f).SetEase(Ease.OutQuart);
+        //mini.gameObject.SetActive(true);
+        mini.DORect(new Rect(0.5f, 0, 0.5f, 1), 0.8f).SetEase(Ease.OutQuart);
     }
 
-    public void CloseMinigameView()
+    public void ReturnMinigameView()
     {
-        main.DORect(mainOrigRect, 0.5f);
-        mini.DORect(miniOrigRect, 0.5f);
+        main.DORect(mainOrigRect, 0.8f).SetEase(Ease.OutQuart);
+        
+        mini.DORect(miniOrigRect, 0.8f).SetEase(Ease.OutQuart);
+        //mini.targetTexture = null;
+
+        //mini.DORect(miniOrigRect, 0.8f).SetEase(Ease.OutQuart).OnComplete(() => {
+        //    mini.gameObject.SetActive(false);
+        //}); ;
     }
 }
