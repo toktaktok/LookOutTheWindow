@@ -11,6 +11,7 @@ public class CameraController : Singleton<CameraController>
 
     [Range(0, 1)]
     public float zoomRange;
+    public float savedZoomRange;
     public float rotateValue;
 
     [Range(30, 60)]
@@ -78,13 +79,12 @@ public class CameraController : Singleton<CameraController>
         Vector3 targetPos = target.position;
         Quaternion targetRotation = Quaternion.Euler(zoomXrot, rotateValue, 0);
 
+        /*
+         카메라와 카메라 anchor의 위치, 회전 보간
+         */
         mainCamAnchor.rotation = Quaternion.Slerp(mainCamAnchor.rotation, targetRotation, 0.3f);
         main.fieldOfView = Mathf.Lerp(main.fieldOfView, zoomSize, 4 * Time.deltaTime);
         mainCamAnchor.position = Vector3.Lerp(mainCamAnchor.position, targetPos, 3 * Time.deltaTime);
-
-        // Vector3 targetPos = new Vector3(target.position.x, target.position.y + 12, target.position.z - 25);
-        //mainCamAnchor.transform.DOMove(targetPos, 1f).SetEase(Ease.InQuart);
-        //mainCamAnchor.DORotateQuaternion(targetRotation, 1f).SetEase(Ease.InSine);
 
     }
 
@@ -100,10 +100,22 @@ public class CameraController : Singleton<CameraController>
         main.DORect(mainOrigRect, 0.8f).SetEase(Ease.OutQuart);
         
         mini.DORect(miniOrigRect, 0.8f).SetEase(Ease.OutQuart);
-        //mini.targetTexture = null;
-
-        //mini.DORect(miniOrigRect, 0.8f).SetEase(Ease.OutQuart).OnComplete(() => {
-        //    mini.gameObject.SetActive(false);
-        //}); ;
+        
     }
+    public void SaveZoomRange(int editedRange)
+    {
+        
+        savedZoomRange = zoomRange;
+        Debug.Log("저장된 카메라 줌 값: " + savedZoomRange);
+        zoomRange = editedRange;
+
+    }
+    
+    public void ReturnInteractionView()
+    {
+        Debug.Log("카메라 뷰 원위치");
+        zoomRange = savedZoomRange;
+    }
+
+
 }

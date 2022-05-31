@@ -19,20 +19,22 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
-        anim = gameObject.GetComponentInChildren<Animator>();    
+        anim = gameObject.GetComponentInChildren<Animator>();  
+        sprite = gameObject.GetComponentInChildren<SpriteRenderer>(); 
     }
 
     private void Update()
     {
-        if (moveValue == Vector2.zero)
-            anim.SetBool("isMove", false);
+        if (moveValue == Vector2.zero)  //이동하고 있지 않다면
+            anim.SetBool("isMove", false);  //애니메이션 정지
     }
 
-    //플레이어 이동 계산 
+    
     public void FixedUpdate()
     {
+        //플레이어 이동 수치 계산 
         transform.Translate(new Vector3(moveValue.x, 0, moveValue.y) * moveSpeed * Time.deltaTime);
-        sprite = gameObject.GetComponentInChildren<SpriteRenderer>();        
+               
     }
 
 
@@ -61,13 +63,17 @@ public class Player : MonoBehaviour
 
     /*
      * 함수 이름 : Interact
-     * 기능 : InputAction을 통해 상효작용 할 시(input E) 미니게임이 있는지 확인한다.
+     * 기능 : InputAction을 통해 상호작용 할 시(input E) 미니게임이 있는지 확인한다.
      */
     public void Interact(InputAction.CallbackContext ctx)
     {
-        if(interactingObject != null)
+        if(interactingObject != null)   //E를 눌렀을 시 interactingObject가 존재한다면
         {
-            IsHaveMinigame(interactingObject);
+            Debug.Log("대상과 상호작용!");
+            interactingObject.SendMessage("Check");
+            
+            CameraController.Instance.SaveZoomRange(0);
+            // IsHaveMinigame(interactingObject);
         }
     }
 
@@ -75,30 +81,31 @@ public class Player : MonoBehaviour
 
     void OnTriggerEnter(Collider interacted)
     {
-        UIManager.Instance.OpenInteractionUI();
-        interactingObject = interacted;
-        //isStaying = true;
+        UIManager.Instance.OpenInteractionButton(); //Trigger와 접촉할 시 상호작용 키를 보이게 한다.
+        
+        interactingObject = interacted;         //접촉한 콜라이더가 존재할 시
 
     }
 
 
     void OnTriggerExit(Collider interacted)
     {
-        UIManager.Instance.CloseInteractionUI();
-        //isStaying = false;
+        
         interactingObject = null;
 
-
-        //CameraController.Instance.CloseMinigameView();
+        
+        UIManager.Instance.CloseInteractionUI();
         UIManager.Instance.CloseMinigameView();
-        CameraController.Instance.ReturnMinigameView();
+        
+        CameraController.Instance.ReturnMinigameView();     //미니게임 카메라 닫기
+        CameraController.Instance.ReturnInteractionView();  //카메라 원래 화면으로 돌리기
     }
 
 
-    void IsHaveMinigame(Collider interacted)
-    {
-        interacted.SendMessage("Check");
-    }
+    // void IsHaveMinigame(Collider interacted)
+    // {
+    //     interacted.SendMessage("Check");
+    // }
 
 
 
