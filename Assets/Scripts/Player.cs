@@ -25,15 +25,20 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        if (moveValue == Vector2.zero)  //이동하고 있지 않다면
+        if (moveValue == Vector2.zero) //이동하고 있지 않다면
+        {
+            anim.StopPlayback();
             anim.SetBool("isMove", false);  //애니메이션 정지
+        }
+            
     }
 
     
     public void FixedUpdate()
     {
         //플레이어 이동 수치 계산 
-        transform.Translate(new Vector3(moveValue.x, 0, moveValue.y) * moveSpeed * Time.deltaTime);
+        transform.Translate
+            (new Vector3(moveValue.x, 0, moveValue.y) * moveSpeed * Time.deltaTime);
                
     }
 
@@ -67,13 +72,10 @@ public class Player : MonoBehaviour
      */
     public void Interact(InputAction.CallbackContext ctx)
     {
-        if(interactingObject != null)   //E를 눌렀을 시 interactingObject가 존재한다면
+        
+        if(interactingObject != null && ctx.performed)   //E를 눌렀을 시 interactingObject가 존재한다면
         {
-            Debug.Log("대상과 상호작용!");
-            interactingObject.SendMessage("Check");
-            
             CameraController.Instance.SaveZoomRange(0);
-            // IsHaveMinigame(interactingObject);
         }
     }
 
@@ -82,7 +84,6 @@ public class Player : MonoBehaviour
     void OnTriggerEnter(Collider interacted)
     {
         UIManager.Instance.OpenInteractionButton(); //Trigger와 접촉할 시 상호작용 키를 보이게 한다.
-        
         interactingObject = interacted;         //접촉한 콜라이더가 존재할 시
 
     }
@@ -95,17 +96,22 @@ public class Player : MonoBehaviour
 
         
         UIManager.Instance.CloseInteractionUI();
-        UIManager.Instance.CloseMinigameView();
-        
-        CameraController.Instance.ReturnMinigameView();     //미니게임 카메라 닫기
         CameraController.Instance.ReturnInteractionView();  //카메라 원래 화면으로 돌리기
+
+        if (MinigameManager.Instance.IsMinigamePlaying())
+        {
+            MinigameManager.Instance.CloseMinigameView();
+            CameraController.Instance.ReturnMinigameView();     //미니게임 카메라 닫기
+            
+        }
+
     }
 
 
-    // void IsHaveMinigame(Collider interacted)
-    // {
-    //     interacted.SendMessage("Check");
-    // }
+    void CheckInteractedObject(Collider interacted)
+    {
+        interacted.SendMessage("Check");
+    }
 
 
 

@@ -33,6 +33,8 @@ public class CameraController : Singleton<CameraController>
     {
         //cameraZ = 3f;
 
+        target = GameObject.FindWithTag("Player").GetComponent<Transform>();
+
         zoomSize = 30f;
         zoomXrot = -25;
         mainOrigRect = main.rect;
@@ -56,34 +58,36 @@ public class CameraController : Singleton<CameraController>
     public void Rotate(InputAction.CallbackContext ctx)
     {
 
-        rotateValue += ctx.ReadValue<float>();
+        if (ctx.performed)
+        {
+            rotateValue += ctx.ReadValue<float>();
 
 
-        if (rotateValue < -11)
-            rotateValue = -10;
-        else if (rotateValue > 11)
-            rotateValue = 10;
+            if (rotateValue < -11)
+                rotateValue = -10;
+            else if (rotateValue > 11)
+                rotateValue = 10;
+        }
+
 
         //plusRotation = Quaternion.Euler(new Vector3(0, rotateValue, 0));
         //targetRotation = origRotation * plusRotation;
         
     }
 
-    void FixedUpdate()
+    void Update()
     {
 
         zoomSize = 30 * (1 + zoomRange);
-
         zoomXrot = 335 + (20 * zoomRange);
 
         Vector3 targetPos = target.position;
         Quaternion targetRotation = Quaternion.Euler(zoomXrot, rotateValue, 0);
 
-        /*
-         카메라와 카메라 anchor의 위치, 회전 보간
-         */
-        mainCamAnchor.rotation = Quaternion.Slerp(mainCamAnchor.rotation, targetRotation, 0.3f);
-        main.fieldOfView = Mathf.Lerp(main.fieldOfView, zoomSize, 4 * Time.deltaTime);
+        /* 카메라와 카메라 anchor의 위치, 회전 보간 */
+        // mainCamAnchor.rotation = Quaternion.Slerp(mainCamAnchor.rotation, targetRotation, 0.3f);
+        mainCamAnchor.DORotateQuaternion(targetRotation, 1f).SetEase(Ease.OutSine);
+        main.DOFieldOfView(zoomSize, 1f).SetEase(Ease.OutSine);
         mainCamAnchor.position = Vector3.Lerp(mainCamAnchor.position, targetPos, 3 * Time.deltaTime);
 
     }
@@ -91,15 +95,13 @@ public class CameraController : Singleton<CameraController>
     public void MakeMinigameView()
     {
         main.DORect(new Rect(0, 0, 0.5f, 1), 0.8f).SetEase(Ease.OutQuart);
-        //mini.gameObject.SetActive(true);
         mini.DORect(new Rect(0.5f, 0, 0.5f, 1), 0.8f).SetEase(Ease.OutQuart);
     }
 
     public void ReturnMinigameView()
     {
-        main.DORect(mainOrigRect, 0.8f).SetEase(Ease.OutQuart);
-        
-        mini.DORect(miniOrigRect, 0.8f).SetEase(Ease.OutQuart);
+        main.DORect(mainOrigRect, 1f).SetEase(Ease.OutQuart);
+        mini.DORect(miniOrigRect, 1f).SetEase(Ease.OutQuart);
         
     }
     public void SaveZoomRange(int editedRange)

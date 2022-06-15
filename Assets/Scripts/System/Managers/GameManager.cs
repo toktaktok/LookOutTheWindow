@@ -13,6 +13,12 @@ public class GameManager : Singleton<GameManager>
     private void Init()
     {
         // Load Assets
+        _characterManager = GameObject.Find("CharacterManager").GetComponent<CharacterManager>();
+        _uIManager = GameObject.Find("UIManager").GetComponent<UIManager>();
+        _minigameManager = GameObject.Find("MinigameManager").GetComponent<MinigameManager>();
+        _cameraController = GameObject.Find("CameraController").GetComponent<CameraController>();
+        _dialogueManager = GameObject.Find("DialogueManager").GetComponent<DialogueManager>();
+        _questManager = GameObject.Find("QuestManager").GetComponent<QuestManager>();
     }
 
     [SerializeField]

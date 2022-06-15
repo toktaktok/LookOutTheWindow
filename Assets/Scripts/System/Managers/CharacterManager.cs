@@ -5,7 +5,7 @@ using UnityEngine;
 public class CharacterManager : MonoBehaviour
 {
     private GameManager _game;
-    private List<Villager> _villagers = new List<Villager>();
+    // private List<Villager> _villagers = new List<Villager>();
 
 
     public GameManager GameManager
