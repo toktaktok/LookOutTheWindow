@@ -4,14 +4,19 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using DG.Tweening;
 
+/*
+ * 클래스 이름: Player
+ * 기능: 플레이어 캐릭터(snowman)에게 붙는 스크립트.
+ * 캐릭터의 조작, 애니메이션, 특정 범위 안에서의 상호작용 등을 관리한다.
+ */
 public class Player : MonoBehaviour
 {
-
     Vector2 moveValue;
     int moveSpeed = 10;
     SpriteRenderer sprite;
 
     Animator anim;
+    public bool isInteracting = false;
 
     //bool isStaying = false;
 
@@ -39,7 +44,6 @@ public class Player : MonoBehaviour
         //플레이어 이동 수치 계산 
         transform.Translate
             (new Vector3(moveValue.x, 0, moveValue.y) * moveSpeed * Time.deltaTime);
-               
     }
 
 
@@ -49,22 +53,27 @@ public class Player : MonoBehaviour
      */
     public void Move(InputAction.CallbackContext ctx)
     {
-        moveValue = ctx.ReadValue<Vector2>();
-        anim.SetBool("isMove", true);
-        //Debug.Log(moveValue);
 
-        //방향에 따라 스프라이트 반전
-        if (moveValue.x > 0)
+        if (!isInteracting)
         {
-            sprite.flipX = false;
+            moveValue = ctx.ReadValue<Vector2>();
+        
+            anim.SetBool("isMove", true);
+
+            //방향에 따라 스프라이트 반전
+            if (moveValue.x > 0)
+            {
+                sprite.flipX = false;
             
-        }
-        else if (moveValue.x < 0)
-        {
-            sprite.flipX = true;
+            }
+            else if (moveValue.x < 0)
+            {
+                sprite.flipX = true;
+            }
         }
 
     }
+
 
     /*
      * 함수 이름 : Interact
@@ -72,10 +81,11 @@ public class Player : MonoBehaviour
      */
     public void Interact(InputAction.CallbackContext ctx)
     {
-        
         if(interactingObject != null && ctx.performed)   //E를 눌렀을 시 interactingObject가 존재한다면
         {
+            isInteracting = true;
             CameraController.Instance.SaveZoomRange(0);
+            CheckInteractedObject(interactingObject);
         }
     }
 
@@ -85,28 +95,28 @@ public class Player : MonoBehaviour
     {
         UIManager.Instance.OpenInteractionButton(); //Trigger와 접촉할 시 상호작용 키를 보이게 한다.
         interactingObject = interacted;         //접촉한 콜라이더가 존재할 시
-
     }
 
 
     void OnTriggerExit(Collider interacted)
     {
-        
         interactingObject = null;
-
+        UIManager.Instance.CloseInteractionButton();    //상호작용 UI 닫기
         
-        UIManager.Instance.CloseInteractionUI();
-        CameraController.Instance.ReturnInteractionView();  //카메라 원래 화면으로 돌리기
-
-        if (MinigameManager.Instance.IsMinigamePlaying())
+        
+        if (isInteracting)
         {
-            MinigameManager.Instance.CloseMinigameView();
-            CameraController.Instance.ReturnMinigameView();     //미니게임 카메라 닫기
+            UIManager.Instance.CloseDialoguePopup();
+            CameraController.Instance.ReturnInteractionView();  //카메라 줌 수치를 상호작용 전 시점으로 돌린다.
+            isInteracting = false;
             
+            //미니게임이 실행중이었다면?
+            if (MinigameManager.Instance.IsMinigamePlaying()) { 
+                MinigameManager.Instance.CloseMinigameView();   //미니게임 UI 닫기
+                CameraController.Instance.ReturnMinigameView();     //미니게임 카메라 닫기
+            }
         }
-
     }
-
 
     void CheckInteractedObject(Collider interacted)
     {

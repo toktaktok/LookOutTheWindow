@@ -11,7 +11,7 @@ public class DragDrop: MonoBehaviour, IBeginDragHandler, IEndDragHandler, IPoint
 
     RectTransform rectTransform;
     public float FloorPos;
-    int fallingSpeed = 20;
+    int fallingSpeed;
 
 
     void Awake()

@@ -16,7 +16,7 @@ public class MinigameManager : Singleton<MinigameManager>
     {
         
         CameraController.Instance.MakeMinigameView();
-        UIManager.Instance.CloseInteractionUI();
+        UIManager.Instance.CloseInteractionButton();
         OpenMinigameView(gameId);
     }
     

@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b899d230500354e619356d20ab662065, type: 3}
+  m_Name: N1text
+  m_EditorClassIdentifier: 
+  speaker: {fileID: 11400000, guid: 369e7a4081f7b4151aaf50d8fdcffb6c, type: 2}
+  text: "\uCC38 \uC5B4\uC218\uC120\uD558\uB2E8 \uB9D0\uC774\uC57C. \\n\uC694\uC998
+    \uB3D9\uB124\uB294."

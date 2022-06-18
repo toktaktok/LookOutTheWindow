@@ -16,7 +16,7 @@ public class Villager : MonoBehaviour
     
     public void Check()
     {
-        UIManager.Instance.OpenInteractionUI();
+        UIManager.Instance.OpenDialoguePopup();
         Debug.Log("주민 id : " + interactable.Id);
         Debug.Log("주민 이름 : " + interactable.Name);
         // Debug.Log("Minigame Id : " + interactable.Minigameid);
