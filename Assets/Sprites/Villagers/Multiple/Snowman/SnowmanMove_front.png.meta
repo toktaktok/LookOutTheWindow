@@ -140,7 +140,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: KakaoTalk_Photo_2022-06-14-23-45-58_0
+      name: mf1
       rect:
         serializedVersion: 2
         x: 0
@@ -148,7 +148,7 @@ TextureImporter:
         width: 120
         height: 120
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -161,7 +161,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: KakaoTalk_Photo_2022-06-14-23-45-58_1
+      name: mf2
       rect:
         serializedVersion: 2
         x: 120
@@ -169,7 +169,7 @@ TextureImporter:
         width: 120
         height: 120
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -182,7 +182,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: KakaoTalk_Photo_2022-06-14-23-45-58_2
+      name: mf3
       rect:
         serializedVersion: 2
         x: 0
@@ -190,7 +190,7 @@ TextureImporter:
         width: 120
         height: 120
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -203,7 +203,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: KakaoTalk_Photo_2022-06-14-23-45-58_3
+      name: mf4
       rect:
         serializedVersion: 2
         x: 120
@@ -211,7 +211,7 @@ TextureImporter:
         width: 120
         height: 120
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -234,10 +234,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      KakaoTalk_Photo_2022-06-14-23-45-58_1: 2102599837
-      KakaoTalk_Photo_2022-06-14-23-45-58_3: -2043057036
-      KakaoTalk_Photo_2022-06-14-23-45-58_0: 107004701
-      KakaoTalk_Photo_2022-06-14-23-45-58_2: 738562306
+      mf1: 107004701
+      mf4: -2043057036
+      mf2: 2102599837
+      mf3: 738562306
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

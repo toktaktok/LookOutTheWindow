@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CharacterManager : MonoBehaviour
 {
+    //캐릭터에 저장된 정보를 관리하는 매니저. -> 현재 필요한가?
     private GameManager _game;
     // private List<Villager> _villagers = new List<Villager>();
 

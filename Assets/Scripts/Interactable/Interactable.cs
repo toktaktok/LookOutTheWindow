@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using XNode;
 
 [CreateAssetMenu(fileName = "Interactable", menuName = "ScriptableObjects/Interactable", order = 1)]
 public class Interactable : ScriptableObject
@@ -16,6 +17,9 @@ public class Interactable : ScriptableObject
 
     [SerializeField]
     private string _name; // 오브젝트 이름
+
+    [SerializeField]
+    private DialogueGraph[] _dialogueGraphs;
 
     #region Foundation
     public Sprite Image
@@ -38,6 +42,11 @@ public class Interactable : ScriptableObject
         get { return _minigameId; }
     }
 
+    public DialogueGraph[] DialogueGraphs
+    {
+        get { return _dialogueGraphs; }
+    }
+
     #endregion
 
  /*
@@ -53,7 +62,7 @@ public class Interactable : ScriptableObject
         if (0 < Minigameid)
         {
             Debug.Log("미니게임 가능");
-            MinigameManager.Instance.StartSetting(Minigameid);
+            MinigameManager.Instance.MinigameStartSetting(Minigameid);
         }
     }
 

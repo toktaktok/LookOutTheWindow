@@ -6,8 +6,8 @@ using UnityEngine.InputSystem;
 public class CamRotate : MonoBehaviour
 {
 
-    public Quaternion origRotation;
-    public Quaternion targetRotation;
+    public Quaternion origRotation;     //저장된 회전 값
+    public Quaternion targetRotation;   //바뀔 회전 값
 
     public float rotateValue;
     Quaternion plusRotation;
@@ -28,16 +28,17 @@ public class CamRotate : MonoBehaviour
             rotateValue = -10;
         else if (rotateValue > 11)
             rotateValue = 10;
+        
         plusRotation = Quaternion.Euler(new Vector3(0, rotateValue, 0));
 
 
-        targetRotation = origRotation * plusRotation;
+        // targetRotation = origRotation * plusRotation;
     }
 
     void Update()
     {
         
-        transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation,
+        transform.rotation = Quaternion.Slerp(transform.rotation, (origRotation * plusRotation),
             10.0f * Time.deltaTime);
     }
 }

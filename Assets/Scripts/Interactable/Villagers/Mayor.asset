@@ -16,3 +16,5 @@ MonoBehaviour:
   _id: v_Mayor
   _minigameId: 0
   _name: "\uCD0C\uC7A5\uB2D8"
+  _dialogueGraphs:
+  - {fileID: 11400000, guid: 2df4dc13ed7d74a0ea4e266ac64eba2b, type: 2}

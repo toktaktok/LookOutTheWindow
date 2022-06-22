@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using XNode;
 
 public class Villager : MonoBehaviour
 {
@@ -16,7 +17,7 @@ public class Villager : MonoBehaviour
     
     public void Check()
     {
-        UIManager.Instance.OpenDialoguePopup();
+        UIManager.Instance.OpenDialoguePopup(interactable.DialogueGraphs[0]);
         Debug.Log("주민 id : " + interactable.Id);
         Debug.Log("주민 이름 : " + interactable.Name);
         // Debug.Log("Minigame Id : " + interactable.Minigameid);

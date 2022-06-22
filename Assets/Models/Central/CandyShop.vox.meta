@@ -12,7 +12,7 @@ ScriptedImporter:
   fileType: 0
   gameObjectName: export_2022-03-02_3
   meshMode: 0
-  importMode: 1
+  importMode: 0
   importScale: {x: 1, y: 1, z: 1}
   importOffset: {x: 0, y: 0, z: 0}
   combineFaces: 1
@@ -39,10 +39,10 @@ ScriptedImporter:
   materials:
   - {instanceID: 0}
   materialNames:
-  - export_2022-03-02_3_0
+  - CandyShop_0
   remappedMaterials:
-  - name: export_2022-03-02_3_0
-    material: {instanceID: 0}
+  - name: CandyShop_0
+    material: {fileID: 2100000, guid: 15af6d05186054acd82b529c25467968, type: 2}
   export: 0
   legacyVoxImport: 0
   legacyAssetNaming: 0

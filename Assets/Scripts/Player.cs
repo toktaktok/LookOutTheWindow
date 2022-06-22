@@ -17,6 +17,7 @@ public class Player : MonoBehaviour
 
     Animator anim;
     public bool isInteracting = false;
+    private Rigidbody _rigid;
 
     //bool isStaying = false;
 
@@ -25,26 +26,24 @@ public class Player : MonoBehaviour
     private void Start()
     {
         anim = gameObject.GetComponentInChildren<Animator>();  
-        sprite = gameObject.GetComponentInChildren<SpriteRenderer>(); 
+        sprite = gameObject.GetComponentInChildren<SpriteRenderer>();
+        _rigid = gameObject.GetComponent<Rigidbody>();
     }
 
     private void Update()
     {
         if (moveValue == Vector2.zero) //이동하고 있지 않다면
         {
-            anim.StopPlayback();
             anim.SetBool("isMove", false);  //애니메이션 정지
         }
-            
+        //플레이어 이동 수치 계산 
+        // _rigid.MovePosition
+        //     ( moveSpeed * Time.deltaTime * transform.position + new Vector3(moveValue.x, 0, moveValue.y ));
+        
+        transform.Translate
+            ( moveSpeed * Time.deltaTime * new Vector3(moveValue.x, 0, moveValue.y));
     }
 
-    
-    public void FixedUpdate()
-    {
-        //플레이어 이동 수치 계산 
-        transform.Translate
-            (new Vector3(moveValue.x, 0, moveValue.y) * moveSpeed * Time.deltaTime);
-    }
 
 
     /*
@@ -53,25 +52,29 @@ public class Player : MonoBehaviour
      */
     public void Move(InputAction.CallbackContext ctx)
     {
-
         if (!isInteracting)
         {
             moveValue = ctx.ReadValue<Vector2>();
         
-            anim.SetBool("isMove", true);
+            anim.SetBool("isMove", true);   //애니메이션 parameter 변화. 애니메이션 더 효과적으로 바꾸는 방법 리서치 필요
 
             //방향에 따라 스프라이트 반전
-            if (moveValue.x > 0)
-            {
-                sprite.flipX = false;
-            
-            }
-            else if (moveValue.x < 0)
-            {
-                sprite.flipX = true;
+            // if (moveValue.x > 0){
+            //     sprite.flipX = false;
+            // }
+            // else if (moveValue.x < 0){
+            //     sprite.flipX = true;
+            // }
+
+            switch (moveValue.x) {
+                case > 0:
+                    sprite.flipX = false;
+                    break;
+                case < 0:
+                    sprite.flipX = true;
+                    break;
             }
         }
-
     }
 
 
@@ -112,8 +115,7 @@ public class Player : MonoBehaviour
             
             //미니게임이 실행중이었다면?
             if (MinigameManager.Instance.IsMinigamePlaying()) { 
-                MinigameManager.Instance.CloseMinigameView();   //미니게임 UI 닫기
-                CameraController.Instance.ReturnMinigameView();     //미니게임 카메라 닫기
+                MinigameManager.Instance.CloseMinigameView();   //미니게임 창 닫기
             }
         }
     }
