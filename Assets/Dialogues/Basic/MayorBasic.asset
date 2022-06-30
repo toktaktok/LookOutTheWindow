@@ -201,4 +201,1812 @@ MonoBehaviour:
   sprite: {fileID: -1127495673, guid: d1ac33e8076a44fe79bea3a955d774fa, type: 3}
   dialogueOptions: 0
   isBasicState: 0
-  dialogueOptionList: []
+  dialogueOptionList:
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
+  - dialogue: 
+    option: 
