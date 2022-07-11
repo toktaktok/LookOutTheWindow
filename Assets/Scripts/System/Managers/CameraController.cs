@@ -23,6 +23,8 @@ public class CameraController : Singleton<CameraController>
     [SerializeField]
     private Ease defaultEase = Ease.OutSine;
 
+    [SerializeField]
+    private bool isCutscene = false;
  
 
     public Transform mainCamAnchor; //카메라의 회전축
@@ -43,11 +45,10 @@ public class CameraController : Singleton<CameraController>
         target = GameObject.FindWithTag("Player").GetComponent<Transform>();
 
         fovSize = 30f;
-        zoomXrot = -25;
+        zoomXrot = -23;
         mainOrigRect = main.rect;
         miniOrigRect = mini.rect;
         
-
     }
 
     public void Zoom(InputAction.CallbackContext ctx)
@@ -58,7 +59,6 @@ public class CameraController : Singleton<CameraController>
             zoomRange = 1;
         else if (zoomRange < 0)
             zoomRange = 0;
-
     }
 
     public void Rotate(InputAction.CallbackContext ctx)
@@ -80,18 +80,39 @@ public class CameraController : Singleton<CameraController>
         
     }
 
-    void FixedUpdate()
+    private void IngameCamUpdate()
     {
+        mainCamAnchor.DOMove(target.position, 0.8f).SetEase(Ease.Linear);
+        var targetRotation = Quaternion.Euler(zoomXrot, rotateValue, 0);
+        mainCamAnchor.DORotateQuaternion(targetRotation, 0.3f).SetEase(defaultEase);
 
-        fovSize = 30 * (1 + zoomRange);
-        zoomXrot = 335 + (20 * zoomRange);
-        Quaternion targetRotation = Quaternion.Euler(zoomXrot, rotateValue, 0);
+
+    }
+
+    public void MoveCamEase(Vector3 targetPos)
+    {
+        Debug.Log("cam move ease");
+        mainCamAnchor.DOMove(targetPos, 0.6f).SetEase(Ease.InSine);
+    }
+    public void MoveCamInstant(Vector3 targetPos)
+    {
+        mainCamAnchor.DOMove(targetPos, 0f).SetEase(Ease.Linear);
+    }
+
+    private void Update()
+    {
+        if (!isCutscene)
+        {
+            IngameCamUpdate();
+        }
+        
+
+        // fovSize = 30 * (1 + zoomRange);
+        // zoomXrot = 335 + (20 * zoomRange);
         
         
         /* 카메라와 카메라 anchor의 위치, 회전 보간 */
-        mainCamAnchor.DOMove(target.position, 0.8f).SetEase(Ease.Linear);
-        main.DOFieldOfView(fovSize, 0.4f).SetEase(defaultEase);
-        mainCamAnchor.DORotateQuaternion(targetRotation, 0.3f).SetEase(defaultEase);
+        // main.DOFieldOfView(fovSize, 0.4f).SetEase(defaultEase);
 
         // mainCamAnchor.rotation = Quaternion.Slerp(mainCamAnchor.rotation, targetRotation, 0.3f);
         // mainCamAnchor.position = Vector3.Lerp(mainCamAnchor.position, targetPos, 3 * Time.deltaTime);
@@ -121,7 +142,6 @@ public class CameraController : Singleton<CameraController>
     // {
     //     main.DORect(mainOrigRect, 1f).SetEase(Ease.OutQuart);
     //     mini.DORect(miniOrigRect, 1f).SetEase(Ease.OutQuart);
-    //     
     // }
 
 

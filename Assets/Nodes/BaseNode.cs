@@ -19,9 +19,5 @@ public class BaseNode : Node {
     {
         return false;
     }
-    
-    public virtual object GetValue(NodePort port) {
 
-        return null;
-    }
 }

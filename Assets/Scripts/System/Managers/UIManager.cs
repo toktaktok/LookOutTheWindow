@@ -60,7 +60,7 @@ public class UIManager : Singleton<UIManager>
     {
         choiceContainer.SetActive(false);
         dialogueContainer.SetActive(false);
-        player.isInteracting = false;
+        // player.isInteracting = false;
         CameraController.Instance.ReturnInteractionView();
     }
 

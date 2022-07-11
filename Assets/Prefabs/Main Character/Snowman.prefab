@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6546747760955914333}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -169,8 +169,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.860447, y: 4.2055416, z: 0.113343865}
-  m_Center: {x: 0.0790081, y: -0.38317537, z: 0}
+  m_Size: {x: 2.1330957, y: 3.896349, z: 0.113343865}
+  m_Center: {x: 0.0790081, y: -0.6314564, z: 0}
 --- !u!54 &6546747761355838752
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -199,7 +199,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d723cc6baa352f04ca8fc582aa91e2e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isInteracting: 0
 --- !u!114 &6546747761355838754
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -229,7 +228,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 6546747761355838755}
         m_TargetAssemblyTypeName: Player, Assembly-CSharp
-        m_MethodName: Move
+        m_MethodName: InputMove
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
