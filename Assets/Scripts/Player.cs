@@ -105,44 +105,76 @@ public class Player : MonoBehaviour
         CheckInteractedObject(interactingObject);
     }
     
+    /*
+     * 함수 이름 : MoveHorizontal
+     * 기능 : 인자로 받는 xValue만큼 X 이동
+     */
     public void MoveHorizontal(float xValue)   //moveValue.x -> position.x
     {
         transform.DOMoveX(transform.position.x + xValue * horizonMoveSpeed * Time.deltaTime, 0.1f);
     }
+    
+    /*
+     * 함수 이름 : MoveVertical
+     * 기능 : 인자로 받는 yValue만큼 Z 이동
+     */
     public void MoveVertical(float yValue)   //moveValue.y -> position.z
     {
         transform.DOMoveZ(transform.position.z + yValue * verticalMoveSpeed * Time.deltaTime, 0.1f);
     }
 
+    /*
+     * 함수 이름 : StartWalkAnim
+     * 기능 : 애니메이션의 isMove 프로퍼티 true
+     */
     public void StartWalkAnim()
     {
         anim.SetBool("isMove", true);
     }
 
+    /*
+     * 함수 이름 : StopWalkAnim
+     * 기능 : 애니메이션의 isMove 프로퍼티 false
+     */
     public void StopWalkAnim()
     {
         anim.SetBool("isMove", false);
     }
     
+    /*
+     * 함수 이름 : IsMoving
+     * 기능 : input action으로 읽은 moveValue가 0인지 체크하고, 아닐 시 true 반환
+     * 반환값 : bool
+     */
     private bool IsMoving()
     {
         return moveValue != Vector2.zero;
     }
-
+    
+    /*
+     * 함수 이름 : OnIntroAnim
+     * 기능 : 애니메이션의 isIntro 프로퍼티 true
+     */
     public void OnIntroAnim()
     {
         anim.SetBool("isIntro", true);
     }
 
-    public IEnumerator MoveToDestination(Vector3 dest, float moveSpeed)
+    /*
+     * 함수 이름 : StopWalkAnim
+     * 기능 : 애니메이션의 isMove 프로퍼티 false
+     */
+    public void MoveToDestination(Vector3 dest, float moveSpeed)
     {
         var distance = Vector3.Distance(transform.position, dest);
+        anim.SetBool("isMove", true);
+        transform.DOMove(dest, distance / moveSpeed).SetEase(Ease.Linear);
         
-        while( Vector3.Distance(transform.position, dest) < 0.1f )
-        {
-            transform.DOMove( dest, distance / moveSpeed);
-            yield return null;
-        }
+    }
+
+    public IEnumerator TestCoroutine()
+    {
+        yield return null;
     }
     
     void CheckInteractedObject(Collider interacted)
