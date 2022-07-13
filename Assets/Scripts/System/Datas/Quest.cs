@@ -7,6 +7,7 @@ using UnityEngine;
 public class Quest
 {
 
+    public int id;
     public bool isActive;
     public string title;
     public string description;

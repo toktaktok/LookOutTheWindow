@@ -391,7 +391,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 971998bd2334747fdbdd4ae45134b50e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  snowman: {fileID: 0}
+  snowman: {fileID: 6546747761715150112}
   bus: {fileID: 3371204797300309834}
 --- !u!4 &168936500
 Transform:

@@ -26,7 +26,7 @@ public class Player : MonoBehaviour
     
     private void Start()
     {
-        horizonMoveSpeed = 50;
+        horizonMoveSpeed = 30;
         verticalMoveSpeed = 0;
         anim = gameObject.GetComponentInChildren<Animator>();  
         sprite = gameObject.GetComponentInChildren<SpriteRenderer>();
@@ -111,7 +111,7 @@ public class Player : MonoBehaviour
      */
     public void MoveHorizontal(float xValue)   //moveValue.x -> position.x
     {
-        transform.DOMoveX(transform.position.x + xValue * horizonMoveSpeed * Time.deltaTime, 0.1f);
+        transform.DOMoveX(transform.position.x + xValue * horizonMoveSpeed * Time.fixedDeltaTime, 0.1f);
     }
     
     /*
@@ -120,7 +120,7 @@ public class Player : MonoBehaviour
      */
     public void MoveVertical(float yValue)   //moveValue.y -> position.z
     {
-        transform.DOMoveZ(transform.position.z + yValue * verticalMoveSpeed * Time.deltaTime, 0.1f);
+        transform.DOMoveZ(transform.position.z + yValue * verticalMoveSpeed * Time.fixedDeltaTime, 0.1f);
     }
 
     /*
