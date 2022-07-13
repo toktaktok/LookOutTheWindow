@@ -12,9 +12,13 @@ public class CameraController : Singleton<CameraController>
 
     [Range(0, 1)]
     public float zoomRange;         //카메라 줌 범위를 조절하는 변수
-    public float savedZoomRange;    //기존 줌 범위
-    [Range(30, 60)]
-    public float fovSize;           //zoomRange에 따라 fieldOfView를 바꾸는 변수
+    private float savedZoomRange;    //기존 줌 범위
+    // [Range(30, 60)]
+    // public float fovSize;           //zoomRange에 따라 fieldOfView를 바꾸는 변수
+    
+    [Range(8, 40)]
+    public float viewSize = 20;           //zoomRange에 따라 fieldOfView를 바꾸는 변수
+    
     [Range(-25, 0)]
     float zoomXrot;                 //zoomRange에 따라 rotation.x를 조절하는 변수
     
@@ -44,7 +48,6 @@ public class CameraController : Singleton<CameraController>
 
         target = GameObject.FindWithTag("Player").GetComponent<Transform>();
 
-        fovSize = 30f;
         zoomXrot = -23;
         mainOrigRect = main.rect;
         miniOrigRect = mini.rect;
@@ -80,7 +83,7 @@ public class CameraController : Singleton<CameraController>
         
     }
 
-    private void IngameCamUpdate()
+    private void InGameCamUpdate()
     {
         mainCamAnchor.DOMove(target.position, 0.8f).SetEase(Ease.Linear);
         var targetRotation = Quaternion.Euler(zoomXrot, rotateValue, 0);
@@ -103,20 +106,20 @@ public class CameraController : Singleton<CameraController>
     {
         if (!isCutscene)
         {
-            IngameCamUpdate();
+            InGameCamUpdate();
         }
         
-
         // fovSize = 30 * (1 + zoomRange);
         // zoomXrot = 335 + (20 * zoomRange);
         
         
         /* 카메라와 카메라 anchor의 위치, 회전 보간 */
         // main.DOFieldOfView(fovSize, 0.4f).SetEase(defaultEase);
+        main.DOOrthoSize(viewSize, 0.4f).SetEase(defaultEase);
 
         // mainCamAnchor.rotation = Quaternion.Slerp(mainCamAnchor.rotation, targetRotation, 0.3f);
         // mainCamAnchor.position = Vector3.Lerp(mainCamAnchor.position, targetPos, 3 * Time.deltaTime);
-        
+
     }
     
     public void SaveZoomRange(int editedRange)
