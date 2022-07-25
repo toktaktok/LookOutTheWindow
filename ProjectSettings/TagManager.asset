@@ -11,11 +11,11 @@ TagManager:
   - PixelRender
   - Water
   - UI
-  - 
+  - Player
   - 
   - Character
   - Object
-  - 
+  - Map
   - Floor
   - Building
   - 

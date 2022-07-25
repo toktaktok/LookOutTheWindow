@@ -8,7 +8,7 @@ public class Villager : MonoBehaviour
     public Interactable interactable;
     
     //CharacterManager의 하위 객체. CharacterManager을 역참조한다
-    protected CharacterManager _manager;
+    private CharacterManager _manager;
 
     public void Init(CharacterManager manager)
     {
@@ -20,7 +20,7 @@ public class Villager : MonoBehaviour
         UIManager.Instance.OpenDialoguePopup(interactable.DialogueGraphs[0]);
         Debug.Log("주민 id : " + interactable.Id);
         Debug.Log("주민 이름 : " + interactable.Name);
-        // Debug.Log("Minigame Id : " + interactable.Minigameid);
+        Debug.Log("minigame Id : " + interactable.Minigameid);
         interactable.CheckMinigame();
     }
 

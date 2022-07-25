@@ -7,6 +7,8 @@ public class NotebookManager : Singleton<NotebookManager>
 {
     private Quest mainQuest;
     private LinkedList<Quest> subQuestList;
+    public GameObject coverPage;
+    public GameObject questPage;
 
     public void AddQuest(Quest quest)
     {

@@ -19,7 +19,7 @@ public class MinigameManager : Singleton<MinigameManager>
     */
     public void MinigameStartSetting(int gameId)
     {
-        UIManager.Instance.CloseInteractionButton();
+        UIManager.Instance.CloseInteractionKey();
         OpenMinigameView(gameId);
     }
     
@@ -47,9 +47,9 @@ public class MinigameManager : Singleton<MinigameManager>
     }
     private void OpenMinigameCam()
     {
-        CameraController.Instance.main.DORect(new Rect(0, 0, 0.5f, 1), 0.8f)
+        CameraController.Instance.mainCam.DORect(new Rect(0, 0, 0.5f, 1), 0.8f)
             .SetEase(Ease.OutQuart);
-        CameraController.Instance.mini.DORect(new Rect(0.5f, 0, 0.5f, 1), 0.8f)
+        CameraController.Instance.miniCam.DORect(new Rect(0.5f, 0, 0.5f, 1), 0.8f)
             .SetEase(Ease.OutQuart);
     }
     
@@ -68,8 +68,8 @@ public class MinigameManager : Singleton<MinigameManager>
     }
     private void CloseMinigameCam()
     {
-        CameraController.Instance.main.DORect(CameraController.Instance.mainOrigRect, 1f).SetEase(Ease.OutQuart);
-        CameraController.Instance.mini.DORect(CameraController.Instance.miniOrigRect, 1f).SetEase(Ease.OutQuart);
+        CameraController.Instance.mainCam.DORect(CameraController.Instance.mainOrigRect, 1f).SetEase(Ease.OutQuart);
+        CameraController.Instance.miniCam.DORect(CameraController.Instance.miniOrigRect, 1f).SetEase(Ease.OutQuart);
         
     }
 

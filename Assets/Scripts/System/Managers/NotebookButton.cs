@@ -1,0 +1,29 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.EventSystems;
+
+public class NotebookButton : MonoBehaviour
+{
+    // float distance = 10.0f;
+    
+    // public void OnDrag(PointerEventData eventData)
+    // { 
+    //     Vector3 mousePosition = new Vector3(Input.mousePosition.x, 
+    //         Input.mousePosition.y, distance);
+    //     transform.position = mousePosition;
+    // }
+    
+    public void OnMouseEnter()
+    {
+        // Debug.Log("mouse entered on note button");
+        UIManager.Instance.MouseEnterNotebookButton();
+    }
+
+    public void OnMouseExit()
+    {
+        UIManager.Instance.MouseExitNotebookButton();
+
+    }
+}
