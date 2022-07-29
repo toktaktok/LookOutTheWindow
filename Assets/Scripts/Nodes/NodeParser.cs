@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Net.Mime;
@@ -16,7 +17,13 @@ public class NodeParser : MonoBehaviour
     // public TextMeshProUGUI speaker;
     public TextMeshProUGUI dialogue;
     // public Image speakerImage;
-    
+
+
+    private void Start()
+    {
+        graph = null;
+        _parser = null;
+    }
 
     public Coroutine NodeParseStart(DialogueGraph curGraph)
     {

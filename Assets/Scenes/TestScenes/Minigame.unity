@@ -813,7 +813,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &276029447
 Transform:
   m_ObjectHideFlags: 0
@@ -1166,7 +1166,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &378958025
 Transform:
   m_ObjectHideFlags: 0
@@ -2812,7 +2812,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1394244062
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3060,7 +3060,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1443848384
 Transform:
   m_ObjectHideFlags: 0
@@ -3902,6 +3902,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.x
       value: -23
       objectReference: {fileID: 0}
+    - target: {fileID: 3223517496802616507, guid: a514cf22ba72746169c004b286711ddd, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3223517496802616510, guid: a514cf22ba72746169c004b286711ddd, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1000
+      objectReference: {fileID: 0}
     - target: {fileID: 5184245493882740783, guid: a514cf22ba72746169c004b286711ddd, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -3969,7 +3977,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1959273961
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4255,7 +4263,6 @@ MonoBehaviour:
   bigStreet_a: {fileID: 276029446}
   bigStreet_b: {fileID: 1443848383}
   smallStreet_a: {fileID: 378958024}
-  currentPos: 0
 --- !u!4 &2083580500
 Transform:
   m_ObjectHideFlags: 0

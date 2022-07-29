@@ -2,8 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ScreenManager : Subject
-{
+// public class ScreenManager : Subject
+// {
 
     //public int ScreenWidth { get; private set; } = 0;
 
@@ -38,4 +38,4 @@ public class ScreenManager : Subject
     //{
 
     //}
-}
+// }

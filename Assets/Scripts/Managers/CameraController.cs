@@ -10,39 +10,27 @@ public class CameraController : Singleton<CameraController>
 {
 
     public Transform target; //타켓으로 할 대상(플레이어 기본)
-
-    [Range(0, 1)]
-    public float zoomRange;         //카메라 줌 범위를 조절하는 변수
-    private float savedZoomRange;    //기존 줌 범위
-    // [Range(30, 60)]
-    // public float fovSize;           //zoomRange에 따라 fieldOfView를 바꾸는 변수
-    
-    [Range(8, 40)]
-    public float viewSize = 20;           //zoomRange에 따라 fieldOfView를 바꾸는 변수
-    
-    [Range(-25, 0)]
-    float zoomXrot;                 //zoomRange에 따라 rotation.x를 조절하는 변수
-    
-    public float rotateValue;       //회전 값
-    
-    [SerializeField]
-    private Ease defaultEase = Ease.OutSine;
-
-    [SerializeField]
-    private bool isCutscene = false;
- 
-
     public Transform mainCamAnchor; //카메라의 회전축
-
     public Camera mainCam; //메인 카메라 
     public Camera miniCam; //미니게임용 카메라
+    
+    [Range(0, 1)]
+    public float zoomRange;         //카메라 줌 범위를 조절하는 변수
+    [Range(8, 40)]
+    public float viewSize = 20;           //zoomRange에 따라 fieldOfView를 바꾸는 변수
 
     [HideInInspector]
     public Rect mainOrigRect;
     [HideInInspector]
     public Rect miniOrigRect;
-
-
+    
+    [SerializeField] private Ease defaultEase = Ease.OutSine;
+    private float savedZoomRange;    //기존 줌 범위
+    private float zoomXrot;                 //zoomRange에 따라 rotation.x를 조절하는 변수
+    private float rotateValue;       //회전 값
+    private bool isCutscene = false;
+    
+    
     private void Start()
     {
         target = GameObject.FindWithTag("Player").GetComponent<Transform>();
@@ -75,7 +63,6 @@ public class CameraController : Singleton<CameraController>
             > 6 => 5,
             _ => rotateValue
         };
-        
         //plusRotation = Quaternion.Euler(new Vector3(0, rotateValue, 0));
         //targetRotation = origRotation * plusRotation;
         
@@ -83,7 +70,7 @@ public class CameraController : Singleton<CameraController>
 
     private void InGameCamUpdate()
     {
-        mainCamAnchor.DOMove(target.position, 0.8f).SetEase(Ease.Linear);
+        mainCamAnchor.DOMove(target.position, 0.6f).SetEase(Ease.Linear);
         var targetRotation = Quaternion.Euler(zoomXrot, rotateValue, 0);
         mainCamAnchor.DORotateQuaternion(targetRotation, 0.3f).SetEase(defaultEase);
     }
@@ -101,13 +88,11 @@ public class CameraController : Singleton<CameraController>
         
         /* 카메라와 카메라 anchor의 위치, 회전 보간 */
         // mainCam.DOOrthoSize(viewSize, 0.4f).SetEase(defaultEase);
-        
     }
     
     public void SaveZoomRange(int editedRange)
     {
         savedZoomRange = zoomRange;
-        // Debug.Log("저장된 카메라 줌 값: " + savedZoomRange);
         zoomRange = editedRange;
     }
     

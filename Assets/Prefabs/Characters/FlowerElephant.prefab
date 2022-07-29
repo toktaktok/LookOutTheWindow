@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4727474390477423355}
   - component: {fileID: 4727474390477423359}
   - component: {fileID: 4727474390477423354}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: Ele1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -116,7 +116,7 @@ GameObject:
   - component: {fileID: 4727474390706509447}
   - component: {fileID: 995986599}
   - component: {fileID: 995986600}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: FlowerElephant
   m_TagString: Untagged
   m_Icon: {fileID: 0}

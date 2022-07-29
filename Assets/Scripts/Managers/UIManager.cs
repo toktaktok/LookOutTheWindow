@@ -19,7 +19,6 @@ public class UIManager : Singleton<UIManager>
     public GameObject notebook;
     
     
-    private NodeParser _nodeParser;         //노드 parser. 추후 어디에 병합할지 고려해야 한다.
     [SerializeField] private GameObject moveToUI;
     private Player player;                  //플레이어
     private GameObject choiceContainer;     //선택지 창
@@ -42,13 +41,13 @@ public class UIManager : Singleton<UIManager>
     {
         interactionKey.rectTransform.DOAnchorPosY(interactKeyOrigPosY + 30, 0.5f);   //아래 -> 위 slide
         interactionKey.DOFade(1, 0.5f);
-        interactionKey.transform.GetChild(0).GetComponent<Image>().DOFade(1, 0.5f);
+        interactionKey.transform.GetChild(0).GetComponent<TextMeshProUGUI>().DOFade(1, 0.5f);
     }
     public void CloseInteractionKey()
     {
         interactionKey.rectTransform.DOAnchorPosY(interactKeyOrigPosY, 0.5f);   //위 -> 아래 slide
         interactionKey.DOFade(0, 0.5f);
-        interactionKey.transform.GetChild(0).GetComponent<Image>().DOFade(0, 0.5f);
+        interactionKey.transform.GetChild(0).GetComponent<TextMeshProUGUI>().DOFade(0, 0.5f);
     }
 
     /*
@@ -56,10 +55,9 @@ public class UIManager : Singleton<UIManager>
      * 기능: interaction 시 대화창, 관련된 dialogue node 읽기 시작
      * 인자: DialogueGraph
     */
-    public void OpenDialoguePopup(DialogueGraph graph)
+    public void OpenDialoguePopup()
     {
         dialogueContainer.SetActive(true);
-        _nodeParser.NodeParseStart(graph);
         CloseInteractionKey();
     }
     
@@ -71,7 +69,7 @@ public class UIManager : Singleton<UIManager>
         CameraController.Instance.ReturnInteractionView();
     }
 
-    public void OpenMapMovingUI()
+    public void OpenMapMovingUI(Passage passage)
     {
         moveToUI.SetActive(true);
     }
