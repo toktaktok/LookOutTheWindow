@@ -41,40 +41,48 @@ public class NodeParser : MonoBehaviour
         return StartCoroutine(_parser);
     }
 
-    IEnumerator ParseNode() //노드의 정보를 읽어온다.
+    private IEnumerator ParseNode() //노드의 정보를 읽어온다.
     {
         BaseNode b = graph.current;
         string data = b.GetString();
-        string[] dataParts = data.Split('/');
+        string[] dataParts = data.Split('/');   // 노드의 데이터를 slash 기준으로 분할하기.
 
-        if (dataParts[0] == "Start")
+        
+        if (dataParts[0] == "Start") // start 노드를 발견하면
         {
-            NextNode("exit");
+            NextNode("exit"); // 다음 노드가 존재하는지 확인한다.
         }
-        else if (dataParts[0] == "DialogueNode")
+        else if (dataParts[0] == "DialogueNode") // dialogueNode를 발견하면
         {
             //Run Dialogue Processing
             // speaker.text = dataParts[1];
-            if (b.IsBasicState())
+            if (b.IsBasicState()) // 기본 상태인지 확인한다. -> 기본 대화 선택지 제시
             {
                 UIManager.Instance.OpenChoicePopup();
             }
             
             dialogue.text = dataParts[2];
             // speakerImage.sprite = b.GetSprite();
-            yield return new WaitUntil(() => Mouse.current.leftButton.wasPressedThisFrame);
-            yield return new WaitUntil(() => Mouse.current.leftButton.wasReleasedThisFrame);
+            
+            // 다음 버튼이 눌릴 때까지 기다린다.
+            // yield return new WaitUntil(() => Mouse.current.leftButton.wasPressedThisFrame);
+            yield return new WaitUntil(() => Keyboard.current.eKey.wasPressedThisFrame);
+            // yield return new WaitUntil(() => Keyboard.current.eKey.wasReleasedThisFrame);
             NextNode("exit");   //현재 노드에 exit 포트가 있는가?(다음 노드가 존재하는가?)
         }
-        else if (dataParts[0] == "Stop")
+        else if (dataParts[0] == "Stop") // 현재 노드가 stop 노드라면
         {
-            UIManager.Instance.CloseDialoguePopup();
+            UIManager.Instance.CloseDialoguePopup(); //대화창을 닫는다.
             yield return null;
-
         }
     }
 
-    public void NextNode(string fieldName)
+    public void ResumeNode()
+    {
+        
+    }
+
+    private void NextNode(string fieldName)
     {
 
         if (_parser != null)

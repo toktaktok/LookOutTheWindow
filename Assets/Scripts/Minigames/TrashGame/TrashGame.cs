@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TrashCan : Minigame
+public class TrashCan : MiniGame
 {
 
 }

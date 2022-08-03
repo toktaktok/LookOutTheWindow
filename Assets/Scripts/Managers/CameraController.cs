@@ -26,7 +26,7 @@ public class CameraController : Singleton<CameraController>
     
     [SerializeField] private Ease defaultEase = Ease.OutSine;
     private float savedZoomRange;    //기존 줌 범위
-    private float zoomXrot;                 //zoomRange에 따라 rotation.x를 조절하는 변수
+    private readonly float zoomXrot = -23;                 //zoomRange에 따라 rotation.x를 조절하는 변수
     private float rotateValue;       //회전 값
     private bool isCutscene = false;
     
@@ -35,7 +35,7 @@ public class CameraController : Singleton<CameraController>
     {
         target = GameObject.FindWithTag("Player").GetComponent<Transform>();
 
-        zoomXrot = -23;
+        // zoomXrot = -23;
         mainOrigRect = mainCam.rect;
         miniOrigRect = miniCam.rect;
         DOTween.SetTweensCapacity(2000, 50);
@@ -43,18 +43,18 @@ public class CameraController : Singleton<CameraController>
 
     public void Zoom(InputAction.CallbackContext ctx)
     {
-        zoomRange -= ctx.ReadValue<float>() * 0.005f;
-        zoomRange = zoomRange switch
+        zoomRange -= ctx.ReadValue<float>() * 0.005f; // 들어온 마우스 스크롤 값에 따라 변경
+        zoomRange = zoomRange switch // zoomRange(0~1) 를 넘지 않도록 한다.
         {
             > 1 => 1,
             < 0 => 0,
-            _ => rotateValue
+            _ => zoomRange
         };
     }
 
     public void Rotate(InputAction.CallbackContext ctx)
     {
-        if ( !ctx.performed ) { return; }   //callback 값 중 중간 값만 받는다
+        if ( !ctx.performed ) { return; }   //callback 값 중 중간 값 하나만 받는다.
         
         rotateValue += ctx.ReadValue<float>();
         rotateValue = rotateValue switch
@@ -80,13 +80,14 @@ public class CameraController : Singleton<CameraController>
 
     private void Update()
     {
-        if (isCutscene || Vector3.Distance(mainCam.transform.position, target.position) <= 10)  //현재 컷신이거나 카메라와 플레이어 사이 거리가 10 이하일 경우
+        //현재 컷신이거나 카메라와 플레이어 사이 거리가 10 이하일 경우
+        if (isCutscene || Vector3.Distance(mainCam.transform.position, target.position) <= 10)  
         {
             return;
         }
         InGameCamUpdate();
         
-        /* 카메라와 카메라 anchor의 위치, 회전 보간 */
+        // 카메라와 카메라 anchor의 위치, 회전 보간
         // mainCam.DOOrthoSize(viewSize, 0.4f).SetEase(defaultEase);
     }
     
@@ -98,17 +99,17 @@ public class CameraController : Singleton<CameraController>
     
     public void ReturnInteractionView() =>  zoomRange = savedZoomRange;
 
-    // public void MakeMinigameView()
-    // {
-    //     main.DORect(new Rect(0, 0, 0.5f, 1), 0.8f).SetEase(Ease.OutQuart);
-    //     mini.DORect(new Rect(0.5f, 0, 0.5f, 1), 0.8f).SetEase(Ease.OutQuart);
-    // }
+    public void MakeMiniGameView()
+    {
+        mainCam.DORect(new Rect(0, 0, 0.5f, 1), 0.8f).SetEase(Ease.OutQuart);
+        miniCam.DORect(new Rect(0.5f, 0, 0.5f, 1), 0.8f).SetEase(Ease.OutQuart);
+    }
 
-    // public void ReturnMinigameView()
-    // {
-    //     main.DORect(mainOrigRect, 1f).SetEase(Ease.OutQuart);
-    //     mini.DORect(miniOrigRect, 1f).SetEase(Ease.OutQuart);
-    // }
+    public void ReturnMiniGameView()
+    {
+        mainCam.DORect(mainOrigRect, 1f).SetEase(Ease.OutQuart);
+        miniCam.DORect(miniOrigRect, 1f).SetEase(Ease.OutQuart);
+    }
 
 
 

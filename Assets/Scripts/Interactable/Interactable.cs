@@ -62,7 +62,7 @@ public class Interactable : ScriptableObject
         if (0 < Minigameid)
         {
             Debug.Log("미니게임 가능");
-            MinigameManager.Instance.MinigameStartSetting(Minigameid);
+            MiniGameManager.Instance.MiniGameStartSetting(Minigameid);
         }
     }
 

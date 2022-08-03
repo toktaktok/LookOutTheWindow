@@ -47,14 +47,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  zoomRange: 0
-  viewSize: 14
-  rotateValue: 0
-  defaultEase: 3
-  isCutscene: 0
   mainCamAnchor: {fileID: 707893195705611009}
   mainCam: {fileID: 707893195061156649}
   miniCam: {fileID: 3223517496802616509}
+  zoomRange: 0
+  viewSize: 14
   mainOrigRect:
     serializedVersion: 2
     x: 0
@@ -67,6 +64,7 @@ MonoBehaviour:
     y: 0
     width: 0
     height: 0
+  defaultEase: 3
 --- !u!114 &1111653510446102176
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -144,6 +142,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5184245493882740783}
     m_Modifications:
+    - target: {fileID: 6173084505835401820, guid: dcc953437e5c0473e907fb61a8691218, type: 3}
+      propertyPath: orthographic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6173084505835401820, guid: dcc953437e5c0473e907fb61a8691218, type: 3}
+      propertyPath: orthographic size
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 6173084505838553824, guid: dcc953437e5c0473e907fb61a8691218, type: 3}
       propertyPath: m_Name
       value: CameraSystem

@@ -15,7 +15,7 @@ public class GameManager : Singleton<GameManager>
         // Load Assets
         _characterManager = GameObject.Find("CharacterManager").GetComponent<CharacterManager>();
         _uIManager = GameObject.Find("UIManager").GetComponent<UIManager>();
-        _minigameManager = GameObject.Find("MinigameManager").GetComponent<MinigameManager>();
+        _miniGameManager = GameObject.Find("MiniGameManager").GetComponent<MiniGameManager>();
         _cameraController = GameObject.Find("CameraController").GetComponent<CameraController>();
         _dialogueManager = GameObject.Find("DialogueManager").GetComponent<DialogueManager>();
         _questManager = GameObject.Find("QuestManager").GetComponent<QuestManager>();
@@ -28,7 +28,7 @@ public class GameManager : Singleton<GameManager>
     private UIManager _uIManager;
 
     [SerializeField]
-    private MinigameManager _minigameManager;
+    private MiniGameManager _miniGameManager;
 
     [SerializeField]
     private CameraController _cameraController;

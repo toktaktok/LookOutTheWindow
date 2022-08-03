@@ -10,6 +10,14 @@ namespace EnumTypes
         CutScene,
         Setting,
         EventFlow,
-        Ending
+        Ending,
     }
+    
+    public enum CurrentMiniGameState
+    {
+        Good,
+        SoSo,
+        Bad,
+    }
+    
 }

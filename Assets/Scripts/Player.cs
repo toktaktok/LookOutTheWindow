@@ -3,12 +3,8 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using DG.Tweening;
-//using Unity.VisualScripting;
-//using System;
-// using System.Collections.Generic;
-// using System.Runtime.InteropServices.WindowsRuntime;
-// using UnityEngine.UIElements;
-// using System.Web.UI.WebControls;
+using EnumTypes;
+using VoxelImporter;
 
 
 
@@ -19,33 +15,64 @@ public class Player : MonoBehaviour
 {
     
     private Vector2 moveValue = Vector2.zero;
-    private int hMoveSpeed;                  //좌우 이동 속도
+    [SerializeField] private int hMoveSpeed;                  //좌우 이동 속도
+    private int origSpeed;
     private int vMoveSpeed;                  //상하 이동 속도
-    
+    private Vector3 prevPos;
     private SpriteRenderer _sprite;
     private Animator _anim;
-    [SerializeField] private Collider _interactingObject; //상호작용한 오브젝트
+    [SerializeField] private bool isCollided = false;
+    [SerializeField] private Collider interactingObject; //상호작용한 오브젝트
     [SerializeField] private bool canUsePassage = true;
     
     private void Start()
     {
-        hMoveSpeed = 30;
+        hMoveSpeed = 15; // 가로 이동 속도
+        origSpeed = hMoveSpeed;
         vMoveSpeed = 100;
         _anim = gameObject.GetComponentInChildren<Animator>();   //child의 animator 컴포넌트.
         _sprite = gameObject.GetComponentInChildren<SpriteRenderer>();
     }
 
+    private void FixedUpdate()
+    {
+        if (!IsMoving())
+        {
+            return;
+        }
+    
+        if (!isCollided)
+        {
+            prevPos = transform.position;
+        }
+        MoveHorizontal(moveValue.x); // 먼저 이동
+    }
+
+    // private void Update()
+    // {
+    //     if (!IsMoving())
+    //     {
+    //         return;
+    //     }
+    //
+    //     if (!isCollided)
+    //     {
+    //         prevPos = transform.position;
+    //     }
+    //     MoveHorizontal(moveValue.x); // 먼저 이동
+    // }
 
     private void LateUpdate()
     {
-        switch (IsMoving()) //움직이고 있다면
+        if (isCollided) // 충돌했는가?
         {
-            case true:
-                MoveHorizontal(moveValue.x);
-                // MoveVertical(moveValue.y);
-                break;
-            case false:
-                break;
+            // hMoveSpeed = 0;
+            transform.position = prevPos; // 이전 위치로 이동
+            isCollided = false; // 충돌 처리 false
+        }
+        else
+        {
+            // hMoveSpeed = origSpeed;
         }
     }
 
@@ -57,14 +84,14 @@ public class Player : MonoBehaviour
         
         if (moveValue.y != 0) // 상하로 이동할 때
         {
-            if (!_interactingObject)
+            if (!interactingObject)
             {
                 return;
             }
 
-            if ( _interactingObject.gameObject.layer == 10 && canUsePassage) // 트리거가 맵 이동과 연관되었다면?
+            if ( interactingObject.gameObject.layer == 10 && canUsePassage) // 트리거가 맵 이동과 연관되었다면?
             {
-                MapManager.Instance.MoveToAnotherStreet(_interactingObject.gameObject.GetComponent<Passage>()); // 거리 이동
+                MapManager.Instance.MoveToAnotherStreet(interactingObject.gameObject.GetComponent<Passage>()); // 거리 이동
                 StartCoroutine(CheckDelayTime());
             }
         }
@@ -90,23 +117,23 @@ public class Player : MonoBehaviour
     private IEnumerator CheckDelayTime() //특정 행동을 무수히 반복하지 않도록 지연을 준다.
     {
         canUsePassage = false;
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
         canUsePassage = true;
         yield return null;
     }
-    
- 
-     // 함수 이름 : Interact
-     // 기능 : InputAction을 통해 상호작용 할 시(input E) 미니게임이 있는지 확인한다.
+
+
+    // 함수 이름 : Interact
+    // 기능 : InputAction을 통해 상호작용 할 시(input E) 미니게임이 있는지 확인한다.
     public void Interact(InputAction.CallbackContext ctx)
     {
-        if (!_interactingObject || !ctx.performed) //E를 눌렀을 시 interactingObject가 존재한다면
+        if (!interactingObject || !ctx.performed) //E를 눌렀을 시 interactingObject가 존재한다면
         {
             return;
         }
         
         CameraController.Instance.SaveZoomRange(0);
-        CheckInteractedObject(_interactingObject);
+        CheckInteractedObject(interactingObject);
         moveValue = Vector2.zero;
     }
     
@@ -122,7 +149,9 @@ public class Player : MonoBehaviour
     // 기능 : 인자로 받는 xValue만큼 X 이동
     private void MoveHorizontal(float xValue)   //moveValue.x -> position.x
     {
-        transform.DOMoveX(transform.position.x + xValue * hMoveSpeed * Time.fixedDeltaTime, 0.1f);
+        transform.Translate(new Vector3
+            (xValue * hMoveSpeed * Time.fixedDeltaTime, 0, 0));
+        // transform.DOMoveX(transform.position.x + (xValue * hMoveSpeed * Time.fixedDeltaTime), 0.1f);
     }
     
      // 이름 : MoveVertical
@@ -169,51 +198,72 @@ public class Player : MonoBehaviour
     
     private void OnTriggerEnter(Collider interacted)
     {
-        UIManager.Instance.OpenInteractionKey(); //Trigger와 접촉할 시 상호작용 키를 보이게 한다.
-        _interactingObject = interacted;         //접촉한 콜라이더가 존재할 시
-
-        if (interacted.gameObject.layer == 10)  //Map 관련 트리거 진입
+        interactingObject = interacted;         //접촉한 콜라이더가 존재할 시
+        switch (interacted.gameObject.layer)
         {
-            UIManager.Instance.OpenMapMovingUI(interacted.gameObject.GetComponent<Passage>());
+            case GlobalVariables.LayerNumber.character:
+                UIManager.Instance.OpenInteractionKey(); //Trigger와 접촉할 시 상호작용 키를 보이게 한다.
+                break;
+            case GlobalVariables.LayerNumber.map: //Map 관련 트리거 진입
+                UIManager.Instance.OpenMapMovingUI(interacted.gameObject.GetComponent<Passage>());
+                break;
         }
-
     }
-    
+
+    private void OnTriggerStay(Collider interacted)
+    {
+        if (interactingObject)
+        {
+            return;
+        }
+        interactingObject = interacted;
+    }
+
     // 트리거에서 빠져나올 시 UIManager, CameraController가 가지고 있던 창이나 뷰 원위치
     private void OnTriggerExit(Collider interacted)
     {
-        if (!_interactingObject) { return; }
-        
-        _interactingObject = null;
-        UIManager.Instance.CloseInteractionKey();    //상호작용 UI 닫기
-        UIManager.Instance.CloseDialoguePopup();
-        CameraController.Instance.ReturnInteractionView();  //카메라 줌 수치를 상호작용 전 시점으로 돌린다.
-        
-        if (interacted.gameObject.layer == 10)  //Map 관련 트리거에서 나옴
+        interactingObject = null;
+        switch (interacted.gameObject.layer)
         {
-            UIManager.Instance.CloseMapMovingUI();
+            case GlobalVariables.LayerNumber.character:
+                UIManager.Instance.CloseInteractionKey();    //상호작용 UI 닫기
+                break;
+            case GlobalVariables.LayerNumber.map: //Map 관련 트리거 진입
+                UIManager.Instance.CloseMapMovingUI();
+                break;
         }
-        //미니게임이 실행중이었다면?
-        // if (MinigameManager.Instance.IsMinigamePlaying())
-        // { 
-        //     MinigameManager.Instance.CloseMinigameView();   //미니게임 창 닫기
-        // }
+        // UIManager.Instance.CloseDialoguePopup();
+        // CameraController.Instance.ReturnInteractionView();  //카메라 줌 수치를 상호작용 전 시점으로 돌린다.
         
+        //미니게임이 실행중이었다면?
+        // if (MiniGameManager.Instance.IsMiniGamePlaying())
+        // { 
+        //     MiniGameManager.Instance.CloseMiniGameView();   //미니게임 창 닫기
+        // }
     }
 
     private void OnCollisionEnter(Collision collision) //건물 벽 등 맵 가장자리에 충돌
     {
-        ContactPoint contact = new ContactPoint();
-        contact = collision.GetContact(0);
+        // ContactPoint contact = new ContactPoint();
+        // contact = collision.GetContact(0);
         // Debug.Log(contact.point.normalized);
-        
+        isCollided = true;
+        Debug.Log("Collided!");
+
+
         if (collision.gameObject.layer == 12)
         {
             // isColliding = true;
-            Debug.Log("Colliding!");
+            // Debug.Log("Colliding!");
         }
     }
-    
+
+    private void OnCollisionStay(Collision collisionInfo)
+    {
+        Debug.Log("Colliding!");
+        isCollided = true;
+    }
+
 
     private void OnCollisionExit(Collision collision)
     {

@@ -24,10 +24,7 @@ public class UIManager : Singleton<UIManager>
     private GameObject choiceContainer;     //선택지 창
     private float interactKeyOrigPosY;      //상호작용 키 y 위치
     private float noteButtonOrigPosY;       //수첩 버튼 y 위치
-
-
-
-
+    
 
     private void Start()
     {
@@ -49,12 +46,10 @@ public class UIManager : Singleton<UIManager>
         interactionKey.DOFade(0, 0.5f);
         interactionKey.transform.GetChild(0).GetComponent<TextMeshProUGUI>().DOFade(0, 0.5f);
     }
-
-    /*
-     * 이름: OpenDialoguePopup
-     * 기능: interaction 시 대화창, 관련된 dialogue node 읽기 시작
-     * 인자: DialogueGraph
-    */
+    
+    // 이름: OpenDialoguePopup
+    // 기능: interaction 시 대화창, 관련된 dialogue node 읽기 시작
+    // 인자: DialogueGraph
     public void OpenDialoguePopup()
     {
         dialogueContainer.SetActive(true);
@@ -98,28 +93,14 @@ public class UIManager : Singleton<UIManager>
     {
         notebookButton.rectTransform.DOAnchorPosY(noteButtonOrigPosY - 60, 0.2f);
         notebook.SetActive(true);
-
     }
 
     public void CloseNotebook()
     {
         notebookButton.rectTransform.DOAnchorPosY(noteButtonOrigPosY, 0.2f);
         notebook.SetActive(false);
-
-
     }
 
-    // public void CloseMinigameView() //미니게임 캔버스를 닫는다.
-    // {
-    //     if (minigames[minigameId].activeSelf == true)
-    //     {
-    //         minigames[minigameId].GetComponent<RectTransform>().DOAnchorPosX(480, 0.8f).SetEase(ease)
-    //             .OnComplete(() => {
-    //                 minigames[minigameId].SetActive(false);
-    //             });
-    //         minigameId = 0;
-    //     }
-    //
-    // }
+
 
 }

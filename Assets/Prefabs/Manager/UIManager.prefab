@@ -48,4 +48,5 @@ MonoBehaviour:
   ease: 12
   dialogueContainer: {fileID: 0}
   notebookButton: {fileID: 0}
-  _nodeParser: {fileID: 0}
+  notebook: {fileID: 0}
+  moveToUI: {fileID: 0}

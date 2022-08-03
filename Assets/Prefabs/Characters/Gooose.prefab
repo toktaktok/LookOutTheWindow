@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2853492418099927340}
   - component: {fileID: 6272949340503180027}
+  - component: {fileID: 7197252001947569803}
   m_Layer: 0
   m_Name: Gooose
   m_TagString: Untagged
@@ -46,6 +47,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 6, y: 2, z: 4}
   m_Center: {x: 0, y: 1, z: -1}
+--- !u!114 &7197252001947569803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2853492418099927347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b9e5a459bb9f4f8389e3ef1989227dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactable: {fileID: 11400000, guid: 9393f969d0f9b4ad892ab49faa8ed8bb, type: 2}
 --- !u!1 &2853492418461725287
 GameObject:
   m_ObjectHideFlags: 0
