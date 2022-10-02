@@ -306,7 +306,6 @@ GameObject:
   - component: {fileID: 6546747761355838752}
   - component: {fileID: 6546747761355838755}
   - component: {fileID: 6546747761355838754}
-  - component: {fileID: 6546747761355838765}
   m_Layer: 6
   m_Name: Snowman
   m_TagString: Player
@@ -372,6 +371,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d723cc6baa352f04ca8fc582aa91e2e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hMoveSpeed: 0
+  interactingObject: {fileID: 0}
+  isCollided: 0
+  canUsePassage: 1
 --- !u!114 &6546747761355838754
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -437,23 +440,24 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: f435f6dc-0a78-4337-8d93-58628d1c5d58
     m_ActionName: Cam/Rotate[/Keyboard/rightArrow,/Keyboard/leftArrow]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6546747761355838755}
+        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+        m_MethodName: Jump
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 49775ed6-b3d1-43f1-b83a-06f5262cf265
+    m_ActionName: PControl/Jump[/Keyboard/space]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: PControl
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &6546747761355838765
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6546747761355838767}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad198d2cbccac446683dea2f8aa1e120, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  origRotation: {x: 0, y: 0, z: 0, w: 0}
-  targetRotation: {x: 0, y: 0, z: 0, w: 0}
-  rotateValue: 0

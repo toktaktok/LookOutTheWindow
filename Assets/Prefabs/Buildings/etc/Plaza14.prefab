@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5834347404554622807}
   - component: {fileID: 5834347404554622804}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: NormalWin3(2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5834347405046754814}
   - component: {fileID: 5834347405046754815}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: NormalWin3(3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -178,7 +178,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5834347405123914559}
   - component: {fileID: 5834347405123914556}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: NormalWin3(7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -262,7 +262,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5834347405193351299}
   - component: {fileID: 5834347405193351296}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: NormalWin3(1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -346,7 +346,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5834347405759961237}
   - component: {fileID: 5834347405759961226}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: NormalWin3(4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -433,7 +433,7 @@ GameObject:
   - component: {fileID: 5834347405775768845}
   - component: {fileID: 5834347405775768834}
   - component: {fileID: 5834347405775768847}
-  m_Layer: 12
+  m_Layer: 9
   m_Name: Plaza14
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -600,7 +600,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5834347405775768832}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
   m_Name: 
@@ -621,7 +621,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5834347406045273649}
   - component: {fileID: 5834347406045273654}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: NormalWin3(6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -705,7 +705,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5834347406130832696}
   - component: {fileID: 5834347406130832697}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: NormalWin3(5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

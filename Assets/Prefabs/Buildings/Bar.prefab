@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6512936062549690605}
   - component: {fileID: 6512936062549690604}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BarPosterSprite3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -84,90 +84,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &6512936062642918795
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6512936062642918796}
-  - component: {fileID: 6512936062642918797}
-  m_Layer: 12
-  m_Name: 1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6512936062642918796
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6512936062642918795}
-  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 1.275, y: -3.4700007, z: 4.01}
-  m_LocalScale: {x: 1.2, y: 1.2, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 6512936064338737617}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
---- !u!212 &6512936062642918797
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6512936062642918795}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: f8f649b0e8dad4e3f8175039847b4323, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 9ce94589c31434b53a75e4e67485001b, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 5, y: 5}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
 --- !u!1 &6512936062739125637
 GameObject:
   m_ObjectHideFlags: 0
@@ -178,7 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6512936062739125639}
   - component: {fileID: 6512936062739125638}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BarPosterSprite4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -252,90 +168,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &6512936062768459822
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6512936062768459823}
-  - component: {fileID: 6512936062768459824}
-  m_Layer: 12
-  m_Name: 2
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6512936062768459823
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6512936062768459822}
-  m_LocalRotation: {x: 0.103559956, y: 0.6994822, z: 0.103559956, w: 0.6994822}
-  m_LocalPosition: {x: 1.292, y: -4.116001, z: 3.049}
-  m_LocalScale: {x: 1.2, y: 1.2, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 6512936064338737617}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 16.843}
---- !u!212 &6512936062768459824
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6512936062768459822}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: f8f649b0e8dad4e3f8175039847b4323, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 64f672069c6434ddf9fe2e73fda61784, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 5, y: 5}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
 --- !u!1 &6512936062826324788
 GameObject:
   m_ObjectHideFlags: 0
@@ -346,7 +178,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6512936062826324789}
   - component: {fileID: 6512936062826324790}
-  m_Layer: 12
+  m_Layer: 9
   m_Name: 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -366,7 +198,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6512936064338737617}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!212 &6512936062826324790
 SpriteRenderer:
@@ -430,7 +262,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6512936063021222181}
   - component: {fileID: 6512936063021222182}
-  m_Layer: 12
+  m_Layer: 9
   m_Name: 6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -445,12 +277,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6512936063021222180}
   m_LocalRotation: {x: -0.10694895, y: 0.69897205, z: -0.10694895, w: 0.69897205}
-  m_LocalPosition: {x: 1.29, y: -2.72, z: 1.52}
+  m_LocalPosition: {x: 1.24, y: -2.31, z: -1.22}
   m_LocalScale: {x: 1.2, y: 1.2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6512936064338737617}
-  m_RootOrder: 5
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: -17.399}
 --- !u!212 &6512936063021222182
 SpriteRenderer:
@@ -514,7 +346,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6512936063583462827}
   - component: {fileID: 6512936063583462828}
-  m_Layer: 12
+  m_Layer: 9
   m_Name: 7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -534,7 +366,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6512936064338737617}
-  m_RootOrder: 6
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: -12.227}
 --- !u!212 &6512936063583462828
 SpriteRenderer:
@@ -601,7 +433,7 @@ GameObject:
   - component: {fileID: 6512936064035136886}
   - component: {fileID: 6512936064035136885}
   - component: {fileID: 6512936064035136888}
-  m_Layer: 12
+  m_Layer: 9
   m_Name: Bar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -771,7 +603,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   outlineMode: 1
   outlineColor: {r: 0, g: 0, b: 0, a: 1}
-  outlineWidth: 1
+  outlineWidth: 1.5
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
@@ -785,7 +617,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6512936064082781227}
   - component: {fileID: 6512936064082781226}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BarPosterSprite2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -869,7 +701,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6512936064188570411}
   - component: {fileID: 6512936064188570410}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BarPosterSprite1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -953,7 +785,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6512936064240900085}
   - component: {fileID: 6512936064240900086}
-  m_Layer: 12
+  m_Layer: 9
   m_Name: SignSprite1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1037,7 +869,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6512936064303604107}
   - component: {fileID: 6512936064303604108}
-  m_Layer: 12
+  m_Layer: 9
   m_Name: 5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1057,7 +889,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6512936064338737617}
-  m_RootOrder: 4
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: -10.445}
 --- !u!212 &6512936064303604108
 SpriteRenderer:
@@ -1120,7 +952,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6512936064338737617}
-  m_Layer: 12
+  m_Layer: 9
   m_Name: Stickers
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1139,8 +971,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 6512936062642918796}
-  - {fileID: 6512936062768459823}
   - {fileID: 6512936062826324789}
   - {fileID: 6512936064408632489}
   - {fileID: 6512936064303604107}
@@ -1159,7 +989,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6512936064408632489}
   - component: {fileID: 6512936064408632490}
-  m_Layer: 12
+  m_Layer: 9
   m_Name: 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1179,7 +1009,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6512936064338737617}
-  m_RootOrder: 3
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 28.682}
 --- !u!212 &6512936064408632490
 SpriteRenderer:
@@ -1242,7 +1072,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 918979308923295228}
-  m_Layer: 12
+  m_Layer: 9
   m_Name: Posters
   m_TagString: Untagged
   m_Icon: {fileID: 0}

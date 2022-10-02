@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7556161914752102797}
   - component: {fileID: 7556161914752102796}
   - component: {fileID: 7556161914752102799}
-  m_Layer: 12
+  m_Layer: 9
   m_Name: Plaza3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -173,7 +173,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7556161914752102794}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
   m_Name: 

@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000, guid: 2df4dc13ed7d74a0ea4e266ac64eba2b, type: 2}
-  dialogue: {fileID: 0}
+  dialogueText: {fileID: 0}
 --- !u!1 &6944715114748295714
 GameObject:
   m_ObjectHideFlags: 0

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 74438807692909542}
   - component: {fileID: 74438807692909529}
   - component: {fileID: 74438807692909540}
-  m_Layer: 12
+  m_Layer: 9
   m_Name: MilkGarage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -161,11 +161,11 @@ MonoBehaviour:
   edit_ConfigurePreviewMode: 0
   edit_snapToHalfVoxel: 1
   edit_enableMesh: []
-  mesh: {fileID: -3841967939928245261, guid: 7464412b2b88449acaec2d67600378ba, type: 3}
+  mesh: {fileID: 0}
   material: {fileID: 0}
   materials:
-  - {fileID: 8250792422802072511, guid: 7464412b2b88449acaec2d67600378ba, type: 3}
-  atlasTexture: {fileID: 3345885197698751386, guid: 7464412b2b88449acaec2d67600378ba, type: 3}
+  - {fileID: 0}
+  atlasTexture: {fileID: 0}
 --- !u!114 &74438807692909540
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -180,7 +180,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   outlineMode: 1
   outlineColor: {r: 0, g: 0, b: 0, a: 1}
-  outlineWidth: 4
+  outlineWidth: 2
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []

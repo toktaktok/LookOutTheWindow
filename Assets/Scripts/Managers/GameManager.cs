@@ -19,6 +19,7 @@ public class GameManager : Singleton<GameManager>
         _cameraController = GameObject.Find("CameraController").GetComponent<CameraController>();
         _dialogueManager = GameObject.Find("DialogueManager").GetComponent<DialogueManager>();
         _questManager = GameObject.Find("QuestManager").GetComponent<QuestManager>();
+        _dataManager = GameObject.Find("DataManager").GetComponent<DataManager>();
     }
 
     [SerializeField]
@@ -38,5 +39,8 @@ public class GameManager : Singleton<GameManager>
 
     [SerializeField]
     private QuestManager _questManager;
+    
+    [SerializeField]
+    private DataManager _dataManager;
 
 }

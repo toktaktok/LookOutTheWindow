@@ -12,8 +12,7 @@ GameObject:
   - component: {fileID: 2977421969105334578}
   - component: {fileID: 2977421969105338061}
   - component: {fileID: 2977421969105338060}
-  - component: {fileID: 2977421969105334579}
-  m_Layer: 12
+  m_Layer: 9
   m_Name: S3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -287,26 +286,8 @@ MonoBehaviour:
   edit_ConfigurePreviewMode: 0
   edit_snapToHalfVoxel: 1
   edit_enableMesh: []
-  mesh: {fileID: 3784022740237790170, guid: 7464412b2b88449acaec2d67600378ba, type: 3}
+  mesh: {fileID: 0}
   material: {fileID: 0}
   materials:
-  - {fileID: -2783649704127573202, guid: 7464412b2b88449acaec2d67600378ba, type: 3}
-  atlasTexture: {fileID: -5896340342095674051, guid: 7464412b2b88449acaec2d67600378ba, type: 3}
---- !u!114 &2977421969105334579
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2977421969105338062}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 1
-  outlineColor: {r: 0, g: 0, b: 0, a: 1}
-  outlineWidth: 4
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
+  - {fileID: 0}
+  atlasTexture: {fileID: 0}

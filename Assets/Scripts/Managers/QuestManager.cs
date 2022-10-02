@@ -8,7 +8,7 @@ public class QuestManager : Singleton<QuestManager>
 {
     
     public Quest quest;
-    public List<Quest> questsInProgress;
+    public List<Quest> questsInProgress; //진행 중인 퀘스트가 추가됨
     public Player player;
     public GameObject questWindow;
     public Text dialogue;
@@ -36,11 +36,12 @@ public class QuestManager : Singleton<QuestManager>
         }
     }
 
-    public bool CanInteractedTargetGiveEvidence(Villager villager)
+    public bool CanTargetGiveEvidence()
     {
+        var villager = CharacterManager.Instance.CurInteractingVillager();
         foreach (var quest in questsInProgress)
         {
-            if (quest.relatedVillagers.Contains(villager)) // 이후, 주민이 여러 의뢰와 연관되어있을 경우에 조건 추가 필요
+            if (quest.relatedVillagerList.Contains(villager)) // 이후, 주민이 여러 의뢰와 연관되어있을 경우에 조건 추가 필요
             {
                 return true;
             }

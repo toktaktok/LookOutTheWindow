@@ -9,13 +9,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2005436617925573540}
-  m_Layer: 12
+  m_Layer: 9
   m_Name: Lights
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2005436617925573540
 Transform:
   m_ObjectHideFlags: 0
@@ -23,7 +23,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2005436617925573541}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -36,7 +36,7 @@ Transform:
   - {fileID: 2005436618597561012}
   m_Father: {fileID: 2005436618481653247}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1 &2005436618160882136
 GameObject:
   m_ObjectHideFlags: 0
@@ -48,7 +48,7 @@ GameObject:
   - component: {fileID: 2005436618160882131}
   - component: {fileID: 2005436618160882140}
   - component: {fileID: 2005436618160882141}
-  m_Layer: 12
+  m_Layer: 9
   m_Name: DotLightR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -163,7 +163,7 @@ GameObject:
   - component: {fileID: 2005436618406894385}
   - component: {fileID: 2005436618406894390}
   - component: {fileID: 2005436618406894391}
-  m_Layer: 12
+  m_Layer: 9
   m_Name: BulbL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -247,7 +247,7 @@ GameObject:
   - component: {fileID: 2005436618481653244}
   - component: {fileID: 2005436618481653245}
   - component: {fileID: 2005436618481653246}
-  m_Layer: 12
+  m_Layer: 9
   m_Name: StreetLight1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -413,7 +413,7 @@ GameObject:
   - component: {fileID: 2005436618597561012}
   - component: {fileID: 2005436618597561013}
   - component: {fileID: 2005436618597561014}
-  m_Layer: 12
+  m_Layer: 9
   m_Name: SpotLightR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -528,7 +528,7 @@ GameObject:
   - component: {fileID: 2005436618672303607}
   - component: {fileID: 2005436618672303600}
   - component: {fileID: 2005436618672303601}
-  m_Layer: 12
+  m_Layer: 9
   m_Name: DotLightL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -643,7 +643,7 @@ GameObject:
   - component: {fileID: 2005436618675064585}
   - component: {fileID: 2005436618675064590}
   - component: {fileID: 2005436618675064591}
-  m_Layer: 12
+  m_Layer: 9
   m_Name: BulbR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -726,7 +726,7 @@ GameObject:
   - component: {fileID: 2005436619290025762}
   - component: {fileID: 2005436619290025763}
   - component: {fileID: 2005436619290025772}
-  m_Layer: 12
+  m_Layer: 9
   m_Name: SpotLightL
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: Goose
   m_EditorClassIdentifier: 
   _image: {fileID: 0}
-  _id: v_Goose
   _minigameId: 0
-  _name: "\uAC70\uC704"
+  _name: Goose
   _dialogueGraphs:
   - {fileID: 11400000, guid: 3176e9e24def94d2fa286288f1407416, type: 2}
   - {fileID: 11400000, guid: de940d49877c14544bbb0d8639e067da, type: 2}
+  _basicDialogueId: 
+  interactableInfo: 26

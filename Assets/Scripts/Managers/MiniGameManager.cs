@@ -34,9 +34,12 @@ public class MiniGameManager : Singleton<MiniGameManager>
         for (var i = 0; i < canvas.childCount; i++)
         {
             miniGames_gameObject.Add(canvas.GetChild(i).gameObject);
-            // miniGames.Add(miniGames_gameObject[i].GetComponent<MiniGame>());
+            miniGames.Add(miniGames_gameObject[i + 1].GetComponent<MiniGame>());
+            miniGames_gameObject[i + 1].SetActive(false);
         }
         Debug.Log("미니게임 추가 완료");
+        miniGames[2].SetActiveTest();
+        Console.WriteLine("미니게임 실행");
     }
 
     // 이름: MiniGameStartSetting

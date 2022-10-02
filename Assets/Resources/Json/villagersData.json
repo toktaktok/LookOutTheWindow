@@ -1,0 +1,112 @@
+{
+  "villagersData": [
+    {
+      "id": 1,
+      "name": "Mayor"
+    },
+    {
+      "id": 2,
+      "name": "Zig"
+    },
+    {
+      "id": 3,
+      "name": "FlowerElephant"
+    },
+    {
+      "id": 4,
+      "name": "GumMan"
+    },
+    {
+      "id": 5,
+      "name": "JumpingKid"
+    },
+    {
+      "id": 6,
+      "name": "Toad"
+    },
+    {
+      "id": 7,
+      "name": "YoungMouse"
+    },
+    {
+      "id": 8,
+      "name": "OutsiderFox"
+    },
+    {
+      "id": 9,
+      "name": "OutsiderCrane"
+    },
+    {
+      "id": 10,
+      "name": "PlanetKids"
+    },
+    {
+      "id": 11,
+      "name": "KiwiBird"
+    },
+    {
+      "id": 12,
+      "name": "RegularKitty"
+    },
+    {
+      "id": 13,
+      "name": "MuseumGuard"
+    },
+    {
+      "id": 14,
+      "name": "RabbitCouple"
+    },
+    {
+      "id": 15,
+      "name": "CollegeStudents"
+    },
+    {
+      "id": 16,
+      "name": "PriestCroco"
+    },
+    {
+      "id": 17,
+      "name": "GuardCroco"
+    },
+    {
+      "id": 18,
+      "name": "CandyMan"
+    },
+    {
+      "id": 19,
+      "name": "Cedgehog"
+    },
+    {
+      "id": 20,
+      "name": "Postman"
+    },
+    {
+      "id": 21,
+      "name": "AmusementGuard"
+    },
+    {
+      "id": 22,
+      "name": "FishingRaccoon"
+    },
+    {
+      "id": 23,
+      "name": "Dogtor"
+    },
+    {
+      "id": 24,
+      "name": "AngelCaterpillar"
+    },
+    {
+      "id": 25,
+      "name": "LakeDinosaur"
+    },
+    {
+      "id": 26,
+      "name": "Goose"
+    },
+    {
+      "id": 27,
+      "name": "BabyBat"
+    }
+  ]
+}

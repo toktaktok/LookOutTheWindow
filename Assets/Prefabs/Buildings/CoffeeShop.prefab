@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4569622064365399929}
   - component: {fileID: 4569622064365399928}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Coffeewin1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4569622064480215394}
   - component: {fileID: 4569622064480215393}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Coffeewin5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -178,7 +178,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4569622064580831211}
   - component: {fileID: 4569622064580831210}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Coffeewin8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -262,7 +262,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4569622064815481060}
   - component: {fileID: 4569622064815481059}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Coffeewin7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -346,7 +346,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4569622065466286459}
   - component: {fileID: 4569622065466286460}
-  m_Layer: 12
+  m_Layer: 9
   m_Name: InsideSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -430,7 +430,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4569622065517153428}
   - component: {fileID: 4569622065517153427}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Coffeewin2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -514,7 +514,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4569622065555337725}
   - component: {fileID: 4569622065555337724}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Coffeewin4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -601,7 +601,7 @@ GameObject:
   - component: {fileID: 4569622065809547518}
   - component: {fileID: 4569622065809547456}
   - component: {fileID: 4569622065809547457}
-  m_Layer: 12
+  m_Layer: 9
   m_Name: CoffeeShop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -783,7 +783,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4569622066087042814}
-  m_Layer: 12
+  m_Layer: 9
   m_Name: Windows
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -824,7 +824,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4569622066223598558}
   - component: {fileID: 4569622066223598557}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Coffeewin9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -908,7 +908,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4569622066420084792}
   - component: {fileID: 4569622066420084791}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Coffeewin6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -992,7 +992,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4569622066463941560}
   - component: {fileID: 4569622066463941559}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Coffeewin3
   m_TagString: Untagged
   m_Icon: {fileID: 0}

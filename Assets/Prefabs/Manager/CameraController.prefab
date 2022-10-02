@@ -130,6 +130,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: f435f6dc-0a78-4337-8d93-58628d1c5d58
     m_ActionName: Cam/Rotate[/Keyboard/rightArrow,/Keyboard/leftArrow]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 49775ed6-b3d1-43f1-b83a-06f5262cf265
+    m_ActionName: PControl/Jump[/Keyboard/space]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Cam
@@ -197,6 +201,14 @@ PrefabInstance:
     - target: {fileID: 6173084505838553829, guid: dcc953437e5c0473e907fb61a8691218, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8126181130938787296, guid: dcc953437e5c0473e907fb61a8691218, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8126181130938787296, guid: dcc953437e5c0473e907fb61a8691218, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 60
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dcc953437e5c0473e907fb61a8691218, type: 3}

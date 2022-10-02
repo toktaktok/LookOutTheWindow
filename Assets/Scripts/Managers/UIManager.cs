@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
+using EnumTypes;
 using TMPro;
 using Unity.VisualScripting;
 
@@ -16,7 +17,9 @@ public class UIManager : Singleton<UIManager>
     public Ease ease;       //ease 값
     public GameObject dialogueContainer;    //대사 창
     public Image notebookButton;
-    public GameObject notebook;
+    // public GameObject notebook;
+    public Notebook notebook;
+    public InteractionKey interactKey;
     
     
     [SerializeField] private GameObject moveToUI;
@@ -24,81 +27,93 @@ public class UIManager : Singleton<UIManager>
     private GameObject choiceContainer;     //선택지 창
     private float interactKeyOrigPosY;      //상호작용 키 y 위치
     private float noteButtonOrigPosY;       //수첩 버튼 y 위치
+    private float noteOrigPosY;       //수첩 y 위치
+    private Canvas UICanvas;
+    private Canvas MinigameCanvas;
+    [SerializeField] private UIState curUIState = UIState.Basic;
     
-
     private void Start()
     {
         choiceContainer = dialogueContainer.transform.GetChild(1).gameObject;   //dialogueContainer의 두번째 자식: 선택 창. 
         player = GameObject.FindWithTag("Player").GetComponent<Player>();       //하나뿐인 Player을 찾아 스크립트 초기화
         interactKeyOrigPosY = interactionKey.rectTransform.anchoredPosition.y;
         noteButtonOrigPosY = notebookButton.rectTransform.anchoredPosition.y;
-    }
-
-    public void OpenInteractionKey() //상호작용 가능한 trigger에 들어올 시 상호작용 버튼을 띄운다.
-    {
-        interactionKey.rectTransform.DOAnchorPosY(interactKeyOrigPosY + 30, 0.5f);   //아래 -> 위 slide
-        interactionKey.DOFade(1, 0.5f);
-        interactionKey.transform.GetChild(0).GetComponent<TextMeshProUGUI>().DOFade(1, 0.5f);
-    }
-    public void CloseInteractionKey()
-    {
-        interactionKey.rectTransform.DOAnchorPosY(interactKeyOrigPosY, 0.5f);   //위 -> 아래 slide
-        interactionKey.DOFade(0, 0.5f);
-        interactionKey.transform.GetChild(0).GetComponent<TextMeshProUGUI>().DOFade(0, 0.5f);
+        notebook.FalseActiveSelf(); // 수첩 setActive false
+        interactKey.Set(); // 상호작용 키 UI 기본 세팅
+        CloseDialoguePopup();
     }
     
     // 이름: OpenDialoguePopup
-    // 기능: interaction 시 대화창, 관련된 dialogue node 읽기 시작
-    // 인자: DialogueGraph
-    public void OpenDialoguePopup()
+    // 기능: interaction 시 대화창을 열고, 관련된 dialogue node를 읽기 시작한다.
+    public IEnumerator OpenDialoguePopup()
     {
+        curUIState = UIState.Interacting;
+        yield return new WaitForSeconds(0.1f);
         dialogueContainer.SetActive(true);
+        player.SwitchSpeed(true);
         CloseInteractionKey();
+        HideNoteBookButton();
     }
-    
+
     public void CloseDialoguePopup()
     {
         choiceContainer.SetActive(false);
         dialogueContainer.SetActive(false);
-        // player.isInteracting = false;
+        player.SwitchSpeed(false);
+        player.EraseInteractingObject();
         CameraController.Instance.ReturnInteractionView();
-    }
+        ShowNoteBookButton();
 
-    public void OpenMapMovingUI(Passage passage)
-    {
-        moveToUI.SetActive(true);
     }
-    public void CloseMapMovingUI()
-    {
-        moveToUI.SetActive(false);
-    }
+    //상호작용 가능한 trigger에 들어올 시 상호작용 버튼을 띄운다.
+    public void OpenInteractionKey()  => interactKey.Open();
+    public void CloseInteractionKey() => interactKey.Close();
+
+    public void OpenMapMovingUI(Passage passage) =>  moveToUI.SetActive(true);
+    public void CloseMapMovingUI() =>  moveToUI.SetActive(false);
+
 
     public void OpenChoicePopup()
     {
         choiceContainer.SetActive(true);
+        //현재 주민이 진행중인 퀘스트의 정보를 줄 수 있는지?
+        QuestManager.Instance.CanTargetGiveEvidence();
     }
 
-    //수첩 버튼에 마우스 포인터가 올라갈 시 호출
+    //기능: 마우스 포인터가 수첩 버튼에 가까이 갈 때 UI를 올린다.
     public void MouseEnterNotebookButton()
     {
         notebookButton.rectTransform.DOAnchorPosY(noteButtonOrigPosY + 50, 0.2f);
     }
-
     public void MouseExitNotebookButton()
     {
         notebookButton.rectTransform.DOAnchorPosY(noteButtonOrigPosY, 0.2f);
     }
 
-    public void OpenNotebook()
+    public void HideNoteBookButton()
     {
-        notebookButton.rectTransform.DOAnchorPosY(noteButtonOrigPosY - 60, 0.2f);
-        notebook.SetActive(true);
+        notebookButton.rectTransform.DOAnchorPosY(noteButtonOrigPosY - 150, 0.2f);
     }
 
-    public void CloseNotebook()
+    public void ShowNoteBookButton()
     {
         notebookButton.rectTransform.DOAnchorPosY(noteButtonOrigPosY, 0.2f);
-        notebook.SetActive(false);
+
+    }
+
+    //기능: 수첩 UI를 연다.
+    public void OpenNotebookUI()
+    {
+        notebookButton.rectTransform.DOAnchorPosY(noteButtonOrigPosY - 60, 0.2f);
+        notebook.TrueActiveSelf();
+        notebook.Open();
+
+    }
+    public void CloseNotebookUI()
+    {
+        notebookButton.rectTransform.DOAnchorPosY(noteButtonOrigPosY, 0.2f);
+        notebook.FalseActiveSelf();
+        notebook.Close();
     }
 
 

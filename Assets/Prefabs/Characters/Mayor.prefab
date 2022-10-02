@@ -166,8 +166,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 6, y: 2, z: 10}
-  m_Center: {x: 0, y: 1, z: -1}
+  m_Size: {x: 6, y: 2, z: 20}
+  m_Center: {x: 0, y: 1, z: -4}
 --- !u!114 &7791565830937010687
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -180,4 +180,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b9e5a459bb9f4f8389e3ef1989227dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itsName: 
+  basicDialogueId: 
+  dialogueGraphs:
+  - {fileID: 11400000, guid: 2df4dc13ed7d74a0ea4e266ac64eba2b, type: 2}
   interactable: {fileID: 11400000, guid: 84a055ee02aab394ab86a7b07115e51e, type: 2}

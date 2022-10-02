@@ -35,7 +35,7 @@ public class CameraController : Singleton<CameraController>
     {
         target = GameObject.FindWithTag("Player").GetComponent<Transform>();
 
-        // zoomXrot = -23;
+        // zoomXRot = -23;
         mainOrigRect = mainCam.rect;
         miniOrigRect = miniCam.rect;
         DOTween.SetTweensCapacity(2000, 50);
@@ -78,7 +78,7 @@ public class CameraController : Singleton<CameraController>
     public void MoveCamEase(Vector3 targetPos) => mainCamAnchor.DOMove(targetPos, 0.6f).SetEase(Ease.InSine);
     public void MoveCamInstant(Vector3 targetPos) =>  mainCamAnchor.DOMove(targetPos, 0f).SetEase(Ease.Linear);
 
-    private void Update()
+    private void FixedUpdate()
     {
         //현재 컷신이거나 카메라와 플레이어 사이 거리가 10 이하일 경우
         if (isCutscene || Vector3.Distance(mainCam.transform.position, target.position) <= 10)  

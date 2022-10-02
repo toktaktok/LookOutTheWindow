@@ -47,7 +47,7 @@ MonoBehaviour:
   - {fileID: 280058895116384387}
   - {fileID: 3299153823977400831}
   - {fileID: -6042777413466103372}
-  current: {fileID: -6042777413466103372}
+  current: {fileID: 3299153823977400831}
 --- !u!114 &280058895116384387
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -97,6 +97,7 @@ MonoBehaviour:
     keys:
     - entry
     - exit
+    - 
     values:
     - _fieldName: entry
       _node: {fileID: 3299153823977400831}
@@ -122,11 +123,21 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
+    - _fieldName: 
+      _node: {fileID: 3299153823977400831}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 1
   entry: 0
   exit: 0
   speakerName: "\uAF43\uB07C\uB9AC"
   dialogue: "\uAF43 \uD55C\uBC88\uC529 \uBCF4\uACE0 \uAC00\uC138\uC694 ~!"
   sprite: {fileID: 0}
   dialogueOptions: 0
-  isBasicState: 0
+  curInteractableData: 0
+  isBasicState: 1
   dialogueOptionList: []

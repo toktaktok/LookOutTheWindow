@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4727474390477423355}
   - component: {fileID: 4727474390477423359}
   - component: {fileID: 4727474390477423354}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: Ele1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -116,7 +116,7 @@ GameObject:
   - component: {fileID: 4727474390706509447}
   - component: {fileID: 995986599}
   - component: {fileID: 995986600}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: FlowerElephant
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -150,8 +150,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 8, y: 2, z: 4}
-  m_Center: {x: 0, y: 1, z: -1}
+  m_Size: {x: 8, y: 2, z: 20}
+  m_Center: {x: 0, y: 1, z: -4}
 --- !u!114 &995986600
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -164,4 +164,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b9e5a459bb9f4f8389e3ef1989227dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itsName: 
+  basicDialogueId: 
+  dialogueGraphs:
+  - {fileID: 11400000, guid: 53b985d1f23ea40349381f3f05f263c6, type: 2}
   interactable: {fileID: 11400000, guid: 4c3c94a8a2bf649f880fa1951b474a8b, type: 2}

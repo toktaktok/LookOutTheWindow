@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: FlowerElephant
   m_EditorClassIdentifier: 
   _image: {fileID: 0}
-  _id: v_FlowerElephant
   _minigameId: 0
-  _name: "\uAF43\uB07C\uB9AC"
+  _name: FlowerElephant
   _dialogueGraphs:
   - {fileID: 11400000, guid: 53b985d1f23ea40349381f3f05f263c6, type: 2}
   - {fileID: 0}
+  _basicDialogueId: 
+  interactableInfo: 3

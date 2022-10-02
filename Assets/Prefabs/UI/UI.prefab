@@ -146,6 +146,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MiniGameCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 1279542917512080386, guid: b01ac5663fc9a41fd8b1cef57df2f0f3, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1279542917512080387, guid: b01ac5663fc9a41fd8b1cef57df2f0f3, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -228,6 +232,26 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1279542917512080387, guid: b01ac5663fc9a41fd8b1cef57df2f0f3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1279542917522842007, guid: b01ac5663fc9a41fd8b1cef57df2f0f3, type: 3}
+      propertyPath: m_Color.b
+      value: 0.7294118
+      objectReference: {fileID: 0}
+    - target: {fileID: 1279542917522842007, guid: b01ac5663fc9a41fd8b1cef57df2f0f3, type: 3}
+      propertyPath: m_Color.g
+      value: 0.94291335
+      objectReference: {fileID: 0}
+    - target: {fileID: 1279542917522842007, guid: b01ac5663fc9a41fd8b1cef57df2f0f3, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1279542917595333814, guid: b01ac5663fc9a41fd8b1cef57df2f0f3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1279542918534495234, guid: b01ac5663fc9a41fd8b1cef57df2f0f3, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
