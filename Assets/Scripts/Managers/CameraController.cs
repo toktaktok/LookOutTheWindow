@@ -19,6 +19,8 @@ public class CameraController : Singleton<CameraController>
     [Range(8, 40)]
     public float viewSize = 20;           //zoomRange에 따라 fieldOfView를 바꾸는 변수
 
+    private float preViewSize;
+
     [HideInInspector]
     public Rect mainOrigRect;
     [HideInInspector]
@@ -73,6 +75,7 @@ public class CameraController : Singleton<CameraController>
         mainCamAnchor.DOMove(target.position, 0.6f).SetEase(Ease.Linear);
         var targetRotation = Quaternion.Euler(zoomXrot, rotateValue, 0);
         mainCamAnchor.DORotateQuaternion(targetRotation, 0.3f).SetEase(defaultEase);
+        preViewSize = viewSize;
     }
 
     public void MoveCamEase(Vector3 targetPos) => mainCamAnchor.DOMove(targetPos, 0.6f).SetEase(Ease.InSine);
@@ -80,6 +83,12 @@ public class CameraController : Singleton<CameraController>
 
     private void FixedUpdate()
     {
+        // 카메라와 카메라 anchor의 위치, 회전 보간
+        if (viewSize != preViewSize)
+        {
+            mainCam.DOOrthoSize(viewSize, 0.4f).SetEase(defaultEase);
+        }
+        
         //현재 컷신이거나 카메라와 플레이어 사이 거리가 10 이하일 경우
         if (isCutscene || Vector3.Distance(mainCam.transform.position, target.position) <= 10)  
         {
@@ -87,8 +96,7 @@ public class CameraController : Singleton<CameraController>
         }
         InGameCamUpdate();
         
-        // 카메라와 카메라 anchor의 위치, 회전 보간
-        // mainCam.DOOrthoSize(viewSize, 0.4f).SetEase(defaultEase);
+
     }
     
     public void SaveZoomRange(int editedRange)

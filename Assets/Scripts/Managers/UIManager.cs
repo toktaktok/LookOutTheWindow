@@ -38,7 +38,6 @@ public class UIManager : Singleton<UIManager>
         player = GameObject.FindWithTag("Player").GetComponent<Player>();       //하나뿐인 Player을 찾아 스크립트 초기화
         interactKeyOrigPosY = interactionKey.rectTransform.anchoredPosition.y;
         noteButtonOrigPosY = notebookButton.rectTransform.anchoredPosition.y;
-        notebook.FalseActiveSelf(); // 수첩 setActive false
         interactKey.Set(); // 상호작용 키 UI 기본 세팅
         CloseDialoguePopup();
     }
@@ -57,6 +56,7 @@ public class UIManager : Singleton<UIManager>
 
     public void CloseDialoguePopup()
     {
+        curUIState = UIState.Basic;
         choiceContainer.SetActive(false);
         dialogueContainer.SetActive(false);
         player.SwitchSpeed(false);
@@ -73,6 +73,24 @@ public class UIManager : Singleton<UIManager>
     public void CloseMapMovingUI() =>  moveToUI.SetActive(false);
 
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            switch (curUIState)
+            {
+                case UIState.Basic:
+                    OpenNotebook();
+                    break;
+                case UIState.NoteBook:
+                    CloseNotebook();
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
+
     public void OpenChoicePopup()
     {
         choiceContainer.SetActive(true);
@@ -83,6 +101,10 @@ public class UIManager : Singleton<UIManager>
     //기능: 마우스 포인터가 수첩 버튼에 가까이 갈 때 UI를 올린다.
     public void MouseEnterNotebookButton()
     {
+        if (curUIState != UIState.Basic)
+        {
+            return;
+        }
         notebookButton.rectTransform.DOAnchorPosY(noteButtonOrigPosY + 50, 0.2f);
     }
     public void MouseExitNotebookButton()
@@ -92,28 +114,35 @@ public class UIManager : Singleton<UIManager>
 
     public void HideNoteBookButton()
     {
-        notebookButton.rectTransform.DOAnchorPosY(noteButtonOrigPosY - 150, 0.2f);
+        notebookButton.rectTransform.DOAnchorPosY(noteButtonOrigPosY - 200, 0.3f);
     }
 
     public void ShowNoteBookButton()
     {
-        notebookButton.rectTransform.DOAnchorPosY(noteButtonOrigPosY, 0.2f);
+        notebookButton.rectTransform.DOAnchorPosY(noteButtonOrigPosY, 0.3f);
 
     }
 
     //기능: 수첩 UI를 연다.
-    public void OpenNotebookUI()
+    public void OpenNotebook()
     {
-        notebookButton.rectTransform.DOAnchorPosY(noteButtonOrigPosY - 60, 0.2f);
+        curUIState = UIState.NoteBook;
+        HideNoteBookButton();
         notebook.TrueActiveSelf();
         notebook.Open();
 
     }
-    public void CloseNotebookUI()
+    public void CloseNotebook()
     {
-        notebookButton.rectTransform.DOAnchorPosY(noteButtonOrigPosY, 0.2f);
-        notebook.FalseActiveSelf();
-        notebook.Close();
+        if (curUIState != UIState.NoteBook)
+        {
+            return;
+        }
+
+        curUIState = UIState.Basic;
+        ShowNoteBookButton();
+        // notebook.FalseActiveSelf();
+        notebook.StartCoroutine(notebook.Close());
     }
 
 

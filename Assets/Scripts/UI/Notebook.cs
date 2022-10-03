@@ -11,12 +11,20 @@ public class Notebook : MonoBehaviour
     [SerializeField] private RectTransform rectTransform;
     [SerializeField] private GameObject coverPage;
     [SerializeField] private GameObject questPage;
+    [SerializeField] private Animator noteAnim;
+    [SerializeField] private GameObject stickyNote;
 
-    private const float defaultClosedYPos = 1080;
+    private const float defaultClosedYPos = -1080;
+    private const int defaultPageXPos = 250;
+    readonly WaitForSeconds waitForSeconds = new WaitForSeconds(0.5f);
+
 
     private void Start()
     {
         rectTransform.anchoredPosition = new Vector2(0, defaultClosedYPos);
+        FalseActiveSelf();
+        questPage.SetActive(false);
+        stickyNote.SetActive(false);
     }
 
     public void TrueActiveSelf() => gameObject.SetActive(true);
@@ -29,21 +37,31 @@ public class Notebook : MonoBehaviour
 
     public void Open()
     {
-        Debug.Log("수첩 열기");
         TrueActiveSelf();
-        rectTransform.DOAnchorPosY(0, 0.6f).SetEase(Ease.InOutSine);
+        stickyNote.SetActive(true);
+
+        rectTransform.DOAnchorPosY(0, 0.6f).SetEase(Ease.OutQuart);
     }
     
-    public void Close()
+    public IEnumerator Close()
     {
-        Debug.Log("수첩 닫기");
-        rectTransform.DOAnchorPosY(defaultClosedYPos, 0.6f).SetEase(Ease.InSine);
+        rectTransform.DOAnchorPosX(0, 0.2f).SetEase(Ease.Linear);
+        noteAnim.ResetTrigger("OpenCover");
+        noteAnim.SetTrigger("CloseCover");
+        yield return waitForSeconds;
+        // questPage.SetActive(false);
+        rectTransform.DOAnchorPosY(defaultClosedYPos, 0.4f).SetEase(Ease.InSine);
+        yield return waitForSeconds;
         FalseActiveSelf();
     }
 
     public void MoveToQuestPage(int questId)
     {
+        rectTransform.DOAnchorPosX(defaultPageXPos, 0.2f).SetEase(Ease.Linear);
+        noteAnim.SetTrigger("OpenCover");
+        stickyNote.SetActive(false);
         UpdateQuestPageText(questId);
+        // questPage.SetActive(true);
     }
 
     private void UpdateQuestPageText(int id)

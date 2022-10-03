@@ -27,11 +27,11 @@ public class CharacterManager : Singleton<CharacterManager>
         }
     }
 
-    public Villager CurInteractingVillager()
+    public string CurInteractingVillager()
     {
         //상호작용중인 주민 찾기
         int id = 1;
-        return curVillagerList[id];
+        return curVillagerList[id].ToString();
     }
 
     //찾아낸 주민이 출력할 기본대사 id 리턴.

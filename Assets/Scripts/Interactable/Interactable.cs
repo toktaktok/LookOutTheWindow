@@ -25,7 +25,7 @@ public class Interactable : ScriptableObject
     
     [SerializeField] int[] _basicDialogueId;
 
-    [SerializeField] private InteractableData interactableInfo;
+    [SerializeField] private VillagerEnumData villagerEnumInfo;
     
     
     #region Foundation
@@ -61,7 +61,7 @@ public class Interactable : ScriptableObject
     public void GetEnumName()
     {
         // const bool ignoreCase = true;
-        Debug.Log(Enum.GetName(typeof(InteractableData), interactableInfo)); 
+        Debug.Log(Enum.GetName(typeof(VillagerEnumData), villagerEnumInfo)); 
         // Debug.Log(Enum.TryParse(Name, ignoreCase, out interactableInfo));
     }
 

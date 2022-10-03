@@ -15,7 +15,7 @@ public class Villager : MonoBehaviour
     // [SerializeField] private InteractableData interactableInfo;
     public DialogueGraph[] dialogueGraphs;
     [SerializeField] private Interactable interactable;
-    private InteractableData itsInfo;
+    private VillagerEnumData itsInfo;
 
     //CharacterManager의 하위 객체. CharacterManager을 역참조한다
     private CharacterManager _manager;

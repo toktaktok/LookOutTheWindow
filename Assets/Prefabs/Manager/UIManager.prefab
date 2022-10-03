@@ -51,3 +51,4 @@ MonoBehaviour:
   notebook: {fileID: 0}
   interactKey: {fileID: 0}
   moveToUI: {fileID: 0}
+  curUIState: 1

@@ -27,7 +27,7 @@ namespace EnumTypes
         Interacting,
     }
 
-    public enum InteractableData
+    public enum VillagerEnumData
     {
         None = 0,
         Mayor = 1,

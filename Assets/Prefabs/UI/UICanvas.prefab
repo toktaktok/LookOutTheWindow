@@ -122,7 +122,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3334421511160496564, guid: ecb7ca804d053471b8417387d5312282, type: 3}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: CloseDialoguePopup
         m_Mode: 1
@@ -772,9 +772,21 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3334421511160496564, guid: ecb7ca804d053471b8417387d5312282, type: 3}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
-        m_MethodName: OpenNotebookUI
+        m_MethodName: OpenNotebook
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: HideNoteBookButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2400,6 +2412,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5144075627478942951}
     m_Modifications:
+    - target: {fileID: 86689163310724478, guid: 7fdb8738226934ce5864832d2e7bf7ff, type: 3}
+      propertyPath: stickyNote
+      value: 
+      objectReference: {fileID: 7742942522382167812}
+    - target: {fileID: 227383021365662123, guid: 7fdb8738226934ce5864832d2e7bf7ff, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -300
+      objectReference: {fileID: 0}
+    - target: {fileID: 803536549392920084, guid: 7fdb8738226934ce5864832d2e7bf7ff, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2334759769533826204, guid: 7fdb8738226934ce5864832d2e7bf7ff, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -2414,27 +2438,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2334759769533826204, guid: 7fdb8738226934ce5864832d2e7bf7ff, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2334759769533826204, guid: 7fdb8738226934ce5864832d2e7bf7ff, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2334759769533826204, guid: 7fdb8738226934ce5864832d2e7bf7ff, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2334759769533826204, guid: 7fdb8738226934ce5864832d2e7bf7ff, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2334759769533826204, guid: 7fdb8738226934ce5864832d2e7bf7ff, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 1920
       objectReference: {fileID: 0}
     - target: {fileID: 2334759769533826204, guid: 7fdb8738226934ce5864832d2e7bf7ff, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 1080
       objectReference: {fileID: 0}
     - target: {fileID: 2334759769533826204, guid: 7fdb8738226934ce5864832d2e7bf7ff, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2484,6 +2508,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4026602366562211902, guid: 7fdb8738226934ce5864832d2e7bf7ff, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5775850232380487759, guid: 7fdb8738226934ce5864832d2e7bf7ff, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5775850232380487759, guid: 7fdb8738226934ce5864832d2e7bf7ff, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 4044d7eaa72b04f8db540b0aa4b89c4f, type: 3}
     - target: {fileID: 6621525643631946174, guid: 7fdb8738226934ce5864832d2e7bf7ff, type: 3}
       propertyPath: m_Name
       value: Notebook
@@ -2493,5 +2529,10 @@ PrefabInstance:
 --- !u!224 &4626448797435643276 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2334759769533826204, guid: 7fdb8738226934ce5864832d2e7bf7ff, type: 3}
+  m_PrefabInstance: {fileID: 6940831015086620944}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7742942522382167812 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 803536549392920084, guid: 7fdb8738226934ce5864832d2e7bf7ff, type: 3}
   m_PrefabInstance: {fileID: 6940831015086620944}
   m_PrefabAsset: {fileID: 0}

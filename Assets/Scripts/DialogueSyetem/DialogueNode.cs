@@ -22,12 +22,12 @@ public class DialogueNode : BaseNode
     public string dialogue = "";
     public Sprite sprite;
     public bool dialogueOptions = false;
-    [SerializeField] private InteractableData curInteractableData = InteractableData.None;
+    [SerializeField] private VillagerEnumData curVillagerEnumData = VillagerEnumData.None;
 
-    public InteractableData CurInteractableData
+    public VillagerEnumData CurVillagerEnumData
     {
-        get => curInteractableData;
-        set => curInteractableData = value;
+        get => curVillagerEnumData;
+        set => curVillagerEnumData = value;
     }
     
     

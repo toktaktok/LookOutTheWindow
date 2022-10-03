@@ -6836,6 +6836,17 @@ Transform:
   m_Father: {fileID: 2135575198}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1664950605 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3334421511160496564, guid: ecb7ca804d053471b8417387d5312282, type: 3}
+  m_PrefabInstance: {fileID: 955076167}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75d7e183d4d6f42aebfa3d4c51c86a74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1678538298
 GameObject:
   m_ObjectHideFlags: 0
@@ -8448,6 +8459,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1093382}
     m_Modifications:
+    - target: {fileID: 2504794645010503586, guid: b3825ef3d4b424392ac513dd97bff754, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1664950605}
+    - target: {fileID: 2504794645010503586, guid: b3825ef3d4b424392ac513dd97bff754, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1664950605}
+    - target: {fileID: 3541119618676597494, guid: b3825ef3d4b424392ac513dd97bff754, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1664950605}
+    - target: {fileID: 3737568340642322753, guid: b3825ef3d4b424392ac513dd97bff754, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4302815013796767918, guid: b3825ef3d4b424392ac513dd97bff754, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5144075627478942950, guid: b3825ef3d4b424392ac513dd97bff754, type: 3}
       propertyPath: m_Camera
       value: 
@@ -8539,6 +8570,10 @@ PrefabInstance:
     - target: {fileID: 5144075627478942971, guid: b3825ef3d4b424392ac513dd97bff754, type: 3}
       propertyPath: m_Name
       value: UICanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 5144075628075341845, guid: b3825ef3d4b424392ac513dd97bff754, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b3825ef3d4b424392ac513dd97bff754, type: 3}

@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using EnumTypes;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -48,6 +50,23 @@ public class QuestManager : Singleton<QuestManager>
         }
 
         return false;
+    }
+
+    [ContextMenu("Add Quest")]
+
+    public void AddQuest()
+    {
+        var id = 1;
+        var title = ""; var description = "";
+        var requestedVillager = VillagerEnumData.None;
+        // Villager villager = null;
+
+        EditorGUILayout.IntField("quest id", id);
+        EditorGUILayout.TextArea("title", title);
+        EditorGUILayout.TextField("description", description);
+        EditorGUILayout.EnumPopup(requestedVillager);
+
+        var newQuest = new Quest(id, title, description, Enum.GetName(typeof(VillagerEnumData), requestedVillager));
     }
 }
 

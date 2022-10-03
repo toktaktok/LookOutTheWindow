@@ -26,7 +26,7 @@ public class DialogueNodeDrawer : NodeEditor
 
     private int nodePortToDelete = 0;
 
-    private InteractableData interactableData;
+    private VillagerEnumData _villagerEnumData;
 
     private string testDialogueText; //manager 통해서 대사 받을 수 있는가?
     
@@ -164,8 +164,8 @@ public class DialogueNodeDrawer : NodeEditor
             float prevWidth = EditorGUIUtility.labelWidth; //가로 크기
             EditorGUIUtility.labelWidth = 150;
         
-            interactableData = dialogueNode.CurInteractableData;
-            dialogueNode.CurInteractableData = (InteractableData)EditorGUILayout.EnumPopup("현재 주민", interactableData); //enum 체크로 주민 특정)
+            _villagerEnumData = dialogueNode.CurVillagerEnumData;
+            dialogueNode.CurVillagerEnumData = (VillagerEnumData)EditorGUILayout.EnumPopup("현재 주민", _villagerEnumData); //enum 체크로 주민 특정)
             //     dialogueNode.speakerName = Enum.GetName(typeof(InteractableData), interactable); //주민 이름 받아오기
         // GUILayout.Label(dialogueNode.speakerName);
         //     
