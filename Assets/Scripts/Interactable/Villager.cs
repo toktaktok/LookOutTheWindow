@@ -3,53 +3,56 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using EnumTypes;
+using Unity.VisualScripting.Dependencies.NCalc;
 using XNode;
 
 public class Villager : MonoBehaviour
 {
-
-    [SerializeField] private string itsName;
-    
-    [SerializeField] public int[] basicDialogueId; // 기본 대사 범위(처음,끝)
-    [HideInInspector] private int curBDialogueState = 0; // 호출할 기본 대사 id
-    // [SerializeField] private InteractableData interactableInfo;
+    public string itsName;
     public DialogueGraph[] dialogueGraphs;
-    [SerializeField] private Interactable interactable;
-    private VillagerEnumData itsInfo;
+    public int[] basicDialogueId = {0, 0}; // 기본 대사 범위(처음,끝)
 
+    public bool neverSeenBefore = true;
+    [SerializeField] private int curBDialogueState; // 호출할 기본 대사 id
+    [SerializeField] private VillagerEnumData EnumInfo;
+    private Interactable interactable;
+
+    
     //CharacterManager의 하위 객체. CharacterManager을 역참조한다
     private CharacterManager _manager;
-    
+
+    public string Name
+    {
+        get => itsName;
+    }
+
+
     private void Start()
     {
         Init();
+        curBDialogueState = basicDialogueId[0];
     }
 
     private void Init()
     {
-        itsName = interactable.Name;
-        interactable.GetEnumName();
-    }
-    public void SwitchBasicDialogueID()
-    {
-        
+        itsName = Enum.GetName(typeof(VillagerEnumData), EnumInfo);
     }
 
-    public void PlusCurBDialogueState() => curBDialogueState++;
 
     public int GetCurrentBDialogueState()
     {
-        return curBDialogueState;
+
+        return curBDialogueState < basicDialogueId[1]? curBDialogueState++: curBDialogueState;
     }
  
+   
 
-    public void Check()
+    public void Interact()
     {
         DialogueManager.Instance.ParseStart(dialogueGraphs[0]); //기본 대사 시작
+        // Debug.Log(itsName);
+   
         // UIManager.Instance.OpenDialoguePopup(interactable.DialogueGraphs[0]);
-        // Debug.Log("주민 id : " + interactable.Id);
-        // Debug.Log("주민 이름 : " + itsName);
-        // Debug.Log("miniGame Id : " + interactable.Minigameid);
         // interactable.CheckMiniGame();
     }
 

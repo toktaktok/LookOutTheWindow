@@ -59,9 +59,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b9e5a459bb9f4f8389e3ef1989227dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactable: {fileID: 11400000, guid: 9393f969d0f9b4ad892ab49faa8ed8bb, type: 2}
+  dialogueGraphs:
+  - {fileID: 11400000, guid: 3176e9e24def94d2fa286288f1407416, type: 2}
+  basicDialogueId: 7000000074000000
   itsName: Goose
-  _dialogueGraphs: []
+  EnumInfo: 26
+  interactable: {fileID: 11400000, guid: 9393f969d0f9b4ad892ab49faa8ed8bb, type: 2}
 --- !u!1 &2853492418461725287
 GameObject:
   m_ObjectHideFlags: 0

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Dialogue
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 360, y: -88}
+  position: {x: 56, y: -88}
   ports:
     keys:
     - entry
@@ -22,68 +22,6 @@ MonoBehaviour:
     values:
     - _fieldName: entry
       _node: {fileID: -5600800939392016041}
-      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections:
-      - fieldName: exit
-        node: {fileID: -22847288291610294}
-        reroutePoints: []
-      _direction: 0
-      _connectionType: 0
-      _typeConstraint: 0
-      _dynamic: 0
-    - _fieldName: exit
-      _node: {fileID: -5600800939392016041}
-      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections:
-      - fieldName: entry
-        node: {fileID: 3034426248698635495}
-        reroutePoints: []
-      _direction: 1
-      _connectionType: 0
-      _typeConstraint: 0
-      _dynamic: 0
-    - _fieldName: 
-      _node: {fileID: -5600800939392016041}
-      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections: []
-      _direction: 1
-      _connectionType: 0
-      _typeConstraint: 0
-      _dynamic: 1
-  entry: 0
-  exit: 0
-  speakerName: "\uAC70\uC704"
-  dialogue: "\uC751...?\n\uC774\uBAB8\uC5D0\uAC8C \uBCFC \uC77C\uC774 \uC788\uB294\uAC70\uB0D0?"
-  sprite: {fileID: 0}
-  dialogueOptions: 0
-  curInteractableData: 0
-  isBasicState: 1
-  dialogueOptionList: []
---- !u!114 &-22847288291610294
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc4e532056d404dd6a7cd50893082739, type: 3}
-  m_Name: Dialogue
-  m_EditorClassIdentifier: 
-  graph: {fileID: 11400000}
-  position: {x: 8, y: -88}
-  ports:
-    keys:
-    - entry
-    - exit
-    - 
-    values:
-    - _fieldName: entry
-      _node: {fileID: -22847288291610294}
       _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
       connections:
@@ -95,19 +33,19 @@ MonoBehaviour:
       _typeConstraint: 0
       _dynamic: 0
     - _fieldName: exit
-      _node: {fileID: -22847288291610294}
+      _node: {fileID: -5600800939392016041}
       _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: entry
-        node: {fileID: -5600800939392016041}
+        node: {fileID: 4036342967881042467}
         reroutePoints: []
       _direction: 1
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
     - _fieldName: 
-      _node: {fileID: -22847288291610294}
+      _node: {fileID: -5600800939392016041}
       _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
       connections: []
@@ -117,43 +55,13 @@ MonoBehaviour:
       _dynamic: 1
   entry: 0
   exit: 0
-  speakerName: "\uAC70\uC704"
-  dialogue: "\uD760..~\uD760\uD760..~\n\uD760..~~"
+  speakerName: Goose
+  dialogue: "\uBB50\uC57C?"
   sprite: {fileID: 0}
   dialogueOptions: 0
-  curInteractableData: 0
-  isBasicState: 0
-  dialogueOptionList:
-  - dialogue: 
-    option: 
-    curDialogueId: 0
-  - dialogue: 
-    option: 
-    curDialogueId: 0
-  - dialogue: 
-    option: 
-    curDialogueId: 0
-  - dialogue: 
-    option: 
-    curDialogueId: 0
-  - dialogue: 
-    option: 
-    curDialogueId: 0
-  - dialogue: 
-    option: 
-    curDialogueId: 0
-  - dialogue: 
-    option: 
-    curDialogueId: 0
-  - dialogue: 
-    option: 
-    curDialogueId: 0
-  - dialogue: 
-    option: 
-    curDialogueId: 0
-  - dialogue: 
-    option: 
-    curDialogueId: 0
+  curVillagerEnumData: 26
+  isBasicState: 1
+  dialogueOptionList: []
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -167,12 +75,12 @@ MonoBehaviour:
   m_Name: GooseBasic
   m_EditorClassIdentifier: 
   nodes:
-  - {fileID: -22847288291610294}
   - {fileID: 4985739560932892968}
   - {fileID: -5600800939392016041}
-  - {fileID: 3034426248698635495}
+  - {fileID: 4036342967881042467}
   current: {fileID: -5600800939392016041}
---- !u!114 &3034426248698635495
+  first: {fileID: 0}
+--- !u!114 &4036342967881042467
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -185,13 +93,13 @@ MonoBehaviour:
   m_Name: Stop
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 696, y: -72}
+  position: {x: 392, y: -72}
   ports:
     keys:
     - entry
     values:
     - _fieldName: entry
-      _node: {fileID: 3034426248698635495}
+      _node: {fileID: 4036342967881042467}
       _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
       connections:
@@ -227,7 +135,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: entry
-        node: {fileID: -22847288291610294}
+        node: {fileID: -5600800939392016041}
         reroutePoints: []
       _direction: 1
       _connectionType: 0

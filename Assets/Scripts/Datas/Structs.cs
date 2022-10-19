@@ -30,9 +30,15 @@ namespace Structs
     [System.Serializable]
     public struct BasicDialogueList
     {
-        public List<DialogueInfo> basicDialogueData;
+        public List<DialogueInfo> dialogueData;
     }
-
+    
+    //전체 대사 리스트
+    [System.Serializable]
+    public struct GossipDialogueList
+    {
+        public List<DialogueInfo> dialogueData;
+    }
 
 
 }

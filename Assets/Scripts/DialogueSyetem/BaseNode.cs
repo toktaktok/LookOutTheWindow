@@ -5,12 +5,11 @@ using XNode;
 
 public class BaseNode : Node {
 
-    public virtual string GetString()
+    public virtual void GetValue()
     {
-        return null;
+        return;
     }
-
-    public virtual Sprite GetSprite()
+    public virtual string GetString()
     {
         return null;
     }
@@ -19,5 +18,6 @@ public class BaseNode : Node {
     {
         return false;
     }
+
 
 }

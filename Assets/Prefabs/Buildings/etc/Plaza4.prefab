@@ -27,14 +27,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7269426221371187998}
-  m_LocalRotation: {x: 0, y: -0.7933534, z: 0, w: 0.6087614}
-  m_LocalPosition: {x: -76.84, y: -1.26, z: -116.51}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -76.84, y: -10.6, z: -116.51}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: -105, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &7269426221371187994
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -103,12 +103,12 @@ MonoBehaviour:
   voxelFileObject: {fileID: 3038232676009371550, guid: 693bd6738b05641f1bb9baeda235ae6a, type: 3}
   voxelFileSubIndex: 0
   fileType: 0
-  fileRefreshLastTimeTicks: 637940180101694650
+  fileRefreshLastTimeTicks: 638013624710284390
   dataVersion: 115
   legacyVoxImport: 1
   legacyAssetNaming: 0
   importMode: 1
-  importFlags: 4
+  importFlags: 0
   importScale: {x: 0.23, y: 0.23, z: 0.23}
   importOffset: {x: 0, y: 0, z: 0}
   localOffset: {x: -29, y: 0, z: -24.5}
@@ -173,7 +173,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7269426221371187998}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
   m_Name: 

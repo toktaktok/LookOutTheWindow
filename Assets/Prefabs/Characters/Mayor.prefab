@@ -181,7 +181,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itsName: 
-  basicDialogueId: 
   dialogueGraphs:
   - {fileID: 11400000, guid: 2df4dc13ed7d74a0ea4e266ac64eba2b, type: 2}
-  interactable: {fileID: 11400000, guid: 84a055ee02aab394ab86a7b07115e51e, type: 2}
+  - {fileID: 11400000, guid: cd796a10150e5473f8819f2b86b3a58b, type: 2}
+  basicDialogueId: 0100000005000000
+  neverSeenBefore: 1
+  curBDialogueState: 0
+  EnumInfo: 1

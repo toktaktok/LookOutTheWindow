@@ -10,6 +10,8 @@ using EnumTypes;
 [CustomNodeEditor(typeof(DialogueNode))]
 public class DialogueNodeDrawer : NodeEditor
 {
+    private VillagerEnumData villagerEnumData;
+    
     private DialogueNode dialogueNode;
 
     private bool showEntryNode = true;
@@ -26,10 +28,10 @@ public class DialogueNodeDrawer : NodeEditor
 
     private int nodePortToDelete = 0;
 
-    private VillagerEnumData _villagerEnumData;
-
     private string testDialogueText; //manager 통해서 대사 받을 수 있는가?
     
+    private int dialogueId = 0;
+
 
     
     public override void OnBodyGUI()//Dialogue에 적용될 node ui 설정.
@@ -54,7 +56,6 @@ public class DialogueNodeDrawer : NodeEditor
         {
             showEntryNode = !showEntryNode;
         }
-        
         
         //기본 npc 상태 -> 선택 옵션 윈도우를 띄울 것인지, 아닌지
         Color prev = GUI.backgroundColor;
@@ -164,28 +165,19 @@ public class DialogueNodeDrawer : NodeEditor
             float prevWidth = EditorGUIUtility.labelWidth; //가로 크기
             EditorGUIUtility.labelWidth = 150;
         
-            _villagerEnumData = dialogueNode.CurVillagerEnumData;
-            dialogueNode.CurVillagerEnumData = (VillagerEnumData)EditorGUILayout.EnumPopup("현재 주민", _villagerEnumData); //enum 체크로 주민 특정)
-            //     dialogueNode.speakerName = Enum.GetName(typeof(InteractableData), interactable); //주민 이름 받아오기
-        // GUILayout.Label(dialogueNode.speakerName);
-        //     
-        //     
+            villagerEnumData = dialogueNode.CurVillagerEnumData;
+            dialogueNode.CurVillagerEnumData = (VillagerEnumData)EditorGUILayout.EnumPopup("현재 주민", villagerEnumData); //enum 체크로 주민 특정
+   
             GUILayout.Space(10);
             EditorGUIUtility.labelWidth = 150;
-        //
             if (dialogueNode.IsBasicState()) // 현재 기본 대사 노드인지?
             {
-            //         GUILayout.Label("dialogue");
-            testDialogueText = DataManager.Instance.GetDialogueData(3);
-            //         // Debug.Log(text);
-            //         // GUILayout.TextField(DialogueManager.Instance.GetBasicDialogue(dialogueNode.speakerName));
-            //         GUILayout.TextField(testDialogueText);
-            //     
+
             }
             else //기본 대사가 아닌 의뢰, 스토리 관련 대사 노드
             {
-            //         int dialogueId = 0;
-            //         EditorGUILayout.IntField("dialogue id", dialogueId);
+                dialogueNode.dialogueId = EditorGUILayout.IntField("dialogue id",dialogueNode.dialogueId);
+                // dialogueId = EditorGUILayout.IntField("dialogue id",dialogueId);
             //         // GUILayout.TextField(DialogueManager.Instance.GetDialogue(dialogueId));
             //         // NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("dialogue"));
             }

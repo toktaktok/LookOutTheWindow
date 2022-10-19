@@ -14,10 +14,10 @@ public class CameraController : Singleton<CameraController>
     public Camera mainCam; //메인 카메라 
     public Camera miniCam; //미니게임용 카메라
     
-    [Range(0, 1)]
-    public float zoomRange;         //카메라 줌 범위를 조절하는 변수
-    [Range(8, 40)]
-    public float viewSize = 20;           //zoomRange에 따라 fieldOfView를 바꾸는 변수
+    [SerializeField]
+    private float zoomRange = 0.5f;         //카메라 줌 범위를 조절하는 변수
+    [Range(9, 25)]
+    public float viewSize = 14;           //zoomRange에 따라 fieldOfView를 바꾸는 변수
 
     private float preViewSize;
 
@@ -28,31 +28,40 @@ public class CameraController : Singleton<CameraController>
     
     [SerializeField] private Ease defaultEase = Ease.OutSine;
     private float savedZoomRange;    //기존 줌 범위
-    private readonly float zoomXrot = -23;                 //zoomRange에 따라 rotation.x를 조절하는 변수
     private float rotateValue;       //회전 값
     private bool isCutscene = false;
-    
-    
-    private void Start()
-    {
-        target = GameObject.FindWithTag("Player").GetComponent<Transform>();
+    private const float _zoomXRot = -23;                 //zoomRange에 따라 rotation.x를 조절하는 변수 / 기본 -23
+    private readonly WaitForSeconds camTimer = new WaitForSeconds(0.2f);
 
-        // zoomXRot = -23;
-        mainOrigRect = mainCam.rect;
-        miniOrigRect = miniCam.rect;
+
+    private void Awake()
+    {
         DOTween.SetTweensCapacity(2000, 50);
     }
-
-    public void Zoom(InputAction.CallbackContext ctx)
+    private void Start()
     {
-        zoomRange -= ctx.ReadValue<float>() * 0.005f; // 들어온 마우스 스크롤 값에 따라 변경
-        zoomRange = zoomRange switch // zoomRange(0~1) 를 넘지 않도록 한다.
+        if (GameObject.FindWithTag("Player").TryGetComponent<Transform>(out var tar))
         {
-            > 1 => 1,
-            < 0 => 0,
-            _ => zoomRange
-        };
+            target = tar;
+        }
+        mainOrigRect = mainCam.rect;
+        miniOrigRect = miniCam.rect;
+        zoomRange = 0.5f;
+        viewSize = zoomRange * 16 + 9;
+
     }
+
+    // public void Zoom(InputAction.CallbackContext ctx)
+    // {
+    //     zoomRange -= ctx.ReadValue<float>() * 0.005f; // 들어온 마우스 스크롤 값에 따라 변경
+    //     zoomRange = zoomRange switch // zoomRange(0~1) 를 넘지 않도록 한다.
+    //     {
+    //         > 1 => 1,
+    //         < 0 => 0,
+    //         _ => zoomRange
+    //     };
+    //     viewSize = zoomRange * 16 + 8;
+    // }
 
     public void Rotate(InputAction.CallbackContext ctx)
     {
@@ -65,47 +74,52 @@ public class CameraController : Singleton<CameraController>
             > 6 => 5,
             _ => rotateValue
         };
-        //plusRotation = Quaternion.Euler(new Vector3(0, rotateValue, 0));
-        //targetRotation = origRotation * plusRotation;
-        
-    }
-
-    private void InGameCamUpdate()
-    {
-        mainCamAnchor.DOMove(target.position, 0.6f).SetEase(Ease.Linear);
-        var targetRotation = Quaternion.Euler(zoomXrot, rotateValue, 0);
+        var targetRotation = Quaternion.Euler(_zoomXRot, rotateValue, 0);
         mainCamAnchor.DORotateQuaternion(targetRotation, 0.3f).SetEase(defaultEase);
-        preViewSize = viewSize;
+
     }
-
-    public void MoveCamEase(Vector3 targetPos) => mainCamAnchor.DOMove(targetPos, 0.6f).SetEase(Ease.InSine);
-    public void MoveCamInstant(Vector3 targetPos) =>  mainCamAnchor.DOMove(targetPos, 0f).SetEase(Ease.Linear);
-
+    
     private void FixedUpdate()
     {
-        // 카메라와 카메라 anchor의 위치, 회전 보간
-        if (viewSize != preViewSize)
-        {
-            mainCam.DOOrthoSize(viewSize, 0.4f).SetEase(defaultEase);
-        }
-        
         //현재 컷신이거나 카메라와 플레이어 사이 거리가 10 이하일 경우
         if (isCutscene || Vector3.Distance(mainCam.transform.position, target.position) <= 10)  
         {
             return;
         }
         InGameCamUpdate();
-        
-
     }
-    
-    public void SaveZoomRange(int editedRange)
+     private void InGameCamUpdate()
+    {
+        // 카메라와 카메라 anchor의 위치, 회전 보간
+        mainCamAnchor.DOMove(target.position + new Vector3(0, zoomRange * 12 - 5,0), 0.4f).SetEase(defaultEase);
+        
+        //업데이트에 줌 수치 넣었을 때
+        // if (viewSize == preViewSize)
+        // {
+        //     return;
+        // }
+        //anchor y size = playerPos - 3 ~ playerPos + 15
+        // mainCam.DOOrthoSize(viewSize, 0.6f).SetEase(defaultEase);
+    }
+     
+     //카메라를 움직여야 할 위치가 따로 있을 시
+     public void MoveCamEase(Vector3 targetPos) => mainCamAnchor.DOMove(targetPos, 0.4f).SetEase(defaultEase);
+     public void MoveCamInstant(Vector3 targetPos) =>  mainCamAnchor.DOMove(targetPos, 0f).SetEase(Ease.Linear);
+     
+    public void SaveZoomRange(float editedRange)
     {
         savedZoomRange = zoomRange;
         zoomRange = editedRange;
+        viewSize = zoomRange * 16 + 9;
+        mainCam.DOOrthoSize(viewSize, 0.4f).SetEase(defaultEase);
     }
     
-    public void ReturnInteractionView() =>  zoomRange = savedZoomRange;
+    public void ReturnInteractionView()
+    { 
+        zoomRange = savedZoomRange;
+        viewSize = zoomRange * 16 + 9;
+        mainCam.DOOrthoSize(viewSize, 0.4f).SetEase(defaultEase);
+    }  
 
     public void MakeMiniGameView()
     {
@@ -117,6 +131,12 @@ public class CameraController : Singleton<CameraController>
     {
         mainCam.DORect(mainOrigRect, 1f).SetEase(Ease.OutQuart);
         miniCam.DORect(miniOrigRect, 1f).SetEase(Ease.OutQuart);
+    }
+
+    private IEnumerator CamMoveTimer()
+    {
+        yield return camTimer;
+        preViewSize = viewSize;
     }
 
 

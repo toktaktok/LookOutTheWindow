@@ -9,9 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 380919856508516105}
-  - component: {fileID: 380919856508516110}
-  - component: {fileID: 380919856508516111}
-  - component: {fileID: 380919856508516104}
   m_Layer: 9
   m_Name: StreetLight2
   m_TagString: Untagged
@@ -31,142 +28,12 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 4551739868006933904}
+  - {fileID: 5893327184733819906}
   - {fileID: 1629933998952949382}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &380919856508516110
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 380919856508516106}
-  m_Mesh: {fileID: 6600114784659073017}
---- !u!23 &380919856508516111
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 380919856508516106}
-  m_Enabled: 1
-  m_CastShadows: 2
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: -9120541006633264847}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &380919856508516104
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 380919856508516106}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 22b26957667d5104ab632a10dc9da700, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  advancedMode: 0
-  voxelFilePath: /Users/colda/local/LookOutTheWindow/Snowman/Assets/Models/Etc/street
-    light2.vox
-  voxelFileGUID: 
-  voxelFileObject: {fileID: 2409045609645955471, guid: 847eef922d477429c892f08f1db6ed37, type: 3}
-  voxelFileSubIndex: 0
-  fileType: 0
-  fileRefreshLastTimeTicks: 637927356715559890
-  dataVersion: 115
-  legacyVoxImport: 0
-  legacyAssetNaming: 0
-  importMode: 1
-  importFlags: 0
-  importScale: {x: 0.16, y: 0.16, z: 0.16}
-  importOffset: {x: 0, y: 0, z: 0}
-  localOffset: {x: -22, y: -0, z: -3}
-  enableFaceFlags: -1
-  disableData:
-    disableList: []
-    faceList: 
-  combineFaces: 1
-  ignoreCavity: 1
-  shareSameFace: 1
-  removeUnusedPalettes: 1
-  shareSameMaterial: 1
-  voxelStructure: {fileID: 0}
-  generateLightmapUVs: 0
-  generateLightmapUVsAngleError: 8
-  generateLightmapUVsAreaError: 15
-  generateLightmapUVsHardAngle: 88
-  generateLightmapUVsPackMargin: 4
-  generateTangents: 0
-  generateVertexColors: 0
-  generateVertexColorMax: {r: 1, g: 1, b: 1, a: 1}
-  generateVertexColorMin: {r: 0.64, g: 0.64, b: 0.64, a: 1}
-  meshFaceVertexOffset: 0
-  generateMipMaps: 0
-  updateMeshRendererMaterials: 1
-  updateMaterialTexture: 1
-  loadFromVoxelFile: 0
-  materialData:
-  - materialList: []
-    name: 
-    transparent: 0
-    material:
-      renderingMode: 0
-      metallic: 0
-      smoothness: 0
-      alpha: 0
-      emission: {r: 0, g: 0, b: 0, a: 0}
-      emissionPower: 0
-  materialIndexes: 00000000
-  edit_importFoldout: 1
-  edit_objectFoldout: 1
-  edit_generateLightmapUVsAdvancedFoldout: 0
-  edit_helpEnable: 0
-  edit_configureMode: 0
-  edit_configureMaterialIndex: 0
-  edit_configureMaterialMainMode: 0
-  edit_configureMaterialSubMode: 0
-  edit_configureDisableMainMode: 0
-  edit_configureDisableSubMode: 0
-  edit_ConfigurePreviewMode: 0
-  edit_snapToHalfVoxel: 1
-  edit_enableMesh: []
-  mesh: {fileID: 6600114784659073017}
-  material: {fileID: 0}
-  materials:
-  - {fileID: -9120541006633264847}
-  atlasTexture: {fileID: 5831508991982939716}
 --- !u!1 &2313681444039295256
 GameObject:
   m_ObjectHideFlags: 0
@@ -198,7 +65,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1629933998952949382}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 110, y: 0, z: 0}
 --- !u!108 &2545211328892093828
 Light:
@@ -310,12 +177,94 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 5893327184733819906}
   - {fileID: 3137757368849841653}
   - {fileID: 6362766522552639834}
   m_Father: {fileID: 380919856508516105}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4616840202651773636
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4551739868006933904}
+  - component: {fileID: 2773521816599626246}
+  - component: {fileID: 5751028971406322042}
+  m_Layer: 0
+  m_Name: street light2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4551739868006933904
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4616840202651773636}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 380919856508516105}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &2773521816599626246
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4616840202651773636}
+  m_Mesh: {fileID: -8670151273213183110, guid: 847eef922d477429c892f08f1db6ed37, type: 3}
+--- !u!23 &5751028971406322042
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4616840202651773636}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: -156486658544998735, guid: 847eef922d477429c892f08f1db6ed37, type: 3}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &5871005882729109584
 GameObject:
   m_ObjectHideFlags: 0
@@ -347,7 +296,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1629933998952949382}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 110, y: 0, z: 0}
 --- !u!108 &5788858964102493260
 Light:
@@ -457,12 +406,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6685919641437661467}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3, y: 13.3, z: 0.1}
+  m_LocalPosition: {x: -3, y: 13.3, z: 0.09999752}
   m_LocalScale: {x: 0.5, y: 0.7, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1629933998952949382}
-  m_RootOrder: 0
+  m_Father: {fileID: 380919856508516105}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &4226922204917192486
 MeshFilter:

@@ -202,4 +202,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b9e5a459bb9f4f8389e3ef1989227dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactable: {fileID: 0}
+  itsName: 
+  dialogueGraphs: []
+  basicDialogueId: 1a0000001e000000
+  neverSeenBefore: 1
+  curBDialogueState: 0
+  EnumInfo: 6

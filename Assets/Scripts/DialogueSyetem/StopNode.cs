@@ -14,4 +14,8 @@ public class StopNode : BaseNode {
 	{
 		return "Stop";
 	}
+	public override void GetValue()
+	{
+		return;
+	}
 }

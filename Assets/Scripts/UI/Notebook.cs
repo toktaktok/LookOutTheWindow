@@ -52,6 +52,7 @@ public class Notebook : MonoBehaviour
         // questPage.SetActive(false);
         rectTransform.DOAnchorPosY(defaultClosedYPos, 0.4f).SetEase(Ease.InSine);
         yield return waitForSeconds;
+        UIManager.Instance.ShowNoteBookButton();
         FalseActiveSelf();
     }
 

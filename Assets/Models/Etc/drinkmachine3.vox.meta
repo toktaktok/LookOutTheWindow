@@ -13,7 +13,7 @@ ScriptedImporter:
   gameObjectName: drinkmachine3
   meshMode: 0
   importMode: 1
-  importScale: {x: 1, y: 1, z: 1}
+  importScale: {x: 0.1, y: 0.1, z: 0.1}
   importOffset: {x: 0, y: 0, z: 0}
   combineFaces: 1
   ignoreCavity: 1
@@ -37,7 +37,7 @@ ScriptedImporter:
   createContactChunkFaces: 0
   materialMode: 0
   materials:
-  - {instanceID: 0}
+  - {fileID: -156486658544998735, guid: 7b401681105414e53af83e8b563cf65e, type: 3}
   materialNames:
   - drinkmachine3_0
   remappedMaterials:

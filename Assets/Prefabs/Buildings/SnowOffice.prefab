@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 32539208}
   - component: {fileID: 32539207}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SnowofficeWin19
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 241604538}
   - component: {fileID: 241604537}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SnowofficeWin3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -178,7 +178,7 @@ GameObject:
   m_Component:
   - component: {fileID: 257532525}
   - component: {fileID: 257532524}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SnowofficeWin8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -262,7 +262,7 @@ GameObject:
   m_Component:
   - component: {fileID: 479997507}
   - component: {fileID: 479997506}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SnowofficeWin21
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -346,7 +346,7 @@ GameObject:
   m_Component:
   - component: {fileID: 526727769}
   - component: {fileID: 526727768}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SnowofficeWin22
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -430,7 +430,7 @@ GameObject:
   m_Component:
   - component: {fileID: 757048631}
   - component: {fileID: 757048630}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SnowofficeWin24
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -514,7 +514,7 @@ GameObject:
   m_Component:
   - component: {fileID: 818956217}
   - component: {fileID: 818956216}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SnowofficeWin10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -598,7 +598,7 @@ GameObject:
   m_Component:
   - component: {fileID: 928268242}
   - component: {fileID: 928268241}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SnowofficeWin2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -682,7 +682,7 @@ GameObject:
   m_Component:
   - component: {fileID: 930195375}
   - component: {fileID: 930195374}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SnowofficeWin18
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -766,7 +766,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1067983970}
   - component: {fileID: 1067983969}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SnowofficeWin5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -850,7 +850,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1092555400}
   - component: {fileID: 1092555399}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SnowofficeWin6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -934,7 +934,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1247967526}
   - component: {fileID: 1247967525}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SnowofficeWin17
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1018,7 +1018,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1291458284}
   - component: {fileID: 1291458283}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SnowofficeWin20
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1102,7 +1102,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1398026728}
   - component: {fileID: 1398026727}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SnowofficeWin13
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1186,7 +1186,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1454603206}
   - component: {fileID: 1454603205}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SnowofficeWin14
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1270,7 +1270,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1763879152}
   - component: {fileID: 1763879151}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SnowofficeWin11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1354,7 +1354,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1834226283}
   - component: {fileID: 1834226282}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SnowofficeWin23
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1438,7 +1438,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1941966520}
   - component: {fileID: 1941966519}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SnowofficeWin7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1522,7 +1522,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2107675398}
   - component: {fileID: 2107675397}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SnowofficeWin4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1606,7 +1606,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2112907060}
   - component: {fileID: 2112907059}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SnowofficeWin9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1690,7 +1690,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2708247961698551095}
   - component: {fileID: 2708247961698551096}
-  m_Layer: 12
+  m_Layer: 9
   m_Name: Sign5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1774,7 +1774,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2708247961956221193}
   - component: {fileID: 2708247961956221194}
-  m_Layer: 12
+  m_Layer: 9
   m_Name: Poster4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1861,7 +1861,7 @@ GameObject:
   - component: {fileID: 2708247961979610277}
   - component: {fileID: 2708247961979610276}
   - component: {fileID: 2708247961979610279}
-  m_Layer: 12
+  m_Layer: 9
   m_Name: SnowOffice
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1877,7 +1877,7 @@ Transform:
   m_GameObject: {fileID: 2708247961979610274}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2708247962192796551}
@@ -1966,7 +1966,7 @@ MonoBehaviour:
   voxelFileObject: {fileID: 8077519866339754087, guid: ee01c1fb1dfcd4dfeb1e1ade7f80f8cc, type: 3}
   voxelFileSubIndex: 0
   fileType: 0
-  fileRefreshLastTimeTicks: 637930660528001920
+  fileRefreshLastTimeTicks: 638013623632078080
   dataVersion: 115
   legacyVoxImport: 0
   legacyAssetNaming: 0
@@ -13391,8 +13391,8 @@ MonoBehaviour:
       emission: {r: 0, g: 0, b: 0, a: 0}
       emissionPower: 0
   materialIndexes: 0000000001000000
-  edit_importFoldout: 0
-  edit_objectFoldout: 1
+  edit_importFoldout: 1
+  edit_objectFoldout: 0
   edit_generateLightmapUVsAdvancedFoldout: 0
   edit_helpEnable: 0
   edit_configureMode: 0
@@ -13438,7 +13438,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2708247962000456464}
   - component: {fileID: 2708247962000456465}
-  m_Layer: 12
+  m_Layer: 9
   m_Name: Sign2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13522,7 +13522,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2708247962018913259}
   - component: {fileID: 2708247962018913260}
-  m_Layer: 12
+  m_Layer: 9
   m_Name: Typo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13606,7 +13606,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2708247962131203421}
   - component: {fileID: 2708247962131203422}
-  m_Layer: 12
+  m_Layer: 9
   m_Name: Sign1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13690,7 +13690,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2708247962192796551}
   - component: {fileID: 2708247962192796552}
-  m_Layer: 12
+  m_Layer: 9
   m_Name: Poster1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13774,7 +13774,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2708247962485636905}
   - component: {fileID: 2708247962485636906}
-  m_Layer: 12
+  m_Layer: 9
   m_Name: Sign3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13858,7 +13858,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2708247962616825603}
   - component: {fileID: 2708247962616825604}
-  m_Layer: 12
+  m_Layer: 9
   m_Name: Sign6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13942,7 +13942,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2708247963012674605}
   - component: {fileID: 2708247963012674606}
-  m_Layer: 12
+  m_Layer: 9
   m_Name: Poster3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14026,7 +14026,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2708247963246403755}
   - component: {fileID: 2708247963246403756}
-  m_Layer: 12
+  m_Layer: 9
   m_Name: Sign4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14110,7 +14110,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2708247963405926396}
   - component: {fileID: 2708247963405926397}
-  m_Layer: 12
+  m_Layer: 9
   m_Name: Poster2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14196,7 +14196,7 @@ GameObject:
   - component: {fileID: 4648427996988812216}
   - component: {fileID: 5054437005035503472}
   - component: {fileID: 954794419}
-  m_Layer: 12
+  m_Layer: 9
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14329,7 +14329,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3268969050987414861}
-  m_Layer: 12
+  m_Layer: 9
   m_Name: Windows
   m_TagString: Untagged
   m_Icon: {fileID: 0}

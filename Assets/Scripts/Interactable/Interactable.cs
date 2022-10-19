@@ -8,22 +8,15 @@ using XNode;
 [CreateAssetMenu(fileName = "Interactable", menuName = "ScriptableObjects/Interactable", order = 1)]
 public class Interactable : ScriptableObject
 {
-    [SerializeField]
-    private Sprite _image;
+    [SerializeField] private Sprite _image;
 
-    // [SerializeField]
-    // private string _id; //고유 번호 
+    [SerializeField] private int _minigameId = 0; //미니게임 번호
 
-    [SerializeField]
-    private int _minigameId = 0; //미니게임 번호
+    [SerializeField] private string _name; //고유 이름
 
-    [SerializeField]
-    private string _name; //고유 이름
-
-    [SerializeField]
-    private DialogueGraph[] _dialogueGraphs;
+    [SerializeField] private DialogueGraph[] _dialogueGraphs;
     
-    [SerializeField] int[] _basicDialogueId;
+    [SerializeField] private int[] _basicDialogueId;
 
     [SerializeField] private VillagerEnumData villagerEnumInfo;
     
@@ -33,11 +26,7 @@ public class Interactable : ScriptableObject
     {
         get { return _image; }
     }
-
-    // public string Id
-    // {
-    //     get { return _id; }
-    // }
+    
 
     public string Name
     {
@@ -61,7 +50,7 @@ public class Interactable : ScriptableObject
     public void GetEnumName()
     {
         // const bool ignoreCase = true;
-        Debug.Log(Enum.GetName(typeof(VillagerEnumData), villagerEnumInfo)); 
+        // Debug.Log(Enum.GetName(typeof(VillagerEnumData), villagerEnumInfo)); 
         // Debug.Log(Enum.TryParse(Name, ignoreCase, out interactableInfo));
     }
 

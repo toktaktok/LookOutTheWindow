@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-6042777413466103372
+--- !u!114 &-633171815526188669
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: Stop
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 984, y: -152}
+  position: {x: 1043, y: -73.5}
   ports:
     keys:
     - entry
     values:
     - _fieldName: entry
-      _node: {fileID: -6042777413466103372}
+      _node: {fileID: -633171815526188669}
       _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
       connections:
@@ -46,8 +46,9 @@ MonoBehaviour:
   nodes:
   - {fileID: 280058895116384387}
   - {fileID: 3299153823977400831}
-  - {fileID: -6042777413466103372}
+  - {fileID: -633171815526188669}
   current: {fileID: 3299153823977400831}
+  first: {fileID: 0}
 --- !u!114 &280058895116384387
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -117,7 +118,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: entry
-        node: {fileID: -6042777413466103372}
+        node: {fileID: -633171815526188669}
         reroutePoints: []
       _direction: 1
       _connectionType: 0
@@ -135,9 +136,9 @@ MonoBehaviour:
   entry: 0
   exit: 0
   speakerName: "\uAF43\uB07C\uB9AC"
-  dialogue: "\uAF43 \uD55C\uBC88\uC529 \uBCF4\uACE0 \uAC00\uC138\uC694 ~!"
+  dialogue: "\uBB50\uC57C?"
   sprite: {fileID: 0}
   dialogueOptions: 0
-  curInteractableData: 0
+  curVillagerEnumData: 3
   isBasicState: 1
   dialogueOptionList: []

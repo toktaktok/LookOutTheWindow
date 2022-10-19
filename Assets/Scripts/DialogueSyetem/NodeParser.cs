@@ -1,44 +1,49 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Net.Mime;
+using System.Diagnostics;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
+using EnumTypes;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using XNode;
+using Debug = System.Diagnostics.Debug;
 
 public class NodeParser : MonoBehaviour
 {
     public DialogueGraph graph;
-    public BaseNode bNode;
+    private BaseNode bNode;
     // private Coroutine _parser;
-    public IEnumerator parser;
     // public TextMeshProUGUI speaker;
     public TextMeshProUGUI dialogueText;
     // public Image speakerImage;
-
+    
+    private IEnumerator parser;
 
     private void Start()
     {
         graph = null;
         parser = null;
+        GameManager.Input.keyAction += OnResumeNode;
     }
 
-    public Coroutine NodeParseStart(DialogueGraph curGraph)
+    public Coroutine NodeParseStart(DialogueGraph curGraph) //읽을 시작 노드를 찾는다.
     {
         graph = curGraph;
         foreach (BaseNode b in graph.nodes)
         {
-            if( graph.nodes[0].GetType().ToString() == "StartNode")   //시작 노드를 찾기. (처음)
+            // Debug.Log(graph.nodes[0].GetType());
+            if( graph.nodes[0].GetType().ToString() == "StartNode")
             {
                 graph.current = b;
                 bNode = b;
                 break;
             }
         }
-        
+
+        if (!bNode)
+        {
+            return null;
+        }
         parser = ParseNode();
         return StartCoroutine(parser);
     }
@@ -46,58 +51,75 @@ public class NodeParser : MonoBehaviour
     private IEnumerator ParseNode() //노드의 정보를 읽어온다.
     {
         yield return new WaitForEndOfFrame();
-        BaseNode b = graph.current; //그래프의 현재 노드.
-        string data = b.GetString();
-        string[] dataParts = data.Split('/');   // 노드의 데이터를 slash 기준으로 분할하기.
+        var b = graph.current; //그래프의 현재 노드.
+        string data = b.GetString(); //노드 유형, 대사 받음
+        string[] dataParts = data.Split('/');   //slash 기준으로 분할하기.
+        //[0] - 노드 유형 / [1] - 노드 대사
         
         
-        if (dataParts[0] == "Start") // start 노드를 발견하면
+        switch (dataParts[0])
         {
-            NextNode("exit"); // 다음 노드가 존재하는지 확인.
-        }
-        else if (dataParts[0] == "DialogueNode") // dialogueNode를 발견하면
-        {
-            //Run Dialogue Processing
-            if (b.IsBasicState()) // 기본 상태인지 확인한다. -> 기본 대화 선택지 제시
-            {
-                UIManager.Instance.OpenChoicePopup();
-            }
-            // Debug.Log(dataParts[2]);
-            dialogueText.text = dataParts[2]; // 대사
-            // speakerImage.sprite = b.GetSprite();
+            case "Start": //시작 노드
+                NextNode("exit"); // 포트에 연결된 다음 노드 확인.
+                break;
             
-            // 다음 버튼이 눌릴 때까지 기다린다.
-            // yield return new WaitUntil(() => Mouse.current.leftButton.wasPressedThisFrame);
-            // yield return new WaitUntil(() => Mouse.current.leftButton.wasReleasedThisFrame);
+            case "Choice":
+                NextNode("exit" + dataParts[1]);
+                break;
             
-            yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.E));
-            yield return new WaitUntil(() => Input.GetKeyUp(KeyCode.E));
-
-            // yield return new WaitUntil(() => Keyboard.current.eKey.wasReleasedThisFrame);
-            NextNode("exit");   //현재 노드에 exit 포트가 있는가?(다음 노드가 존재하는가?)
-        }
-        else if (dataParts[0] == "Stop") // 현재 노드가 stop 노드라면
-        {
-            UIManager.Instance.CloseDialoguePopup(); //대화창을 닫는다.
-            parser = null;
-            graph = null;
+            case "Dialogue": //대사 노드
+                dialogueText.text = dataParts[2]; // 대사
             
-            StopCoroutine(ParseNode());
-            yield return null;
+                if (b.IsBasicState()) //기본 상태인지 확인한다. -> 기본 대화 선택지 제시
+                {
+                    if (CharacterManager.Instance.Introduce()) //최초 대화 시, 소개 dialogue
+                    {
+                        break;
+                    }
+                    UIManager.Instance.OpenChoicePopup(); //선택 창 열기
+                }
+                
+                //현재 대사 노드까지만 처리
+                yield return null;
+                break;
+            
+            case "Stop": //정지 노드
+                UIManager.Instance.CloseDialoguePopup(); //대화창을 닫는다.
+                parser = null;
+                yield return null;
+                break;
         }
     }
 
-    public void ResumeNode()
+    //노드 계속해서 읽기
+    private void OnResumeNode()
     {
+        //parser가 null이 아닐 때만 실행되게? ui가 있을 때만 실행되게?
+        if ( GameManager.Instance.curGameFlowState != GameFlowState.Interacting )
+        {
+            return;
+        }
+
+        if (GameManager.Instance.isInteracted)
+        {
+            GameManager.Instance.isInteracted = false;
+            return;
+        }
         
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            NextNode("exit");
+            StartCoroutine(ParseNode());
+        }
     }
 
+    
+    
     private void NextNode(string fieldName)
     {
-
         if (parser != null)
         {
-            StopCoroutine(parser);
+            StopCoroutine(parser); //진행 중이던 코루틴 정지
             parser = null;
         }
 
@@ -109,18 +131,9 @@ public class NodeParser : MonoBehaviour
                 graph.current = p.Connection.node as BaseNode;
                 parser = ParseNode();
                 StartCoroutine(parser);
-                break;
+                return;
             }
-            Debug.Log("다음 노드");
-
-            // else
-            // {
-            //     Debug.Log("exit 포트 없음");
-            //     UIManager.Instance.CloseDialoguePopup();
-            //     break;
-            // }
         }
-        Debug.Log("다음 노드 없음");
         UIManager.Instance.CloseDialoguePopup();
     }
 }

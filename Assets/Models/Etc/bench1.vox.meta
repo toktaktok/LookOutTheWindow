@@ -13,8 +13,8 @@ ScriptedImporter:
   gameObjectName: bench1
   meshMode: 0
   importMode: 1
-  importScale: {x: 1, y: 1, z: 1}
-  importOffset: {x: 0, y: 0, z: 0}
+  importScale: {x: 0.15, y: 0.15, z: 0.15}
+  importOffset: {x: 0, y: 0, z: 22}
   combineFaces: 1
   ignoreCavity: 1
   shareSameFace: 1
@@ -37,7 +37,7 @@ ScriptedImporter:
   createContactChunkFaces: 0
   materialMode: 0
   materials:
-  - {instanceID: 0}
+  - {fileID: -156486658544998735, guid: d712ee0cd4711461bb5073e8214be815, type: 3}
   materialNames:
   - bench1_0
   remappedMaterials:

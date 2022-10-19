@@ -40,15 +40,14 @@ public class QuestManager : Singleton<QuestManager>
 
     public bool CanTargetGiveEvidence()
     {
-        var villager = CharacterManager.Instance.CurInteractingVillager();
-        foreach (var quest in questsInProgress)
-        {
-            if (quest.relatedVillagerList.Contains(villager)) // 이후, 주민이 여러 의뢰와 연관되어있을 경우에 조건 추가 필요
-            {
-                return true;
-            }
-        }
-
+        // var villager = CharacterManager.Instance.CurInteractingVillager();
+        // foreach (var quest in questsInProgress)
+        // {
+        //     if (quest.relatedVillagerList.Contains(villager)) // 이후, 주민이 여러 의뢰와 연관되어있을 경우에 조건 추가 필요
+        //     {
+        //         return true;
+        //     }
+        // }
         return false;
     }
 

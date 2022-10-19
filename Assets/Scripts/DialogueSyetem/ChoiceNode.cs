@@ -6,17 +6,17 @@ using XNode;
 public class ChoiceNode : BaseNode {
 
     [Input] public int entry;
-    [Output] public int exit;
-    // [Output] public int exit2;
-    // [Output] public int exit3;
+    [Output] public int exit1;
+    [Output] public int exit2;
+    [Output] public int exit3;
     
-    public string speakerName = "default name";
-    [TextArea]
-    public string dialogueLine;
+    // public int randInt;
+    // [TextArea]
+    // public string dialogueLine;
     
     public override string GetString()
     {
-        // Debug.Log("DialogueNode/" + speakerName + "/" + dialogueLine);
-        return "ChoiceNode/" + speakerName + "/" + dialogueLine;
+        // randInt = Random.Range(1, 3);
+        return "Choice/" + Random.Range(1, 4);
     }
 }

@@ -11,4 +11,8 @@ public class StartNode : BaseNode {
 	{
 		return "Start";
 	}
+	public override void GetValue()
+	{
+		return;
+	}
 }

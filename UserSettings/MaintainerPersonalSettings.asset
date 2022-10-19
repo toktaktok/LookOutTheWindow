@@ -30,12 +30,12 @@ MonoBehaviour:
     showAssetsWithoutReferences: 0
     selectedFindClearsProjectResults: 0
     clearHierarchyResults: 0
-    fullProjectScanWarningShown: 0
+    fullProjectScanWarningShown: 1
     projectReferencesTreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
-      m_LastClickedID: 0
-      m_ExpandedIDs: 
+      m_SelectedIDs: 02000000
+      m_LastClickedID: 2
+      m_ExpandedIDs: 0100000003000000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -54,14 +54,74 @@ MonoBehaviour:
         m_ClientGUIView: {fileID: 0}
       m_SearchString: 
     projectReferencesTreeHeaderState:
-      m_Columns: []
-      m_VisibleColumns: 
-      m_SortedColumns: 
+      m_Columns:
+      - width: 534
+        sortedAscending: 1
+        headerContent:
+          m_Text: Path
+          m_Image: {fileID: 0}
+          m_Tooltip: Paths to the assets
+        contextMenuText: 
+        headerTextAlignment: 0
+        sortingArrowAlignment: 1
+        minWidth: 200
+        maxWidth: 1000000
+        autoResize: 1
+        allowToggleVisibility: 0
+        canSort: 1
+        userData: 0
+      - width: 100
+        sortedAscending: 1
+        headerContent:
+          m_Text: Type
+          m_Image: {fileID: 5741433715250483933, guid: 0000000000000000d000000000000000, type: 0}
+          m_Tooltip: Assets types
+        contextMenuText: 
+        headerTextAlignment: 0
+        sortingArrowAlignment: 1
+        minWidth: 70
+        maxWidth: 1000000
+        autoResize: 0
+        allowToggleVisibility: 1
+        canSort: 1
+        userData: 0
+      - width: 100
+        sortedAscending: 0
+        headerContent:
+          m_Text: Size
+          m_Image: {fileID: 0}
+          m_Tooltip: Assets sizes
+        contextMenuText: 
+        headerTextAlignment: 0
+        sortingArrowAlignment: 1
+        minWidth: 70
+        maxWidth: 1000000
+        autoResize: 0
+        allowToggleVisibility: 1
+        canSort: 1
+        userData: 0
+      - width: 33
+        sortedAscending: 0
+        headerContent:
+          m_Text: Refs
+          m_Image: {fileID: 0}
+          m_Tooltip: Shows how much times asset was referenced somewhere
+        contextMenuText: 
+        headerTextAlignment: 0
+        sortingArrowAlignment: 1
+        minWidth: 33
+        maxWidth: 50
+        autoResize: 0
+        allowToggleVisibility: 1
+        canSort: 1
+        userData: 0
+      m_VisibleColumns: 00000000010000000200000003000000
+      m_SortedColumns: 0300000000000000
     hierarchyReferencesTreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 03000000
-      m_LastClickedID: 3
-      m_ExpandedIDs: 0000000001000000
+      m_SelectedIDs: 
+      m_LastClickedID: 0
+      m_ExpandedIDs: 
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -158,17 +218,17 @@ MonoBehaviour:
         userData: 0
       m_VisibleColumns: 0000000001000000020000000300000004000000
       m_SortedColumns: 0400000001000000
-    splitterState: 
-    selectedTab: 1
+    splitterState: '{"ID":42919,"splitterInitialOffset":0.0,"currentActiveSplitter":-1,"realSizes":[264.0,132.0],"relativeSizes":[0.6666666865348816,0.3333333134651184],"minSizes":[90.0,47.0],"maxSizes":[0.0,0.0],"lastTotalSize":396.0,"splitSize":6.0,"xOffset":0.0,"m_Version":1,"oldRealSizes":[],"oldMinSizes":[],"oldMaxSizes":[],"oldSplitSize":0}'
+    selectedTab: 0
   projectCleanerSettings:
     filtersTabIndex: 0
     firstTime: 0
     trashBinWarningShown: 0
-    deletionPromptShown: 0
+    deletionPromptShown: 1
     muteNoIgnoredScenesWarning: 0
     tabState:
-      selection: 
-      compaction: 
+      selection: 01010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101
+      compaction: 00010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101
       scrollPosition: {x: 0, y: 0}
     sortingType: 3
     sortingDirection: 0
@@ -231,6 +291,6 @@ MonoBehaviour:
       m_SortedColumns: 
     splitterState: 
     selectedTab: 0
-  selectedTab: 2
+  selectedTab: 1
   scroll: {x: 0, y: 0}
   version: 1.15.0

@@ -14,27 +14,35 @@ using VoxelImporter;
 public class Player : MonoBehaviour
 {
 
-    private Vector2 moveValue = Vector2.zero;
+
+    [HideInInspector] public Vector3 prevPos;
     [SerializeField] private int hMoveSpeed; //좌우 이동 속도
-    private int origSpeed;                   //처음 속도
-    private int vMoveSpeed;                  //상하 이동 속도
-    private Vector3 prevPos;
-    private SpriteRenderer _sprite;
-    private Animator _anim;
     [SerializeField] private Collider interactingObject; //상호작용한 오브젝트
-    [SerializeField] private bool isCollided = false;
-    [SerializeField] private bool canUsePassage = true;
+    private bool isCollided = false;
+    private bool canUsePassage = true;
+    private Vector2 moveValue;
+    private int origSpeed;                   //처음 속도
+    // private int vMoveSpeed;                  //상하 이동 속도
+    private SpriteRenderer _sprite;
+    [HideInInspector] public Animator _anim;
+
     
-    private void Start()
+    private void Awake()
     {
-        hMoveSpeed = 15; // 가로 이동 속도 (translate)
-        // hMoveSpeed = 30; // 가로 이동 속도 (doMove)
-        vMoveSpeed = 100;
-        origSpeed = hMoveSpeed;
-        moveValue = Vector2.zero;
         _anim = gameObject.GetComponentInChildren<Animator>();   //child의 animator 컴포넌트.
         _sprite = gameObject.GetComponentInChildren<SpriteRenderer>();
+    }
+    private void Start()
+    {
+        isCollided = false;
+        hMoveSpeed = 10; // 가로 이동 속도 (translate)
+        // hMoveSpeed = 30; // 가로 이동 속도 (doMove)
+        // vMoveSpeed = 100;
+        origSpeed = hMoveSpeed;
+        moveValue = Vector2.zero;
         prevPos = transform.position;
+        GameManager.Input.keyAction += OnKeyboard;
+
     }
 
     private void FixedUpdate()
@@ -43,7 +51,6 @@ public class Player : MonoBehaviour
         {
             return;
         }
-    
         if (!isCollided) // 충돌하지 않을 때 이전 position 저장.
         {
             prevPos = transform.position;
@@ -53,15 +60,12 @@ public class Player : MonoBehaviour
 
     private void LateUpdate()
     {
-        if (isCollided) // 충돌했는가?
+        if (!isCollided)
         {
-            transform.position = prevPos; // 이전 위치로 이동
-            isCollided = false; // 충돌 처리 false
+            return;
         }
-        else
-        {
-            // hMoveSpeed = origSpeed;
-        }
+        transform.position = prevPos; // 이전 위치로 이동
+        isCollided = false; // 충돌 처리 false
     }
 
     //이름 : InputMove
@@ -111,33 +115,13 @@ public class Player : MonoBehaviour
         yield return null;
     }
 
-
-    // 함수 이름 : Interact
-    // 기능 : InputAction을 통해 상호작용 할 시(input E) 미니게임이 있는지 확인한다.
-    public void Interact(InputAction.CallbackContext ctx)
-    {
-        if (!interactingObject || !ctx.performed) //E를 눌렀을 시 interactingObject가 존재한다면
-        {
-            return;
-        }
-        
-        CameraController.Instance.SaveZoomRange(0);
-        CheckInteractedObject(interactingObject);
-        moveValue = Vector2.zero;
-    }
-    
-    public void Jump()
-    {
-        StartCoroutine(StopSpeedForTime(0.3f));
-        _anim.Play("Jump");
-    }
-    
     //목표 지점으로 캐릭터를 움직인다. (컷신 용)
     public void MoveToDestination(Vector3 dest, float moveSpeed)
     {
-        var distance = Vector3.Distance(transform.position, dest);
+        var distance = Vector3.Distance(transform.position, dest); //플레이어의 이동 거리
         _anim.SetBool("isMove", true);
         transform.DOMove(dest, distance / moveSpeed).SetEase(Ease.Linear); //속도 기반으로 목적지를 향해 움직이도록.
+
     }
 
     // 이름 : MoveHorizontal
@@ -150,16 +134,17 @@ public class Player : MonoBehaviour
             (xValue * hMoveSpeed * Time.fixedDeltaTime, 0, 0));
     }
     
-     // 이름 : MoveVertical
+    
      // 기능 : 인자로 받는 yValue만큼 Z 이동
-    private void MoveVertical(float yValue)   //moveValue.y -> position.z
-    {
-        transform.DOMoveZ(transform.position.z + yValue * vMoveSpeed * Time.fixedDeltaTime, 0.1f);
-    }
+    // private void MoveVertical(float yValue)   //moveValue.y -> position.z
+    // {
+    //     transform.DOMoveZ(transform.position.z + yValue * vMoveSpeed * Time.fixedDeltaTime, 0.1f);
+    // }
 
+    //목표 z 위치로 이동
     public void MoveStreet(float zPos)
     {
-        transform.DOMoveZ(zPos, 0.5f);
+        transform.DOMoveZ(zPos, 0.6f);
         TimeWalkAnim(0.5f);
     }
 
@@ -183,16 +168,12 @@ public class Player : MonoBehaviour
     // 이름 : IsMoving
     // 기능 : moveValue가 0인지 체크하고, bool 반환
     private bool IsMoving() => moveValue != Vector2.zero;
-    
-    
-    void CheckInteractedObject(Collider interacted) //오브젝트와 상호작용한다.(가능한 오브젝트에게)
-    {
-        interacted.SendMessage("Check");    //Villager/Item.cs 의 함수
-    }
+
 
     //interactingObject를 지운다.
     public void EraseInteractingObject() => interactingObject = null;
 
+    //이동속도를 바꾼다.bool로 조정. 이동을 제한해야 할 경우 0으로 만듬
     public void SwitchSpeed(bool isStop)
     {
         hMoveSpeed = isStop switch
@@ -202,6 +183,7 @@ public class Player : MonoBehaviour
         };
     }
 
+    //해당 시간동안 스피드를 0으로 만든다. 점프할 시 속도 조정 위해
     private IEnumerator StopSpeedForTime(float time)
     {
         hMoveSpeed = 0;
@@ -215,7 +197,7 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter(Collider interacted)
     {
-        interactingObject = interacted;         //접촉한 콜라이더가 존재할 시
+        interactingObject = interacted; //접촉한 콜라이더가 존재할 시
         switch (interacted.gameObject.layer)
         {
             case GlobalVariables.LayerNumber.character:
@@ -236,7 +218,7 @@ public class Player : MonoBehaviour
         interactingObject = interacted;
     }
 
-    // 트리거에서 빠져나올 시 UIManager, CameraController가 가지고 있던 창이나 뷰 원위치
+    // 트리거에서 빠져나올 시 UIManager, CameraController가 가지고 있던 창, 뷰 원위치
     private void OnTriggerExit(Collider interacted)
     {
         interactingObject = null;
@@ -259,21 +241,60 @@ public class Player : MonoBehaviour
         // }
     }
 
-    private void OnCollisionEnter(Collision collision) //건물 벽 등 맵 가장자리에 충돌
+    private void OnCollisionEnter(Collision collision) //건물 벽 등 맵 가장자리에 충돌 시
     {
         isCollided = true;
-        // Debug.Log("Collided!");
 
         if (collision.gameObject.layer == 12)
         {
-            // isColliding = true;
+            //isColliding = true;
         }
     }
 
     private void OnCollisionStay(Collision collisionInfo)
     {
-        // Debug.Log("Colliding!");
         isCollided = true;
+    }
+
+    //키보드 조작
+    public void OnKeyboard()
+    {
+        
+        //E를 눌렀을 시 interactingObject가 존재하거나, 현재 인게임 상태가 아니라면 실행 ㄴㄴ
+        if (GameManager.Instance.curGameFlowState != GameFlowState.InGame)
+        {
+            return;
+        }
+        
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            StartCoroutine(StopSpeedForTime(0.3f));
+            Debug.Log("jump");
+            _anim.Play("Jump");
+        }
+        
+        // 기능 : 미니게임이 있는지 확인한다.
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            if (!interactingObject)
+            {
+                return;
+            }
+            if (interactingObject.TryGetComponent(out Villager interacting)) //상호작용 성공했을 시
+            {
+                Debug.Log("start interact");
+
+                GameManager.Instance.curGameFlowState = GameFlowState.Interacting; //게임 상태 상호작용으로 바꿈
+                GameManager.Instance.isInteracted = true; // 상호작용 시 대화창 읽기 바로 시작 안 되도록
+                CharacterManager.Instance.curInteractingVillager = interacting;
+                interacting.Interact(); //Villager/Item.cs 의 함수
+                CameraController.Instance.SaveZoomRange(0.2f);
+            }
+            moveValue = Vector2.zero;
+        }
+        
+        
+
     }
 
 

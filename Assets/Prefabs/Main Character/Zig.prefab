@@ -9,6 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7784350913548308729}
+  - component: {fileID: 5843136550363543843}
+  - component: {fileID: 7258113588726445438}
   m_Layer: 0
   m_Name: Zig
   m_TagString: Untagged
@@ -24,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7784350913548308728}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -64.47, y: -10.7, z: -65.22}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -32,6 +34,38 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5843136550363543843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7784350913548308728}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b9e5a459bb9f4f8389e3ef1989227dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itsName: 
+  dialogueGraphs:
+  - {fileID: 11400000, guid: 2e8328012193449cb97e5dac3de97e3e, type: 2}
+  basicDialogueId: 060000000a000000
+  neverSeenBefore: 1
+  curBDialogueState: 0
+  EnumInfo: 2
+--- !u!65 &7258113588726445438
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7784350913548308728}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 6, y: 2, z: 20}
+  m_Center: {x: 0, y: 1, z: -4}
 --- !u!1 &7784350913561338533
 GameObject:
   m_ObjectHideFlags: 0
@@ -130,7 +164,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b9e5a459bb9f4f8389e3ef1989227dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactable: {fileID: 0}
+  itsName: 
+  dialogueGraphs: []
+  basicDialogueId: 0000000000000000
+  neverSeenBefore: 1
+  curBDialogueState: 0
+  EnumInfo: 0
 --- !u!114 &7784350913561338559
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -143,7 +182,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d723cc6baa352f04ca8fc582aa91e2e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  prevPos: {x: 0, y: 0, z: 0}
   hMoveSpeed: 0
   interactingObject: {fileID: 0}
-  isCollided: 0
-  canUsePassage: 1
+  _anim: {fileID: 0}

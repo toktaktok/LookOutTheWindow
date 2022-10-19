@@ -38,7 +38,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: entry
-        node: {fileID: 4284940181016452014}
+        node: {fileID: 593253796372561199}
         reroutePoints: []
       _direction: 1
       _connectionType: 0
@@ -56,7 +56,7 @@ MonoBehaviour:
   entry: 0
   exit: 0
   speakerName: Mayor
-  dialogue: "\uBB34\uC2A8 \uBCFC \uC77C \uC788\uB294\uAC00?"
+  dialogue: "\uBB50\uC57C?"
   sprite: {fileID: 0}
   dialogueOptions: 0
   curVillagerEnumData: 1
@@ -76,12 +76,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodes:
   - {fileID: 4765488839126966907}
-  - {fileID: 6880153668995553153}
   - {fileID: -67364261803262530}
-  - {fileID: 4284940181016452014}
-  - {fileID: 9192153624286360459}
+  - {fileID: 593253796372561199}
   current: {fileID: -67364261803262530}
---- !u!114 &4284940181016452014
+  first: {fileID: 0}
+--- !u!114 &593253796372561199
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -94,13 +93,13 @@ MonoBehaviour:
   m_Name: Stop
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 536, y: -136}
+  position: {x: 472, y: -120}
   ports:
     keys:
     - entry
     values:
     - _fieldName: entry
-      _node: {fileID: 4284940181016452014}
+      _node: {fileID: 593253796372561199}
       _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
       connections:
@@ -143,105 +142,3 @@ MonoBehaviour:
       _typeConstraint: 0
       _dynamic: 0
   exit: 0
---- !u!114 &6880153668995553153
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc4e532056d404dd6a7cd50893082739, type: 3}
-  m_Name: Dialogue
-  m_EditorClassIdentifier: 
-  graph: {fileID: 11400000}
-  position: {x: -264, y: 88}
-  ports:
-    keys:
-    - entry
-    - exit
-    - 
-    values:
-    - _fieldName: entry
-      _node: {fileID: 6880153668995553153}
-      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections: []
-      _direction: 0
-      _connectionType: 0
-      _typeConstraint: 0
-      _dynamic: 0
-    - _fieldName: exit
-      _node: {fileID: 6880153668995553153}
-      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections: []
-      _direction: 1
-      _connectionType: 0
-      _typeConstraint: 0
-      _dynamic: 0
-    - _fieldName: 
-      _node: {fileID: 6880153668995553153}
-      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections: []
-      _direction: 1
-      _connectionType: 0
-      _typeConstraint: 0
-      _dynamic: 1
-  entry: 0
-  exit: 0
-  speakerName: None
-  dialogue: "\uD760.\n\uC5EC\uAE34 \uCC38 \uC5B4\uC218\uC120\uD558\uB2E8 \uB9D0\uC774\uC57C."
-  sprite: {fileID: -1127495673, guid: d1ac33e8076a44fe79bea3a955d774fa, type: 3}
-  dialogueOptions: 0
-  curVillagerEnumData: 0
-  isBasicState: 0
-  dialogueOptionList: []
---- !u!114 &9192153624286360459
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc4e532056d404dd6a7cd50893082739, type: 3}
-  m_Name: Dialogue
-  m_EditorClassIdentifier: 
-  graph: {fileID: 11400000}
-  position: {x: 152, y: 88}
-  ports:
-    keys:
-    - entry
-    - exit
-    values:
-    - _fieldName: entry
-      _node: {fileID: 9192153624286360459}
-      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections: []
-      _direction: 0
-      _connectionType: 0
-      _typeConstraint: 0
-      _dynamic: 0
-    - _fieldName: exit
-      _node: {fileID: 9192153624286360459}
-      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections: []
-      _direction: 1
-      _connectionType: 0
-      _typeConstraint: 0
-      _dynamic: 0
-  entry: 0
-  exit: 0
-  speakerName: ' '
-  dialogue: 
-  sprite: {fileID: 0}
-  dialogueOptions: 0
-  curVillagerEnumData: 0
-  isBasicState: 0
-  dialogueOptionList: []

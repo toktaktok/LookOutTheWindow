@@ -13,7 +13,7 @@ ScriptedImporter:
   gameObjectName: street light2
   meshMode: 0
   importMode: 1
-  importScale: {x: 1, y: 1, z: 1}
+  importScale: {x: 0.16, y: 0.16, z: 0.16}
   importOffset: {x: 0, y: 0, z: 0}
   combineFaces: 1
   ignoreCavity: 1
@@ -37,7 +37,7 @@ ScriptedImporter:
   createContactChunkFaces: 0
   materialMode: 0
   materials:
-  - {instanceID: 0}
+  - {fileID: -156486658544998735, guid: 847eef922d477429c892f08f1db6ed37, type: 3}
   materialNames:
   - street light2_0
   remappedMaterials:

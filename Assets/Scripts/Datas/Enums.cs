@@ -6,7 +6,8 @@ namespace EnumTypes
 {
     public enum GameFlowState
     {
-        InitGame,
+        InGame,
+        Interacting,
         CutScene,
         Setting,
         EventFlow,
@@ -39,12 +40,12 @@ namespace EnumTypes
         YoungMouse,
         OutsiderFox,
         OutsiderCrane,
-        PlanetKids,
+        CosmoKids,
         KiwiBird = 11,
         RegularKitty,
-        MuseumGuard,
+        SausageGuard,
         RabbitCouple,
-        CollegeStudents,
+        Freshmen,
         PriestCroco,
         GuardCroco,
         CandyMan,
@@ -56,7 +57,8 @@ namespace EnumTypes
         AngelCaterpillar,
         LakeDinosaur,
         Goose,
-        BabyBat
+        BabyBat,
+        BarSpider
         
         //이후 오브젝트는 1001번부터
         

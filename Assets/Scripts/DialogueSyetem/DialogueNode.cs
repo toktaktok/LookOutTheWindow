@@ -1,13 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.EnterpriseServices.Internal;
-using System.Runtime.InteropServices;
-using System.Security.Permissions;
+﻿using System.Collections.Generic;
 using EnumTypes;
-using Structs;
-using UnityEditor;
 using UnityEngine;
-using XNode;
 
 
 
@@ -29,8 +22,8 @@ public class DialogueNode : BaseNode
         get => curVillagerEnumData;
         set => curVillagerEnumData = value;
     }
-    
-    
+
+    public int dialogueId = 0;
     private Color prev;
     [SerializeField] private bool isBasicState;
     
@@ -52,27 +45,30 @@ public class DialogueNode : BaseNode
     [SerializeField]
     public List<DialogueOption> dialogueOptionList = new List<DialogueOption>(5); 
     
+
     public override string GetString()
     {
-        // dialogue = DataManager.Instance.ReturnDialogue();
-        // Debug.Log(dialogue);
-        return "DialogueNode/" + speakerName + "/" + dialogue;
+        if (isBasicState) //기본 대사 받기
+        {
+            // dialogue = DialogueManager.Instance.GetBasicDialogue(curVillagerEnumData.ToString());
+            dialogue = DialogueManager.Instance.GetBasicDialogue();
+        }
+        else //일반 대사 받기
+        {
+            dialogue = DialogueManager.Instance.GetDialogue(dialogueId);
+        }
+        return "Dialogue/" + GetName() + "/" + dialogue; //노드 유형 + 주민 이름 + 대사
     }
     
-    public string GetName()
+    //주민의 이름 받기
+    private string GetName()
     {
-        return speakerName;
+        return CurVillagerEnumData.ToString();
     }
 
-    public string GetDialogue(int dialogueId)
+    public string GetDialogue()
     {
-        
-        return DialogueManager.Instance.GetDialogue(dialogueId);
-    }
-
-    public override Sprite GetSprite()
-    {
-        return sprite;
+        return dialogue;
     }
 
     public override bool IsBasicState()
@@ -83,6 +79,11 @@ public class DialogueNode : BaseNode
     public void ToggleBasicState()
     {
         isBasicState = !isBasicState;
+    }
+    
+    public override void GetValue()
+    {
+        return;
     }
 }
 

@@ -37,9 +37,8 @@ public class MiniGameManager : Singleton<MiniGameManager>
             miniGames.Add(miniGames_gameObject[i + 1].GetComponent<MiniGame>());
             miniGames_gameObject[i + 1].SetActive(false);
         }
-        Debug.Log("미니게임 추가 완료");
+        // Debug.Log("미니게임 추가 완료");
         miniGames[2].SetActiveTest();
-        Console.WriteLine("미니게임 실행");
     }
 
     // 이름: MiniGameStartSetting
