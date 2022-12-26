@@ -13,7 +13,7 @@ ScriptedImporter:
   gameObjectName: export_2022-03-02_3
   meshMode: 0
   importMode: 0
-  importScale: {x: 1, y: 1, z: 1}
+  importScale: {x: 0.1, y: 0.1, z: 0.1}
   importOffset: {x: 0, y: 0, z: 0}
   combineFaces: 1
   ignoreCavity: 1
@@ -37,7 +37,7 @@ ScriptedImporter:
   createContactChunkFaces: 0
   materialMode: 0
   materials:
-  - {instanceID: 0}
+  - {fileID: -156486658544998735, guid: fbe91aff2527d46bca3354c0b4192e45, type: 3}
   materialNames:
   - CandyShop_0
   remappedMaterials:

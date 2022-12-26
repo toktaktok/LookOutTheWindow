@@ -43,14 +43,14 @@ public class Notebook : MonoBehaviour
         rectTransform.DOAnchorPosY(0, 0.6f).SetEase(Ease.OutQuart);
     }
     
-    public IEnumerator Close()
+    public IEnumerator Close() //책 닫기.
     {
-        rectTransform.DOAnchorPosX(0, 0.2f).SetEase(Ease.Linear);
+        rectTransform.DOAnchorPosX(0, 0.2f).SetEase(Ease.Linear); //가로 이동.
         noteAnim.ResetTrigger("OpenCover");
         noteAnim.SetTrigger("CloseCover");
         yield return waitForSeconds;
         // questPage.SetActive(false);
-        rectTransform.DOAnchorPosY(defaultClosedYPos, 0.4f).SetEase(Ease.InSine);
+        rectTransform.DOAnchorPosY(defaultClosedYPos, 0.4f).SetEase(Ease.InSine); // 화면 밖으로 나가기
         yield return waitForSeconds;
         UIManager.Instance.ShowNoteBookButton();
         FalseActiveSelf();

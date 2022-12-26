@@ -16,8 +16,8 @@ public class CameraController : Singleton<CameraController>
     
     [SerializeField]
     private float zoomRange = 0.5f;         //카메라 줌 범위를 조절하는 변수
-    [Range(9, 25)]
-    public float viewSize = 14;           //zoomRange에 따라 fieldOfView를 바꾸는 변수
+    [Range(2, 4)]
+    public float viewSize = 4;  //zoomRange에 따라 fieldOfView를 바꾸는 변수
 
     private float preViewSize;
 
@@ -30,16 +30,13 @@ public class CameraController : Singleton<CameraController>
     private float savedZoomRange;    //기존 줌 범위
     private float rotateValue;       //회전 값
     private bool isCutscene = false;
-    private const float _zoomXRot = -23;                 //zoomRange에 따라 rotation.x를 조절하는 변수 / 기본 -23
+    private const float _zoomXRot = -24;                 //zoomRange에 따라 rotation.x를 조절하는 변수 / 기본 -23
     private readonly WaitForSeconds camTimer = new WaitForSeconds(0.2f);
 
 
-    private void Awake()
-    {
-        DOTween.SetTweensCapacity(2000, 50);
-    }
     private void Start()
     {
+        DOTween.SetTweensCapacity(2000, 50);
         if (GameObject.FindWithTag("Player").TryGetComponent<Transform>(out var tar))
         {
             target = tar;
@@ -47,7 +44,8 @@ public class CameraController : Singleton<CameraController>
         mainOrigRect = mainCam.rect;
         miniOrigRect = miniCam.rect;
         zoomRange = 0.5f;
-        viewSize = zoomRange * 16 + 9;
+        viewSize = zoomRange * 4 + 2;
+
 
     }
 
@@ -70,11 +68,11 @@ public class CameraController : Singleton<CameraController>
         rotateValue += ctx.ReadValue<float>();
         rotateValue = rotateValue switch
         {
-            < -6 => -5,
-            > 6 => 5,
+            < -3 => -2.5f,
+            > 3 => 2.5f,
             _ => rotateValue
         };
-        var targetRotation = Quaternion.Euler(_zoomXRot, rotateValue, 0);
+        var targetRotation = Quaternion.Euler(0, rotateValue, 0);
         mainCamAnchor.DORotateQuaternion(targetRotation, 0.3f).SetEase(defaultEase);
 
     }
@@ -82,7 +80,7 @@ public class CameraController : Singleton<CameraController>
     private void FixedUpdate()
     {
         //현재 컷신이거나 카메라와 플레이어 사이 거리가 10 이하일 경우
-        if (isCutscene || Vector3.Distance(mainCam.transform.position, target.position) <= 10)  
+        if (isCutscene || Vector3.Distance(mainCam.transform.position, target.position) <= 2)  
         {
             return;
         }
@@ -90,16 +88,16 @@ public class CameraController : Singleton<CameraController>
     }
      private void InGameCamUpdate()
     {
-        // 카메라와 카메라 anchor의 위치, 회전 보간
-        mainCamAnchor.DOMove(target.position + new Vector3(0, zoomRange * 12 - 5,0), 0.4f).SetEase(defaultEase);
+        // 카메라와 카메라 anchor의 위치, 회전 보간.
+        //anchor y size = playerPos - 5 ~ playerPos + 13
+        mainCamAnchor.DOMove(target.position + new Vector3(0, zoomRange * 6 - 3,0), 0.4f).SetEase(defaultEase);
         
         //업데이트에 줌 수치 넣었을 때
-        // if (viewSize == preViewSize)
-        // {
-        //     return;
-        // }
-        //anchor y size = playerPos - 3 ~ playerPos + 15
-        // mainCam.DOOrthoSize(viewSize, 0.6f).SetEase(defaultEase);
+        if (viewSize - preViewSize < 0.2f)
+        {
+            return;
+        }
+        mainCam.DOOrthoSize(viewSize, 0.4f).SetEase(defaultEase);
     }
      
      //카메라를 움직여야 할 위치가 따로 있을 시
@@ -110,15 +108,17 @@ public class CameraController : Singleton<CameraController>
     {
         savedZoomRange = zoomRange;
         zoomRange = editedRange;
-        viewSize = zoomRange * 16 + 9;
-        mainCam.DOOrthoSize(viewSize, 0.4f).SetEase(defaultEase);
+        viewSize = zoomRange * 4 + 2;
+
+        // mainCam.DOOrthoSize(viewSize, 0.4f).SetEase(defaultEase);
     }
     
     public void ReturnInteractionView()
     { 
         zoomRange = savedZoomRange;
-        viewSize = zoomRange * 16 + 9;
-        mainCam.DOOrthoSize(viewSize, 0.4f).SetEase(defaultEase);
+        viewSize = zoomRange * 4 + 2;
+
+        // mainCam.DOOrthoSize(viewSize, 0.4f).SetEase(defaultEase);
     }  
 
     public void MakeMiniGameView()

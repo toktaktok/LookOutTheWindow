@@ -81,6 +81,11 @@ MonoBehaviour:
       kind: 3
       value: .preset
       exactMatch: 0
+    - enabled: 1
+      ignoreCase: 0
+      kind: 0
+      value: /Packages
+      exactMatch: 0
     pathIncludesFilters: []
     sceneIgnoresFilters: []
     ignoreScenesInBuild: 1

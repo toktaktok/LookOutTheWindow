@@ -26,14 +26,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 707893195061156648}
-  m_LocalRotation: {x: 0.21217771, y: 0, z: 0, w: 0.97723114}
-  m_LocalPosition: {x: 0, y: 26, z: -37.7}
+  m_LocalRotation: {x: 0.01745245, y: 0, z: 0, w: 0.99984777}
+  m_LocalPosition: {x: 0, y: 4.3, z: -34}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 707893195705611009}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 24.5, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 2, y: 0, z: 0}
 --- !u!20 &707893195061156649
 Camera:
   m_ObjectHideFlags: 0
@@ -61,7 +61,7 @@ Camera:
   far clip plane: 1000
   field of view: 30
   orthographic: 1
-  orthographic size: 15
+  orthographic size: 4
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -105,7 +105,7 @@ MonoBehaviour:
   m_RendererIndex: 0
   m_VolumeLayerMask:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 12224
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
   m_RenderPostProcessing: 1
@@ -141,15 +141,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 707893195705611008}
-  m_LocalRotation: {x: -0.19936797, y: -0, z: -0, w: 0.97992474}
-  m_LocalPosition: {x: 0, y: -5, z: 60}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 35}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 707893195061156652}
   m_Father: {fileID: 5184245493882740783}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -23, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3223517496801614849
 GameObject:
   m_ObjectHideFlags: 0
@@ -342,8 +342,8 @@ MonoBehaviour:
   mainCamAnchor: {fileID: 707893195705611009}
   mainCam: {fileID: 707893195061156649}
   miniCam: {fileID: 3223517496802616509}
-  zoomRange: 0.5
-  viewSize: 14
+  zoomRange: 0.4
+  viewSize: 4
   mainOrigRect:
     serializedVersion: 2
     x: 0

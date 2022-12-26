@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Dialogue
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 152, y: -136}
+  position: {x: 136, y: -136}
   ports:
     keys:
     - entry
@@ -60,6 +60,7 @@ MonoBehaviour:
   sprite: {fileID: 0}
   dialogueOptions: 0
   curVillagerEnumData: 1
+  dialogueId: 0
   isBasicState: 1
   dialogueOptionList: []
 --- !u!114 &11400000

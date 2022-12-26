@@ -6,15 +6,6 @@ using UnityEngine;
 
 public class JsonParser : MonoBehaviour
 {
-    void Start()
-    {
-        
-    }
-
-    void Update()
-    {
-        
-    }
 
     T LoadJsonFile<T>(string loadPath, string fileName)
     {

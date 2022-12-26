@@ -1,0 +1,15 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: GuardCroco_ani
+  m_Controller: {fileID: 9100000, guid: c6810e3020fd64d5b8e7b2df4d43891f, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: fe2142016f61049cbad759e4126196d1, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 8c9364b3a1be24973a7ae6afc0c7876c, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: ae1ea4abf401f488a9e7fef7d5f36596, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 8c9364b3a1be24973a7ae6afc0c7876c, type: 2}

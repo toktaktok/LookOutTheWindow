@@ -51,14 +51,15 @@ namespace EnumTypes
         CandyMan,
         Cedgehog,
         Postman,
-        AmusementGuard = 21,
+        Marry = 21,
         FishingRaccoon,
         Dogtor,
         AngelCaterpillar,
         LakeDinosaur,
         Goose,
         BabyBat,
-        BarSpider
+        FruitBat,
+        BarPider
         
         //이후 오브젝트는 1001번부터
         

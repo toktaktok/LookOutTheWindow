@@ -1,11 +1,9 @@
-using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using DG.Tweening;
 using EnumTypes;
-using VoxelImporter;
-
+using UnityEditor.Searcher;
 
 
 //클래스 이름: Player
@@ -18,28 +16,32 @@ public class Player : MonoBehaviour
     [HideInInspector] public Vector3 prevPos;
     [SerializeField] private int hMoveSpeed; //좌우 이동 속도
     [SerializeField] private Collider interactingObject; //상호작용한 오브젝트
-    private bool isCollided = false;
-    private bool canUsePassage = true;
-    private Vector2 moveValue;
-    private int origSpeed;                   //처음 속도
-    // private int vMoveSpeed;                  //상하 이동 속도
+    private bool _isCollided;
+    private bool _canUsePassage = true;
+    private bool _stopMove;
+    private Vector2 _moveValue;
+    private int _origSpeed;                   //처음 속도
+    // private int _vMoveSpeed;                  //상하 이동 속도
     private SpriteRenderer _sprite;
-    [HideInInspector] public Animator _anim;
-
     
+    [HideInInspector] public Animator anim;
+    private readonly int _isMoveId = Animator.StringToHash("isMove");
+    private readonly int _isBackId = Animator.StringToHash("isBack");
+
+
     private void Awake()
     {
-        _anim = gameObject.GetComponentInChildren<Animator>();   //child의 animator 컴포넌트.
+        anim = gameObject.GetComponentInChildren<Animator>();   //child의 animator 컴포넌트.
         _sprite = gameObject.GetComponentInChildren<SpriteRenderer>();
     }
     private void Start()
     {
-        isCollided = false;
-        hMoveSpeed = 10; // 가로 이동 속도 (translate)
+        _isCollided = false;
+        hMoveSpeed = 4; // 가로 이동 속도 (translate)
         // hMoveSpeed = 30; // 가로 이동 속도 (doMove)
-        // vMoveSpeed = 100;
-        origSpeed = hMoveSpeed;
-        moveValue = Vector2.zero;
+        // _vMoveSpeed = 100;
+        _origSpeed = hMoveSpeed;
+        _moveValue = Vector2.zero;
         prevPos = transform.position;
         GameManager.Input.keyAction += OnKeyboard;
 
@@ -51,54 +53,105 @@ public class Player : MonoBehaviour
         {
             return;
         }
-        if (!isCollided) // 충돌하지 않을 때 이전 position 저장.
+        if (!_isCollided) // 충돌하지 않을 때 이전 position 저장.
         {
             prevPos = transform.position;
         }
-        MoveHorizontal(moveValue.x); // 먼저 이동
+        MoveHorizontal(_moveValue.x); // 먼저 이동
     }
 
     private void LateUpdate()
     {
-        if (!isCollided)
+        if (!_isCollided)
         {
             return;
         }
         transform.position = prevPos; // 이전 위치로 이동
-        isCollided = false; // 충돌 처리 false
+        _isCollided = false; // 충돌 처리 false
     }
 
-    //이름 : InputMove
-    //기능 : InputAction을 통해 방향키의 Vector를 받고 moveValue를 초기화. 맞춰 애니메이션 재생
-    public void InputMove(InputAction.CallbackContext ctx)
-    {
-        moveValue = ctx.ReadValue<Vector2>();
+    
+    #region 퍼블릭 이동 조작
+    
+    
+        //목표 지점으로 캐릭터를 움직인다. (컷신 용)
+        public void MoveToDestination(Vector3 dest, float moveSpeed)
+        {
+            var distance = Vector3.Distance(transform.position, dest); //플레이어의 이동 거리
+            anim.SetBool(_isMoveId, true);
+            transform.DOMove(dest, distance / moveSpeed).SetEase(Ease.Linear); //속도 기반으로 목적지를 향해 움직이도록.
+        }
         
-        if (moveValue.y != 0) // 상하로 이동할 때
+        //이동속도를 바꾼다.bool로 조정. 이동을 제한해야 할 경우 0으로 만듬
+        public void SwitchSpeed(bool isStop)
+        {
+            hMoveSpeed = isStop switch
+            {
+                true => 0,
+                false => _origSpeed
+            };
+        }
+        
+        //특정 거리로 이동
+        public void MoveStreet(Vector3 pos)
+        {
+            transform.DOMove(new Vector3(transform.position.x, pos.y, pos.z), 0.7f).SetEase(Ease.Linear);
+            // StartCoroutine(TimeWalkAnim(0.8f));
+        }
+    
+
+    #endregion
+
+
+    //moveValue 맞춰 애니메이션 재생
+    private void InputMove()
+    {
+        if (GameManager.Instance.curGameFlowState == GameFlowState.Interacting || _stopMove)
+        {
+            return;
+        }
+        Debug.Log(_moveValue);
+
+        if (_moveValue.y != 0) // 상하로 이동할 때
         {
             if (!interactingObject)
             {
                 return;
             }
 
-            if ( interactingObject.gameObject.layer == 10 && canUsePassage ) // 트리거가 맵 이동과 연관되었다면?
+            if ( interactingObject.gameObject.layer == 10 && _canUsePassage ) // 트리거가 맵 이동과 연관되었다면?
             {
-                MapManager.Instance.MoveToAnotherStreet(interactingObject.gameObject.GetComponent<Passage>()); // 거리 이동
+                _stopMove = true;
+                var passage = interactingObject.gameObject.GetComponent<Passage>();
+                switch (passage.moveType)
+                {
+                    case MoveType.Enter:
+                        SetBackTrue();
+                        break;
+                    case MoveType.Exit:
+                        SetBackFalse();
+                        break;
+                }
+                MapManager.Instance.MoveToAnotherStreet(passage); // 거리 이동
+                _moveValue = Vector2.zero;
+
+                StartCoroutine(TimeWalkAnim(0.56f));
                 StartCoroutine(CheckDelayTime());
+                return;
             }
         }
         
         //애니메이션 parameter에 변화를 준다.
-        if (ctx.started)
+        if (_moveValue.x != 0)
         {
             StartWalkAnim();
         }
-        else if (ctx.canceled)
+        else
         {
             StopWalkAnim();
         }
         
-        _sprite.flipX = moveValue.x switch //방향에 따라 스프라이트 반전
+        _sprite.flipX = _moveValue.x switch //방향에 따라 스프라이트 반전
         {
             > 0 => false,
             < 0 => true,
@@ -109,88 +162,65 @@ public class Player : MonoBehaviour
     //특정 행동을 무수히 반복하지 않도록 지연을 준다.
     private IEnumerator CheckDelayTime()
     {
-        canUsePassage = false;
-        yield return new WaitForSeconds(0.5f);
-        canUsePassage = true;
+        _canUsePassage = false;
+        yield return new WaitForSeconds(0.7f);
+        _canUsePassage = true;
         yield return null;
     }
 
-    //목표 지점으로 캐릭터를 움직인다. (컷신 용)
-    public void MoveToDestination(Vector3 dest, float moveSpeed)
-    {
-        var distance = Vector3.Distance(transform.position, dest); //플레이어의 이동 거리
-        _anim.SetBool("isMove", true);
-        transform.DOMove(dest, distance / moveSpeed).SetEase(Ease.Linear); //속도 기반으로 목적지를 향해 움직이도록.
-
-    }
-
+    
     // 이름 : MoveHorizontal
     // 기능 : 인자로 받는 xValue만큼 X 이동
     private void MoveHorizontal(float xValue)   //moveValue.x -> position.x
     {
-        // transform.Translate( new Vector3
-        //     (xValue * hMoveSpeed * Time.fixedDeltaTime, 0, 0));
         transform.Translate(new Vector3
             (xValue * hMoveSpeed * Time.fixedDeltaTime, 0, 0));
     }
+
+    
+    #region 애니메이션 설정
     
     
-     // 기능 : 인자로 받는 yValue만큼 Z 이동
-    // private void MoveVertical(float yValue)   //moveValue.y -> position.z
-    // {
-    //     transform.DOMoveZ(transform.position.z + yValue * vMoveSpeed * Time.fixedDeltaTime, 0.1f);
-    // }
+        // 기능 : 애니메이션의 isMove 프로퍼티 T/F set
+        public void StartWalkAnim() => anim.SetBool(_isMoveId, true);
+        public void StopWalkAnim() => anim.SetBool(_isMoveId, false);
+        private void SetBackTrue() => anim.SetBool(_isBackId, true);
+        private void SetBackFalse() => anim.SetBool(_isBackId, false);
+        
+        //애니메이션의 isIntro 프로퍼티 true
+        public void SetIntroAnim() => anim.SetBool("isIntro", true);
+        
+        
+        private IEnumerator TimeWalkAnim(float playTime) //특정 시간동안 애니메이션 재생 위해
+        {
+            _stopMove = true;
+            StartWalkAnim();
+            yield return new WaitForSeconds(playTime);
+            _stopMove = false;
+            StopWalkAnim();
+            SetBackFalse();
+        }
+        
 
-    //목표 z 위치로 이동
-    public void MoveStreet(float zPos)
-    {
-        transform.DOMoveZ(zPos, 0.6f);
-        TimeWalkAnim(0.5f);
-    }
-
-    // 이름 : StartWalkAnim, StopWalkAnim
-    // 기능 : 애니메이션의 isMove 프로퍼티 T/F set
-    public void StartWalkAnim() => _anim.SetBool("isMove", true);
-    public void StopWalkAnim() => _anim.SetBool("isMove", false);
-
-    private IEnumerator TimeWalkAnim(float playTime)
-    {
-        StartWalkAnim();
-        yield return new WaitForSeconds(playTime);
-        StopWalkAnim();
-    }
-
-
-    // 이름 : OnIntroAnim
-    // 기능 : 애니메이션의 isIntro 프로퍼티 true
-    public void OnIntroAnim() => _anim.SetBool("isIntro", true);
+    #endregion
+    
+   
     
     // 이름 : IsMoving
     // 기능 : moveValue가 0인지 체크하고, bool 반환
-    private bool IsMoving() => moveValue != Vector2.zero;
-
-
+    private bool IsMoving() => _moveValue != Vector2.zero;
+    
     //interactingObject를 지운다.
     public void EraseInteractingObject() => interactingObject = null;
-
-    //이동속도를 바꾼다.bool로 조정. 이동을 제한해야 할 경우 0으로 만듬
-    public void SwitchSpeed(bool isStop)
-    {
-        hMoveSpeed = isStop switch
-        {
-            true => 0,
-            false => origSpeed
-        };
-    }
 
     //해당 시간동안 스피드를 0으로 만든다. 점프할 시 속도 조정 위해
     private IEnumerator StopSpeedForTime(float time)
     {
         hMoveSpeed = 0;
         yield return new WaitForSeconds(time);
-        hMoveSpeed = origSpeed + 6;
-        yield return new WaitForSeconds(time);
-        hMoveSpeed = origSpeed;
+        hMoveSpeed = _origSpeed + 4;
+        yield return new WaitForSeconds(time * 2);
+        hMoveSpeed = _origSpeed;
         yield return null;
     }
 
@@ -205,6 +235,7 @@ public class Player : MonoBehaviour
                 break;
             case GlobalVariables.LayerNumber.map: //Map 관련 트리거 진입
                 UIManager.Instance.OpenMapMovingUI(interacted.gameObject.GetComponent<Passage>());
+                
                 break;
         }
     }
@@ -231,7 +262,6 @@ public class Player : MonoBehaviour
                 UIManager.Instance.CloseMapMovingUI();
                 break;
         }
-        // UIManager.Instance.CloseDialoguePopup();
         // CameraController.Instance.ReturnInteractionView();  //카메라 줌 수치를 상호작용 전 시점으로 돌린다.
         
         //미니게임이 실행중이었다면?
@@ -243,37 +273,51 @@ public class Player : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision) //건물 벽 등 맵 가장자리에 충돌 시
     {
-        isCollided = true;
-
+        _isCollided = true;
         if (collision.gameObject.layer == 12)
         {
             //isColliding = true;
         }
     }
 
-    private void OnCollisionStay(Collision collisionInfo)
+    private void OnCollisionStay()
     {
-        isCollided = true;
+        _isCollided = true;
     }
 
     //키보드 조작
-    public void OnKeyboard()
+    private void OnKeyboard()
     {
-        
-        //E를 눌렀을 시 interactingObject가 존재하거나, 현재 인게임 상태가 아니라면 실행 ㄴㄴ
+        //E를 눌렀을 시 interactingObject가 존재하거나, 현재 인게임 상태가 아니라면 실행하지 않음
         if (GameManager.Instance.curGameFlowState != GameFlowState.InGame)
         {
             return;
         }
         
+        //점프
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            StartCoroutine(StopSpeedForTime(0.3f));
-            Debug.Log("jump");
-            _anim.Play("Jump");
+            StartCoroutine(StopSpeedForTime(0.2f));
+            anim.Play("Jump");
         }
         
-        // 기능 : 미니게임이 있는지 확인한다.
+        //좌우 이동
+        if (Input.GetKey(KeyCode.A))
+        {
+            _moveValue.x = -1;
+        }
+        else if (Input.GetKey(KeyCode.D))
+        {
+            _moveValue.x = 1;
+        }
+        else if(Input.GetKeyUp(KeyCode.A) || Input.GetKey(KeyCode.D))
+        {
+            Debug.Log("GetKeyUp");
+            _moveValue.x = 0;
+        }
+        
+        
+        // 상호작용
         if (Input.GetKeyDown(KeyCode.E))
         {
             if (!interactingObject)
@@ -282,15 +326,15 @@ public class Player : MonoBehaviour
             }
             if (interactingObject.TryGetComponent(out Villager interacting)) //상호작용 성공했을 시
             {
-                Debug.Log("start interact");
-
+                anim.SetBool("isMove", false);
                 GameManager.Instance.curGameFlowState = GameFlowState.Interacting; //게임 상태 상호작용으로 바꿈
                 GameManager.Instance.isInteracted = true; // 상호작용 시 대화창 읽기 바로 시작 안 되도록
                 CharacterManager.Instance.curInteractingVillager = interacting;
                 interacting.Interact(); //Villager/Item.cs 의 함수
                 CameraController.Instance.SaveZoomRange(0.2f);
+                UIManager.Instance.StartCoroutine( "OpenDialoguePopup" );
             }
-            moveValue = Vector2.zero;
+            _moveValue = Vector2.zero;
         }
         
         

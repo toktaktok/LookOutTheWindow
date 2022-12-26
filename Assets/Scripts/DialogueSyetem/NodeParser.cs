@@ -26,7 +26,7 @@ public class NodeParser : MonoBehaviour
         GameManager.Input.keyAction += OnResumeNode;
     }
 
-    public Coroutine NodeParseStart(DialogueGraph curGraph) //읽을 시작 노드를 찾는다.
+    public Coroutine NodeParse(DialogueGraph curGraph) //읽을 시작 노드를 찾는다.
     {
         graph = curGraph;
         foreach (BaseNode b in graph.nodes)
@@ -72,7 +72,7 @@ public class NodeParser : MonoBehaviour
             
                 if (b.IsBasicState()) //기본 상태인지 확인한다. -> 기본 대화 선택지 제시
                 {
-                    if (CharacterManager.Instance.Introduce()) //최초 대화 시, 소개 dialogue
+                    if (CharacterManager.Instance.Introduce()) //최초 대화 시, 선택 창 열기 X
                     {
                         break;
                     }

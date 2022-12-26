@@ -9,8 +9,8 @@ using UnityEngine.UI;
 public class QuestManager : Singleton<QuestManager>
 {
     
-    public Quest quest;
-    public List<Quest> questsInProgress; //진행 중인 퀘스트가 추가됨
+    // public List<Quest> questsInProgress; //진행 중인 퀘스트가 추가됨
+    public Dictionary<int, Quest> questsInProgress;
     public Player player;
     public GameObject questWindow;
     public Text dialogue;
@@ -22,11 +22,11 @@ public class QuestManager : Singleton<QuestManager>
     }
 
     // 진행 중인 의뢰 수를 비교하여 추가할 수 있는지 확인한다. bool return
-    public bool AcceptQuestRequest(Quest newQuest)
+    public bool AcceptRequest(int id, Quest newQuest)
     {
         if (questsInProgress.Count < 4)
         {
-            questsInProgress.Add(newQuest);
+            questsInProgress.Add(id, newQuest);
             Debug.Log("의뢰 수락 완료");
             return true;
         }
@@ -52,12 +52,14 @@ public class QuestManager : Singleton<QuestManager>
     }
 
     [ContextMenu("Add Quest")]
-
+    //지금 쓸모 없음
     public void AddQuest()
     {
         var id = 1;
-        var title = ""; var description = "";
+        var title = "";
+        var description = "";
         var requestedVillager = VillagerEnumData.None;
+        var tdList = new List<string>();
         // Villager villager = null;
 
         EditorGUILayout.IntField("quest id", id);
@@ -65,7 +67,9 @@ public class QuestManager : Singleton<QuestManager>
         EditorGUILayout.TextField("description", description);
         EditorGUILayout.EnumPopup(requestedVillager);
 
-        var newQuest = new Quest(id, title, description, Enum.GetName(typeof(VillagerEnumData), requestedVillager));
+        var newQuest = new Quest(id, title, description, Enum.GetName(typeof(VillagerEnumData), requestedVillager), tdList);
     }
+
+
 }
 

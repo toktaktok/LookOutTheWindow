@@ -16,7 +16,8 @@ public class ChoiceNode : BaseNode {
     
     public override string GetString()
     {
-        // randInt = Random.Range(1, 3);
-        return "Choice/" + Random.Range(1, 4);
+        var randInt = Random.Range(1, 4);
+        // Debug.Log(randInt);
+        return "Choice/" + (randInt);
     }
 }

@@ -13,7 +13,7 @@ ScriptedImporter:
   gameObjectName: export_2022-04-10_5
   meshMode: 0
   importMode: 1
-  importScale: {x: 1, y: 1, z: 1}
+  importScale: {x: 0.25, y: 0.25, z: 0.25}
   importOffset: {x: 0, y: 0, z: 0}
   combineFaces: 1
   ignoreCavity: 1
@@ -37,11 +37,11 @@ ScriptedImporter:
   createContactChunkFaces: 0
   materialMode: 0
   materials:
-  - {instanceID: 0}
+  - {fileID: -156486658544998735, guid: 7b02e335a84a74b2586962879b646430, type: 3}
   materialNames:
-  - export_2022-04-10_5_0
+  - FlowerBush_0
   remappedMaterials:
-  - name: export_2022-04-10_5_0
+  - name: FlowerBush_0
     material: {instanceID: 0}
   export: 0
   legacyVoxImport: 0

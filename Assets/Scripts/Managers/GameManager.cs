@@ -16,48 +16,40 @@ public class GameManager : Singleton<GameManager>
     {
         
         // Load Assets
-        if (GameObject.Find("InputManager").TryGetComponent<InputManager>(out var inputManager))
+        if (FindObjectOfType<InputManager>())
         {
-            _inputManager = inputManager;
+            _inputManager = FindObjectOfType<InputManager>().GetComponent<InputManager>();
         }
-        if (GameObject.Find("DataManager").TryGetComponent<DataManager>(out var dataManager))
+        if (FindObjectOfType<CameraController>())
         {
-            _dataManager = dataManager;
+            _cameraController = FindObjectOfType<CameraController>().GetComponent<CameraController>();
         }
-        if (GameObject.Find("CharacterManager").TryGetComponent<CharacterManager>(out var characterManager))
+        if (FindObjectOfType<DataManager>())
         {
-            _characterManager = characterManager;
+            _dataManager = FindObjectOfType<InputManager>().GetComponent<DataManager>();
         }
-        if (GameObject.Find("UIManager").TryGetComponent<UIManager>(out var uiManager))
+        if (FindObjectOfType<UIManager>())
         {
-            _uIManager = uiManager;
+            _uIManager = FindObjectOfType<UIManager>().GetComponent<UIManager>();
         }
-        if (GameObject.Find("MiniGameManager").TryGetComponent<MiniGameManager>(out var miniGameManager))
-        {
-            _miniGameManager = miniGameManager;
-        }
-        if (GameObject.Find("CameraController").TryGetComponent<CameraController>(out var cameraController))
-        {
-            _cameraController = cameraController;
-        }
-        if (GameObject.Find("DialogueManager").TryGetComponent<DialogueManager>(out var dialogueManager))
-        {
-            _dialogueManager = dialogueManager;
-        }
-        if (GameObject.Find("QuestManager").TryGetComponent<QuestManager>(out var questManager))
-        {
-            _questManager = questManager;
-        }
+        // if (GameObject.Find("CharacterManager").TryGetComponent<CharacterManager>(out var characterManager))
+        // {
+        //     _characterManager = characterManager;
+        // }
 
+        // if (GameObject.Find("MiniGameManager").TryGetComponent<MiniGameManager>(out var miniGameManager))
+        // {
+        //     _miniGameManager = miniGameManager;
+        // }
 
-        // _characterManager = GameObject.Find("CharacterManager").GetComponent<CharacterManager>();
-        // _uIManager = GameObject.Find("UIManager").GetComponent<UIManager>();
-        // _miniGameManager = GameObject.Find("MiniGameManager").GetComponent<MiniGameManager>();
-        // _cameraController = GameObject.Find("CameraController").GetComponent<CameraController>();
-        // _dialogueManager = GameObject.Find("DialogueManager").GetComponent<DialogueManager>();
-        // _questManager = GameObject.Find("QuestManager").GetComponent<QuestManager>();
-        // _dataManager = GameObject.Find("DataManager").GetComponent<DataManager>();
-        // _inputManager = GameObject.Find("InputManager").GetComponent<InputManager>();
+        // if (GameObject.Find("DialogueManager").TryGetComponent<DialogueManager>(out var dialogueManager))
+        // {
+        //     _dialogueManager = dialogueManager;
+        // }
+        // if (GameObject.Find("QuestManager").TryGetComponent<QuestManager>(out var questManager))
+        // {
+        //     _questManager = questManager;
+        // }
     }
 
     private void Update()

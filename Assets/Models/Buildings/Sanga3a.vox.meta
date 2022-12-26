@@ -13,7 +13,7 @@ ScriptedImporter:
   gameObjectName: export_2022-03-17_3
   meshMode: 0
   importMode: 1
-  importScale: {x: 1, y: 1, z: 1}
+  importScale: {x: 0.1, y: 0.1, z: 0.1}
   importOffset: {x: 0, y: 0, z: 0}
   combineFaces: 1
   ignoreCavity: 1
@@ -37,11 +37,11 @@ ScriptedImporter:
   createContactChunkFaces: 0
   materialMode: 0
   materials:
-  - {instanceID: 0}
+  - {fileID: -156486658544998735, guid: 693bd6738b05641f1bb9baeda235ae6a, type: 3}
   materialNames:
-  - export_2022-03-17_3_0
+  - Sanga3a_0
   remappedMaterials:
-  - name: export_2022-03-17_3_0
+  - name: Sanga3a_0
     material: {instanceID: 0}
   export: 0
   legacyVoxImport: 0

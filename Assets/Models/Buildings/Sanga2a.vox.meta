@@ -13,7 +13,7 @@ ScriptedImporter:
   gameObjectName: export_2022-03-16_1
   meshMode: 0
   importMode: 1
-  importScale: {x: 0.2, y: 0.2, z: 0.2}
+  importScale: {x: 0.1, y: 0.1, z: 0.1}
   importOffset: {x: 0, y: 0, z: 0}
   combineFaces: 1
   ignoreCavity: 1

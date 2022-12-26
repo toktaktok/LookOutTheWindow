@@ -10,7 +10,7 @@ public class DialogueNode : BaseNode
     [Input] public int entry;
     [Output] public int exit;
     
-    [SerializeField] private string speakerName = " ";
+    // [SerializeField] private string speakerName = " ";
     [TextArea(3,  10)]
     public string dialogue = "";
     public Sprite sprite;

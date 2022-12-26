@@ -9,7 +9,6 @@ public class CharacterManager : Singleton<CharacterManager>
     //캐릭터에 저장된 정보를 관리하는 매니저. -> 현재 필요한가?
     [SerializeField] private List<Villager> curVillagerList = new List<Villager>();
     public Transform villagers;
-    public string curInteractingVillagerName;
     
     public Villager curInteractingVillager;
 
@@ -18,8 +17,6 @@ public class CharacterManager : Singleton<CharacterManager>
         UpdateVillagersList();
     }
 
-
-    public string GetCurInteractingVillagerName => curInteractingVillagerName;
     
     //주민과 처음 만났는지 확인
     public bool Introduce()
@@ -31,8 +28,6 @@ public class CharacterManager : Singleton<CharacterManager>
         }
         switch (curInteractingVillager.itsName)
         {
-            case "YoungMouse":
-                return true;
             case "Zig":
                 return true;
             default: 
@@ -65,7 +60,11 @@ public class CharacterManager : Singleton<CharacterManager>
             }
         }
     }
-    
+
+    public void StopTalk()
+    {
+        curInteractingVillager.ReturnToIdle();
+    }
     //현재 주민 인덱스 찾기
     // private int SearchVillagerId(string name)
     // {

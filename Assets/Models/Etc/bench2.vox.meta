@@ -13,7 +13,7 @@ ScriptedImporter:
   gameObjectName: bench2
   meshMode: 0
   importMode: 0
-  importScale: {x: 0.15, y: 0.15, z: 0.15}
+  importScale: {x: 0.07, y: 0.07, z: 0.07}
   importOffset: {x: 0, y: 0, z: 22}
   combineFaces: 1
   ignoreCavity: 1

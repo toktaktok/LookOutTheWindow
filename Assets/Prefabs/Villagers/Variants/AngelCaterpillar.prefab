@@ -1,0 +1,95 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &1129268214991744001
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2534299387171714137, guid: a1babb2dc950844fca329fbca54b2d20, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2534299387171714137, guid: a1babb2dc950844fca329fbca54b2d20, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2534299387171714137, guid: a1babb2dc950844fca329fbca54b2d20, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2534299387171714137, guid: a1babb2dc950844fca329fbca54b2d20, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2534299387171714137, guid: a1babb2dc950844fca329fbca54b2d20, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2534299387171714137, guid: a1babb2dc950844fca329fbca54b2d20, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2534299387171714137, guid: a1babb2dc950844fca329fbca54b2d20, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2534299387171714137, guid: a1babb2dc950844fca329fbca54b2d20, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2534299387171714137, guid: a1babb2dc950844fca329fbca54b2d20, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2534299387171714137, guid: a1babb2dc950844fca329fbca54b2d20, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2534299387171714137, guid: a1babb2dc950844fca329fbca54b2d20, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2534299387171714138, guid: a1babb2dc950844fca329fbca54b2d20, type: 3}
+      propertyPath: m_Name
+      value: AngelCaterpillar
+      objectReference: {fileID: 0}
+    - target: {fileID: 2534299387210014753, guid: a1babb2dc950844fca329fbca54b2d20, type: 3}
+      propertyPath: m_Size.x
+      value: 6.875
+      objectReference: {fileID: 0}
+    - target: {fileID: 2534299387210014753, guid: a1babb2dc950844fca329fbca54b2d20, type: 3}
+      propertyPath: m_Size.y
+      value: 6.875
+      objectReference: {fileID: 0}
+    - target: {fileID: 2534299387210014753, guid: a1babb2dc950844fca329fbca54b2d20, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 908430032, guid: 537c479404bd24a21a87fc2e92f66c96, type: 3}
+    - target: {fileID: 2534299387210014753, guid: a1babb2dc950844fca329fbca54b2d20, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2534299387210014756, guid: a1babb2dc950844fca329fbca54b2d20, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 22100000, guid: 99366087b622e445fb1c654b9fb237c0, type: 2}
+    - target: {fileID: 2534299387210014757, guid: a1babb2dc950844fca329fbca54b2d20, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7111464412624514678, guid: a1babb2dc950844fca329fbca54b2d20, type: 3}
+      propertyPath: EnumInfo
+      value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 7111464412624514678, guid: a1babb2dc950844fca329fbca54b2d20, type: 3}
+      propertyPath: basicDialogueId.Array.data[0]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7111464412624514678, guid: a1babb2dc950844fca329fbca54b2d20, type: 3}
+      propertyPath: basicDialogueId.Array.data[1]
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a1babb2dc950844fca329fbca54b2d20, type: 3}

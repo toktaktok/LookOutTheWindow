@@ -9,7 +9,7 @@ using UnityEngine;
 [System.Serializable]
 public class Quest
 {
-    public List<string> relatedVillagerList
+    public Dictionary<int, string> relatedVillagerList
     {
         get;
         private set;
@@ -22,28 +22,39 @@ public class Quest
     private bool _isActive;
     private string _title;
     private string _description;
+    private List<string> _todoList;
 
 
 
     //처음에 의뢰를 생성할 때는 부탁한 주민은 꼭 추가하기
-    public Quest(int id, string title, string description, string villager)
+    public Quest(int id, string title,  string villager, string description, List<string> todoList)
     {
         _id = id;
         _title = title;
-        _description = description;
-        relatedVillagerList = new List<string>();
         requestedVillager = villager;
+        _description = description;
+        relatedVillagerList = new Dictionary<int, string>();
+        _todoList = todoList;
     }
 
     public void AddRelatedVillagers(VillagerEnumData villager)
     {
-        // const bool ignoreCase = true;
-        // var name = Enum.GetName(typeof(VillagerEnumData), villager);
-        // // Debug.Log(Enum.TryParse(Name, ignoreCase, out interactableInfo));
-        // if(Enum.TryParse())
-        relatedVillagerList.Append(Enum.GetName(typeof(VillagerEnumData), villager));
+        var id = (int)villager;
+        if (!relatedVillagerList.ContainsKey(id))
+        {
+            relatedVillagerList.Add((int)villager, villager.ToString());
+        }
+
     }
-    
+    public string QuestInfo()
+    {
+        foreach (var list in _todoList)
+        {
+            Debug.Log( list );
+        }
+
+        return _title + " / "+ _description;
+    }
 
 }
 

@@ -56,13 +56,13 @@ public class UIManager : Singleton<UIManager>
     // 기능: interaction 시 대화창을 열고, 관련된 dialogue node를 읽기 시작한다.
     public IEnumerator OpenDialoguePopup()
     {
-        Debug.Log("open dialogue popup");
         curUIState = UIState.Interacting;
-        yield return new WaitForSeconds(0.1f);
-        dialogueContainer.SetActive(true); //대사 창 오픈
         player.SwitchSpeed(true);
         CloseInteractionKey();
         HideNoteBookButton();
+        yield return new WaitForSeconds(0.1f);
+        dialogueContainer.SetActive(true); //대사 창 오픈
+        
     }
 
     public void CloseDialoguePopup()
@@ -74,6 +74,7 @@ public class UIManager : Singleton<UIManager>
         player.SwitchSpeed(false);
         player.EraseInteractingObject();
         CameraController.Instance.ReturnInteractionView();
+        CharacterManager.Instance.StopTalk();
         ShowNoteBookButton();
 
     }

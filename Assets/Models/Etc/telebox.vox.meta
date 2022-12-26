@@ -13,7 +13,7 @@ ScriptedImporter:
   gameObjectName: telebox
   meshMode: 0
   importMode: 1
-  importScale: {x: 0.18, y: 0.14, z: 0.18}
+  importScale: {x: 0.05, y: 0.05, z: 0.05}
   importOffset: {x: 0, y: 0, z: 0}
   combineFaces: 1
   ignoreCavity: 1

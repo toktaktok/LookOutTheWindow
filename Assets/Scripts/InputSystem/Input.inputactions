@@ -37,7 +37,7 @@
                 {
                     "name": "ZMove",
                     "id": "3f1c8a42-4183-4a4d-a2a0-8aa9e5ce6141",
-                    "path": "2DVector",
+                    "path": "2DVector(mode=2)",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -151,7 +151,7 @@
                 {
                     "name": "1D Axis",
                     "id": "6d2e1238-fbeb-4b02-a9fa-4da0b600a3cc",
-                    "path": "1DAxis(minValue=-5,maxValue=5)",
+                    "path": "1DAxis(minValue=-2.5,maxValue=2.5)",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

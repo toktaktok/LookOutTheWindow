@@ -30,7 +30,7 @@ public class DialogueNodeDrawer : NodeEditor
 
     private string testDialogueText; //manager 통해서 대사 받을 수 있는가?
     
-    private int dialogueId = 0;
+    // private int dialogueId = 0;
 
 
     
