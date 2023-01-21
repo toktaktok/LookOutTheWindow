@@ -34,7 +34,7 @@ public class IntroMovement : MonoBehaviour
         // Move 2
         player.SetIntroAnim();
         player.StartWalkAnim();
-        player.MoveToDestination( new Vector3(-11, 2f, 0f), 10 );
+        player.MoveToDestLinear( new Vector3(-11, 2f, 0f), 10 );
         
         yield return new WaitForSeconds(1);
         player.StopWalkAnim();  //눈사람 걸음 멈춤

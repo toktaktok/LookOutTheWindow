@@ -18,7 +18,6 @@ public class DataManager : Singleton<DataManager>
     private void Start()
     {
         LoadDataFromJson();
-        // Debug.Log(_basicDialogueList.basicDialogueData[1].text);
     }
 
     [ContextMenu("From Json Data")]
@@ -46,40 +45,13 @@ public class DataManager : Singleton<DataManager>
             gDialogueList[info.id] = info.text;
         }
         
-        //의뢰 데이터
-        ParseJson("questData", "quests");
-        path2 = Path.Combine(Application.dataPath, "Resources/Json/questData.json");
-        jsonData2 = File.ReadAllText(path2);
-        Debug.Log(jsonData2);
-        JSONNode node = JSON.Parse(jsonData2);
-        Debug.Log(node["title"]);
-        
-        // QuestList qList = 
-        //
-        // foreach (var info in qList.data)
-        // {
-        //     Debug.Log(info);
-        // }
-        
-        Debug.Log("Json 파일 읽기 완료");
+        //의뢰 데이터 추가
+        QuestJsonParse();
+
+        // Debug.Log("Json 파일 읽기 완료");
 
     }
-
-    //id 값에 따라 대사 return.
-    public string GetDialogueData(int id = 0, string type = "b")
-    {
-        switch (type)
-        {
-            case "basic":
-                return bDialogueList[id];
-            case "general":
-                return gDialogueList[id];
-            default:
-                return "찾는 대사 없음";
-
-        }
-    }
-
+    
     [ContextMenu("Quest Json Parse")]
     public void QuestJsonParse()
     {
@@ -107,10 +79,30 @@ public class DataManager : Singleton<DataManager>
         
         foreach (var info in qList)
         {
-            Debug.Log( info.Key + " " + info.Value.QuestInfo());
+            // Debug.Log( info.Key );
         }
-            
+        
+        QuestManager.Instance.AddQuestInProgress("1");
+        QuestManager.Instance.GetQuestInfo("1");
     }
+    
+
+    //id 값에 따라 대사 return.
+    public string GetDialogueData(int id = 0, string type = "b")
+    {
+        switch (type)
+        {
+            case "basic":
+                return bDialogueList[id];
+            case "general":
+                return gDialogueList[id];
+            default:
+                return "찾는 대사 없음";
+
+        }
+    }
+
+    
     public JSONNode ParseJson(string filePath, string fileName)
     {
         var path = Path.Combine(Application.dataPath, "Resources/Json/", filePath + ".json");
@@ -120,8 +112,9 @@ public class DataManager : Singleton<DataManager>
 
     }
 
-    // public string ReturnBasicDialogue(int dialogueId)
-    // {
-    //     return bDialogueList.basicDialogueData[]
-    // }
+    public Quest GetQuest(string id)
+    {
+        return qList[id];
+    }
+
 }

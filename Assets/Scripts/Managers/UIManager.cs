@@ -29,9 +29,11 @@ public class UIManager : Singleton<UIManager>
     private float interactKeyOrigPosY;      //상호작용 키 y 위치
     private float noteButtonOrigPosY;       //수첩 버튼 y 위치
     private float noteOrigPosY;       //수첩 y 위치
+    [SerializeField] private bool canOpenNotebook = true;
+    private readonly WaitForSeconds notebookDelayTime = new WaitForSeconds(0.7f);
     private Canvas UICanvas;
     private Canvas MinigameCanvas;
-    [SerializeField] private UIState curUIState = UIState.Basic;
+    private UIState curUIState = UIState.Basic;
     
     
     private void Start()
@@ -119,7 +121,6 @@ public class UIManager : Singleton<UIManager>
         notebookButton.rectTransform.DOAnchorPosY(noteButtonOrigPosY, 0.3f);
 
     }
-
     //기능: 수첩 UI를 연다.
     public void OpenNotebook()
     {
@@ -131,20 +132,28 @@ public class UIManager : Singleton<UIManager>
     }
     public void CloseNotebook()
     {
-        if (curUIState != UIState.NoteBook)
-        {
-            return;
-        }
+        // if (curUIState != UIState.NoteBook)
+        // {
+        //     return;
+        // }
         notebook.StartCoroutine(notebook.Close());
         curUIState = UIState.Basic;
         // ShowNoteBookButton();
         // notebook.FalseActiveSelf();
     }
 
+    private IEnumerator NotebookTimer()
+    {
+        canOpenNotebook = false;
+        yield return notebookDelayTime;
+        canOpenNotebook = true;
+    }
+
     private void OnKeyboard()
     {
-        if (Input.GetKeyDown(KeyCode.I))
+        if (Input.GetKeyDown(KeyCode.I) && canOpenNotebook)
         {
+
             switch (curUIState)
             {
                 case UIState.Interacting:
@@ -155,8 +164,9 @@ public class UIManager : Singleton<UIManager>
                 case UIState.NoteBook:
                     CloseNotebook();
                     break;
-                
             }
+
+            StartCoroutine(NotebookTimer());
         }
     }
 

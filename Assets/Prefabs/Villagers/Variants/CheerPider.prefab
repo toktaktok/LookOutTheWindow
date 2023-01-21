@@ -83,6 +83,14 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 2878900610044047760, guid: a1babb2dc950844fca329fbca54b2d20, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.14
+      objectReference: {fileID: 0}
+    - target: {fileID: 2878900610044047760, guid: a1babb2dc950844fca329fbca54b2d20, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.11
+      objectReference: {fileID: 0}
     - target: {fileID: 7111464412624514678, guid: a1babb2dc950844fca329fbca54b2d20, type: 3}
       propertyPath: EnumInfo
       value: 0

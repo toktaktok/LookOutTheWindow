@@ -22,6 +22,7 @@ public class MapManager : Singleton<MapManager>
     // private int currentPos = 0;
     private Player _player;
     private Vector3 groundsRelativePos;
+    private float delayTime = 0.6f;
     private float op = 1;
 
 
@@ -59,19 +60,19 @@ public class MapManager : Singleton<MapManager>
                             mat.SetFloat("Opacity",  op);
                             // StartCoroutine(FadeOutBuilding(op));
                         }
-                        gate.leftBuilding.transform.DOScale(1.2f, 0.4f);
-                        gate.leftBuilding.transform.DOLocalMove(new Vector3(gate.leftOrigPos.x - 3, 0, gate.leftOrigPos.z - 20), 0.4f);
-                        gate.rightBuilding.transform.DOScale(1.2f, 0.4f);
-                        gate.rightBuilding.transform.DOLocalMove(new Vector3(gate.rightOrigPos.x + 3, 0,  gate.rightOrigPos.z - 20), 0.4f);
+                        gate.leftBuilding.transform.DOScale(1.2f, delayTime);
+                        gate.leftBuilding.transform.DOLocalMove(new Vector3(gate.leftOrigPos.x - 3, 0, gate.leftOrigPos.z - 20), delayTime);
+                        gate.rightBuilding.transform.DOScale(1.2f, delayTime);
+                        gate.rightBuilding.transform.DOLocalMove(new Vector3(gate.rightOrigPos.x + 3, 0,  gate.rightOrigPos.z - 20), delayTime);
                         // passage.street.SetActive(false);
                         passage.exitText.SetActive(true);
                         break;
                     case MoveType.Exit:
                         // passage.street.SetActive(true);
-                        gate.leftBuilding.transform.DOScale(1.0f, 0.4f);
-                        gate.leftBuilding.transform.DOLocalMove(new Vector3(gate.leftOrigPos.x, 0, gate.leftOrigPos.z), 0.4f);
-                        gate.rightBuilding.transform.DOScale(1.0f, 0.4f);
-                        gate.rightBuilding.transform.DOLocalMove(new Vector3(gate.rightOrigPos.x, 0,  gate.rightOrigPos.z), 0.4f);
+                        gate.leftBuilding.transform.DOScale(1.0f, delayTime);
+                        gate.leftBuilding.transform.DOLocalMove(new Vector3(gate.leftOrigPos.x, 0, gate.leftOrigPos.z), delayTime);
+                        gate.rightBuilding.transform.DOScale(1.0f, delayTime);
+                        gate.rightBuilding.transform.DOLocalMove(new Vector3(gate.rightOrigPos.x, 0,  gate.rightOrigPos.z), delayTime);
                         passage.exitText.SetActive(false);
                         break;
                     default:
@@ -85,6 +86,14 @@ public class MapManager : Singleton<MapManager>
         // MoveGround(passage.exitPos.position);
         // CameraController.Instance.mainCam.transform.DORotateQuaternion(Quaternion.Euler(-1, 0, 0), 0.2f);
         
+    }
+
+    //건물에 들어갈 시의 이동
+    public void EnterBuilding(Transform pos)
+    {
+        _player.MoveToDestInstant(pos);
+        CameraController.Instance.MoveCamInstant(pos.position);
+        // CameraController.Instance.InsideCamera(pos.position, pos.rotation);
     }
 
     private IEnumerator FadeOutBuilding(float opacity)

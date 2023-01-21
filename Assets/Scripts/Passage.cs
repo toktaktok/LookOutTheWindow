@@ -34,7 +34,6 @@ public class Passage : MonoBehaviour
             exitText = transform.GetChild(0).gameObject; //출구 텍스트를 출구 포탈의 첫번째 차일드에서 받아옴
             exitText.SetActive(false);
         }
-
-
+        
     }
 }

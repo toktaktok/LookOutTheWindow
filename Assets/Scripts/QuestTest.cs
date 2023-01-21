@@ -9,6 +9,6 @@ public class QuestTest : MonoBehaviour
     public int id = 1;
     public string title = "";
     public string description = "";
-    public VillagerEnumData requestedVillager = VillagerEnumData.None;
+    public VillagerName requestedVillager = VillagerName.None;
     
 }

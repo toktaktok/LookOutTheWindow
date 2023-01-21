@@ -10,7 +10,7 @@ public class QuestManager : Singleton<QuestManager>
 {
     
     // public List<Quest> questsInProgress; //진행 중인 퀘스트가 추가됨
-    public Dictionary<int, Quest> questsInProgress;
+    public Dictionary<string, Quest> questsInProgress;
     public Player player;
     public GameObject questWindow;
     public Text dialogue;
@@ -19,10 +19,11 @@ public class QuestManager : Singleton<QuestManager>
     public void Start()
     {
         player = GameObject.FindWithTag("Player").GetComponent<Player>();
+        questsInProgress = new Dictionary<string, Quest>();
     }
 
     // 진행 중인 의뢰 수를 비교하여 추가할 수 있는지 확인한다. bool return
-    public bool AcceptRequest(int id, Quest newQuest)
+    public bool AcceptRequest(string id, Quest newQuest)
     {
         if (questsInProgress.Count < 4)
         {
@@ -55,21 +56,32 @@ public class QuestManager : Singleton<QuestManager>
     //지금 쓸모 없음
     public void AddQuest()
     {
-        var id = 1;
+        var id = "1";
         var title = "";
         var description = "";
-        var requestedVillager = VillagerEnumData.None;
+        var requestedVillager = VillagerName.None;
         var tdList = new List<string>();
         // Villager villager = null;
 
-        EditorGUILayout.IntField("quest id", id);
+        EditorGUILayout.TextField("quest id", id);
         EditorGUILayout.TextArea("title", title);
         EditorGUILayout.TextField("description", description);
         EditorGUILayout.EnumPopup(requestedVillager);
 
-        var newQuest = new Quest(id, title, description, Enum.GetName(typeof(VillagerEnumData), requestedVillager), tdList);
+        var newQuest = new Quest(id, title, description, Enum.GetName(typeof(VillagerName), requestedVillager), tdList);
     }
-
+    
+    public void AddQuestInProgress(string id)
+    {
+        var quest = DataManager.Instance.GetQuest(id);
+        questsInProgress.Add(quest.Id, quest);
+    }
+    
+    public void GetQuestInfo(string id)
+    {
+        var quest = DataManager.Instance.GetQuest(id);
+        Debug.Log(quest.Title);
+    }
 
 }
 

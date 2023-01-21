@@ -6,26 +6,37 @@ using UnityEngine;
 
 public class CharacterManager : Singleton<CharacterManager>
 {
-    //캐릭터에 저장된 정보를 관리하는 매니저. -> 현재 필요한가?
-    [SerializeField] private List<Villager> curVillagerList = new List<Villager>();
+    
+    //캐릭터들을 조작하는 매니저.
+    [SerializeField] private List<Villager> curVillagerList;
     public Transform villagers;
     
     public Villager curInteractingVillager;
-
+    private Animator _curInteractingVAnimator;
+    
     private void Start()
     {
+        curVillagerList = new List<Villager>();
         UpdateVillagersList();
     }
 
     
-    //주민과 처음 만났는지 확인
-    public bool Introduce()
+    //주민과 대화 시 처음 체크
+    public bool FirstInteractCheck()
     {
+        //현재 대화하는 주민의 애니메이터로 초기화하기
+        if (curInteractingVillager.TryGetComponent<Animator>(out var animator))
+        {
+            _curInteractingVAnimator = animator;
+        }
         
-        if (!curInteractingVillager.neverSeenBefore) //만난 적 있으면 소개 X
+        //만난 적 있으면 소개 X
+        if (!curInteractingVillager.neverSeenBefore)
         {       
             return false;
         }
+        
+        //없으면 소개
         switch (curInteractingVillager.itsName)
         {
             case "Zig":
@@ -61,6 +72,22 @@ public class CharacterManager : Singleton<CharacterManager>
         }
     }
 
+    public void ChangeEmotion(string emotion)
+    {
+        switch (emotion)
+        {
+            case "Joy":
+                break;
+            case "Angry":
+                break;
+            case "Embarrassed":
+                _curInteractingVAnimator.SetTrigger("Embarrassed");
+                break;
+            default:
+                _curInteractingVAnimator.ResetTrigger("Embarrassed");
+                break;
+        }
+    }
     public void StopTalk()
     {
         curInteractingVillager.ReturnToIdle();

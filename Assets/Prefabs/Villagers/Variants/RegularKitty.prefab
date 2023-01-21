@@ -13,7 +13,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2534299387171714137, guid: a1babb2dc950844fca329fbca54b2d20, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 8.41
       objectReference: {fileID: 0}
     - target: {fileID: 2534299387171714137, guid: a1babb2dc950844fca329fbca54b2d20, type: 3}
       propertyPath: m_LocalPosition.y
@@ -21,7 +21,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2534299387171714137, guid: a1babb2dc950844fca329fbca54b2d20, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 83
       objectReference: {fileID: 0}
     - target: {fileID: 2534299387171714137, guid: a1babb2dc950844fca329fbca54b2d20, type: 3}
       propertyPath: m_LocalRotation.w
@@ -79,14 +79,30 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0.775
       objectReference: {fileID: 0}
+    - target: {fileID: 2878900610044047760, guid: a1babb2dc950844fca329fbca54b2d20, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.509
+      objectReference: {fileID: 0}
+    - target: {fileID: 2878900610044047760, guid: a1babb2dc950844fca329fbca54b2d20, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.523
+      objectReference: {fileID: 0}
     - target: {fileID: 7111464412624514678, guid: a1babb2dc950844fca329fbca54b2d20, type: 3}
       propertyPath: EnumInfo
       value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 7111464412624514678, guid: a1babb2dc950844fca329fbca54b2d20, type: 3}
+      propertyPath: dialogueGraphs.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7111464412624514678, guid: a1babb2dc950844fca329fbca54b2d20, type: 3}
       propertyPath: dialogueGraphs.Array.data[0]
       value: 
       objectReference: {fileID: 11400000, guid: e30d3ea7901464875a2ed440421b4701, type: 2}
+    - target: {fileID: 7111464412624514678, guid: a1babb2dc950844fca329fbca54b2d20, type: 3}
+      propertyPath: dialogueGraphs.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 9c309a9dd491143c08a438f1aad3e8b2, type: 2}
     - target: {fileID: 7111464412624514678, guid: a1babb2dc950844fca329fbca54b2d20, type: 3}
       propertyPath: basicDialogueId.Array.data[0]
       value: 45

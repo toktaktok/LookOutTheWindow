@@ -15,12 +15,12 @@ public class DialogueNode : BaseNode
     public string dialogue = "";
     public Sprite sprite;
     public bool dialogueOptions = false;
-    [SerializeField] private VillagerEnumData curVillagerEnumData = VillagerEnumData.None;
+    [SerializeField] private VillagerName curVillagerName = VillagerName.None;
 
-    public VillagerEnumData CurVillagerEnumData
+    public VillagerName CurVillagerName
     {
-        get => curVillagerEnumData;
-        set => curVillagerEnumData = value;
+        get => curVillagerName;
+        set => curVillagerName = value;
     }
 
     public int dialogueId = 0;
@@ -63,7 +63,7 @@ public class DialogueNode : BaseNode
     //주민의 이름 받기
     private string GetName()
     {
-        return CurVillagerEnumData.ToString();
+        return CurVillagerName.ToString();
     }
 
     public string GetDialogue()

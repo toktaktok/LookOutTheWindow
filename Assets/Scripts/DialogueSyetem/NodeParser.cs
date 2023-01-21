@@ -72,7 +72,7 @@ public class NodeParser : MonoBehaviour
             
                 if (b.IsBasicState()) //기본 상태인지 확인한다. -> 기본 대화 선택지 제시
                 {
-                    if (CharacterManager.Instance.Introduce()) //최초 대화 시, 선택 창 열기 X
+                    if (CharacterManager.Instance.FirstInteractCheck()) //최초 대화 시, 선택 창 열기 X
                     {
                         break;
                     }

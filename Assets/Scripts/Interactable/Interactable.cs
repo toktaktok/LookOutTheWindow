@@ -8,23 +8,23 @@ using XNode;
 [CreateAssetMenu(fileName = "Interactable", menuName = "ScriptableObjects/Interactable", order = 1)]
 public class Interactable : ScriptableObject
 {
-    [SerializeField] private Sprite _image;
+    [SerializeField] private Sprite image;
 
-    [SerializeField] private int _minigameId = 0; //미니게임 번호
+    [SerializeField] private int miniGameId = 0; //미니게임 번호
 
     [SerializeField] private string _name; //고유 이름
 
-    [SerializeField] private DialogueGraph[] _dialogueGraphs;
+    [SerializeField] private DialogueGraph[] dialogueGraphs;
     
-    [SerializeField] private int[] _basicDialogueId;
+    [SerializeField] private int[] basicDialogueId;
 
-    [SerializeField] private VillagerEnumData villagerEnumInfo;
+    [SerializeField] private VillagerName villagerEnumInfo;
     
     
     #region Foundation
     public Sprite Image
     {
-        get { return _image; }
+        get { return image; }
     }
     
 
@@ -35,13 +35,13 @@ public class Interactable : ScriptableObject
 
     public int Minigameid
     {
-        get { return _minigameId; }
+        get { return miniGameId; }
     }
     
 
     public DialogueGraph[] DialogueGraphs
     {
-        get { return _dialogueGraphs; }
+        get { return dialogueGraphs; }
     }
 
     #endregion

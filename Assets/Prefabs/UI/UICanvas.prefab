@@ -2837,13 +2837,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4026602366562211902, guid: 7fdb8738226934ce5864832d2e7bf7ff, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6020269895814207569, guid: 7fdb8738226934ce5864832d2e7bf7ff, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6621525643631946174, guid: 7fdb8738226934ce5864832d2e7bf7ff, type: 3}
       propertyPath: m_Name
       value: Notebook
-      objectReference: {fileID: 0}
-    - target: {fileID: 6621525643631946174, guid: 7fdb8738226934ce5864832d2e7bf7ff, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7fdb8738226934ce5864832d2e7bf7ff, type: 3}
