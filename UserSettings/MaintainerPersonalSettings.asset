@@ -219,7 +219,7 @@ MonoBehaviour:
       m_VisibleColumns: 0000000001000000020000000300000004000000
       m_SortedColumns: 0400000001000000
     splitterState: '{"ID":920,"splitterInitialOffset":0.0,"currentActiveSplitter":-1,"realSizes":[414.5,207.5],"relativeSizes":[0.6666666865348816,0.3333333134651184],"minSizes":[90.0,47.0],"maxSizes":[0.0,0.0],"lastTotalSize":622.0,"splitSize":6.0,"xOffset":0.0,"m_Version":1,"oldRealSizes":[],"oldMinSizes":[],"oldMaxSizes":[],"oldSplitSize":0}'
-    selectedTab: 0
+    selectedTab: 1
   projectCleanerSettings:
     filtersTabIndex: 2
     firstTime: 0

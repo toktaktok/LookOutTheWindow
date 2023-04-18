@@ -14,14 +14,24 @@ public class QuestManager : Singleton<QuestManager>
     public Player player;
     public GameObject questWindow;
     public Text dialogue;
-    
+    public Dictionary<string, Quest> RequestingVillagerList;
+
 
     public void Start()
     {
         player = GameObject.FindWithTag("Player").GetComponent<Player>();
         questsInProgress = new Dictionary<string, Quest>();
+        RequestingVillagerList = new Dictionary<string, Quest>();
+        
     }
 
+    public void ChangeQuestToRequestingState()
+    {
+        Quest testQuest = DataManager.Instance.GetQuest("1");
+        RequestingVillagerList.Add(testQuest.requestedVillager, testQuest);
+        GameManager.Instance.UpdateQuestState();
+    }
+    
     // 진행 중인 의뢰 수를 비교하여 추가할 수 있는지 확인한다. bool return
     public bool AcceptRequest(string id, Quest newQuest)
     {
@@ -81,6 +91,11 @@ public class QuestManager : Singleton<QuestManager>
     {
         var quest = DataManager.Instance.GetQuest(id);
         Debug.Log(quest.Title);
+    }
+
+    public void ShowQuestUI()
+    {
+        
     }
 
 }

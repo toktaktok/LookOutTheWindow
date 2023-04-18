@@ -8,15 +8,20 @@ using XNode;
 
 public class Villager : MonoBehaviour
 {
-    public string itsName;
+    [SerializeField] private string itsName;
     public DialogueGraph[] dialogueGraphs;
     public int[] basicDialogueId = {0, 0};              // 기본 대사 범위(처음,끝)
+    
 
     public bool neverSeenBefore = true;
     [SerializeField] private int curBDialogueState;     // 호출할 기본 대사 id
-    [SerializeField] private VillagerName enumInfo;     
+    [SerializeField] private VillagerName enumInfo;
+    private Queue progressingQuest;
     private Interactable _interactable;
     private Animator _anim;
+    private readonly int _returnToIdle = Animator.StringToHash("returnToIdle");
+    private readonly int _startTalk = Animator.StringToHash("startTalk");
+    private readonly int _embarrassed = Animator.StringToHash("embarrassed");
 
     
     //CharacterManager의 하위 객체. CharacterManager을 역참조한다
@@ -31,16 +36,16 @@ public class Villager : MonoBehaviour
     private void Start()
     {
         Init();
-        if (transform.GetChild(0).TryGetComponent<Animator>(out var animator))
-        {
-            _anim = animator;
-        }
-        curBDialogueState = basicDialogueId[0]; //기본 대사 루틴을 첫번째로 설정
     }
 
     private void Init()
     {
         itsName = Enum.GetName(typeof(VillagerName), enumInfo);
+        if (transform.GetChild(0).TryGetComponent<Animator>(out var animator))
+        {
+            _anim = animator;
+        }
+        curBDialogueState = basicDialogueId[0]; //기본 대사 루틴을 첫번째로 설정
     }
 
 
@@ -59,24 +64,32 @@ public class Villager : MonoBehaviour
         {
             return;
         }
-        _anim.ResetTrigger("returnToIdle");
-        _anim.SetTrigger("startTalk");
-
+        _anim.ResetTrigger(_returnToIdle);
+        _anim.SetTrigger(_startTalk);
     }
+    
+    //Idle 상태로 돌아가기
     public void ReturnToIdle()
     {
         if (!_anim)
         {
             return;
         }
-        _anim.ResetTrigger("startTalk");
-        _anim.SetTrigger("returnToIdle");
-        
-        
-    } 
+        _anim.ResetTrigger(_startTalk);
+        _anim.SetTrigger(_returnToIdle);
+    }
 
+    private void StartSweatAnim() => _anim.SetTrigger(_embarrassed);
+    private void StopSweatAnim() => _anim.ResetTrigger(_embarrassed);
+
+    public void SetupRequestingState()
+    {
+        // TODO: 주민 별로 표현 가짓수 넓히기
+        StartSweatAnim();
+    }
 
 }
+
 // [System.Serializable]
 // public class DialogueRange
 // {

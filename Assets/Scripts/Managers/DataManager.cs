@@ -9,15 +9,19 @@ using System.Linq;
 using SimpleJSON;
 // using newtonsoft;
 
+public class SerializedDictionary : SerializableDictionary<string, string>{}
+
 public class DataManager : Singleton<DataManager>
 {
     public List<string> bDialogueList; //기본 대사 리스트
     public List<string> gDialogueList; //기본 대사 리스트
     public Dictionary<string, Quest> qList = new Dictionary<string, Quest>();
+    public SerializedDictionary sDialogueDic;
 
     private void Start()
     {
         LoadDataFromJson();
+        
     }
 
     [ContextMenu("From Json Data")]
@@ -49,6 +53,16 @@ public class DataManager : Singleton<DataManager>
         QuestJsonParse();
 
         // Debug.Log("Json 파일 읽기 완료");
+
+    }
+
+    public void JsonParse()
+    {
+        var root = ParseJson("storyData", "storyDialogues");
+        foreach (var item in root)
+        {
+            sDialogueDic.Add(item.Key, item.Value);
+        }
 
     }
     
@@ -86,7 +100,11 @@ public class DataManager : Singleton<DataManager>
         QuestManager.Instance.GetQuestInfo("1");
     }
     
-
+    public Quest GetQuest(string id)
+    {
+        return qList[id];
+    }
+    
     //id 값에 따라 대사 return.
     public string GetDialogueData(int id = 0, string type = "b")
     {
@@ -112,9 +130,6 @@ public class DataManager : Singleton<DataManager>
 
     }
 
-    public Quest GetQuest(string id)
-    {
-        return qList[id];
-    }
+
 
 }

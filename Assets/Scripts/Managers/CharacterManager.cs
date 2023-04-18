@@ -37,7 +37,7 @@ public class CharacterManager : Singleton<CharacterManager>
         }
         
         //없으면 소개
-        switch (curInteractingVillager.itsName)
+        switch (curInteractingVillager.Name)
         {
             case "Zig":
                 return true;
@@ -92,38 +92,21 @@ public class CharacterManager : Singleton<CharacterManager>
     {
         curInteractingVillager.ReturnToIdle();
     }
-    //현재 주민 인덱스 찾기
-    // private int SearchVillagerId(string name)
-    // {
-    //     var iter = 0;
-    //     foreach (var villager in curVillagerList)
-    //     {
-    //         if (name == villager.Name)
-    //         {
-    //             //현재 주민의 기본대사 시작 번호 + 기본 대사 상태
-    //             return iter;
-    //         }
-    //
-    //         iter++;
-    //     }
-    //
-    //     Debug.Log("주민 없음");
-    //     return 999;
-    // }
 
-    // private Villager SearchVillager(string name)
-    // {
-    //     foreach (var villager in curVillagerList)
-    //     {
-    //         if (name == villager.Name)
-    //         {
-    //             //현재 주민의 기본대사 시작 번호 + 기본 대사 상태
-    //             return villager;
-    //         }
-    //     }
-    //     Debug.Log("주민 없음");
-    //     return null;
-    // }
+    public Villager SearchVillager(string name)
+    {
+        Debug.Log(name);
+        foreach (var villager in curVillagerList)
+        {
+            if (name == villager.Name)
+            {
+                //현재 주민의 기본대사 시작 번호 + 기본 대사 상태
+                return villager;
+            }
+        }
+        Debug.Log("주민 없음");
+        return null;
+    }
 
     
 }

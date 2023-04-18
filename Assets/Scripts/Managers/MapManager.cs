@@ -92,8 +92,9 @@ public class MapManager : Singleton<MapManager>
     public void EnterBuilding(Transform pos)
     {
         _player.MoveToDestInstant(pos);
-        CameraController.Instance.MoveCamInstant(pos.position);
-        // CameraController.Instance.InsideCamera(pos.position, pos.rotation);
+        // CameraController.Instance.MoveCamInstant(pos.position);
+        CameraManager.Instance.SendMessage("InsideCamera", pos);
+        // CameraManager.Instance.InsideCamera(pos.position, pos.rotation);
     }
 
     private IEnumerator FadeOutBuilding(float opacity)

@@ -1047,7 +1047,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uC99D\uAC70 \uAD6C\uD558\uAE30\n"
+  m_text: "\uBD80\uD0C1\uD560 \uAC8C \uC788\uB294\uC9C0?"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a854db75ee4424109949d5000bf0362e, type: 2}
   m_sharedMaterial: {fileID: -2503236147136835100, guid: a854db75ee4424109949d5000bf0362e, type: 2}
@@ -1074,8 +1074,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 48
-  m_fontSizeBase: 48
+  m_fontSize: 44
+  m_fontSizeBase: 44
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1110,7 +1110,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: -6.765625, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -1831,7 +1831,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 1652, y: 251}
+  m_AnchoredPosition: {x: 1647.4, y: 251}
   m_SizeDelta: {x: 366, y: 276}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5144075627554097373
@@ -1953,7 +1953,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uC0AC\uB2F4 \uB098\uB204\uAE30"
+  m_text: "\uC0AC\uB2F4\uC744 \uB098\uB208\uB2E4"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a854db75ee4424109949d5000bf0362e, type: 2}
   m_sharedMaterial: {fileID: -2503236147136835100, guid: a854db75ee4424109949d5000bf0362e, type: 2}
@@ -1980,8 +1980,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 48
-  m_fontSizeBase: 48
+  m_fontSize: 44
+  m_fontSizeBase: 44
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2677,7 +2677,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uB300\uD654 \uB05D\uB0B4\uAE30"
+  m_text: "\uB300\uD654\uB97C \uB05D\uB0B8\uB2E4"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a854db75ee4424109949d5000bf0362e, type: 2}
   m_sharedMaterial: {fileID: -2503236147136835100, guid: a854db75ee4424109949d5000bf0362e, type: 2}
@@ -2704,8 +2704,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 48
-  m_fontSizeBase: 48
+  m_fontSize: 44
+  m_fontSizeBase: 44
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

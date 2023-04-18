@@ -116,6 +116,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7111464412624514678, guid: a1babb2dc950844fca329fbca54b2d20, type: 3}
+      propertyPath: enumInfo
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7111464412624514678, guid: a1babb2dc950844fca329fbca54b2d20, type: 3}
       propertyPath: dialogueGraphs.Array.size
       value: 2
       objectReference: {fileID: 0}

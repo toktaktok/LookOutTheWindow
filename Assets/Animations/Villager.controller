@@ -73,13 +73,13 @@ AnimatorController:
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 0}
-  - m_Name: Embarrased
+  - m_Name: embarrassed
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 0}
-  - m_Name: Joy
+  - m_Name: joy
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
@@ -198,7 +198,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: Embarrased
+    m_ConditionEvent: embarrassed
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 8099745926598913044}

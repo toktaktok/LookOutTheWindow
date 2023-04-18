@@ -96,12 +96,16 @@ PrefabInstance:
       value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 7111464412624514681, guid: a1babb2dc950844fca329fbca54b2d20, type: 3}
+      propertyPath: m_Size.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7111464412624514681, guid: a1babb2dc950844fca329fbca54b2d20, type: 3}
       propertyPath: m_Size.z
       value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7111464412624514681, guid: a1babb2dc950844fca329fbca54b2d20, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7111464412624514681, guid: a1babb2dc950844fca329fbca54b2d20, type: 3}
       propertyPath: m_Center.z

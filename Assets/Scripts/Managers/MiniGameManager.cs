@@ -104,9 +104,9 @@ public class MiniGameManager : Singleton<MiniGameManager>
     }
     private static void OpenMiniGameCam()
     {
-        CameraController.Instance.mainCam.DORect(new Rect(0, 0, 0.5f, 1), 0.8f)
+        CameraManager.Instance.mainCam.DORect(new Rect(0, 0, 0.5f, 1), 0.8f)
             .SetEase(Ease.OutQuart);
-        CameraController.Instance.miniCam.DORect(new Rect(0.5f, 0, 0.5f, 1), 0.8f)
+        CameraManager.Instance.miniCam.DORect(new Rect(0.5f, 0, 0.5f, 1), 0.8f)
             .SetEase(Ease.OutQuart);
     }
     
@@ -129,8 +129,8 @@ public class MiniGameManager : Singleton<MiniGameManager>
     }
     private static void CloseMiniGameCam()
     {
-        CameraController.Instance.mainCam.DORect(CameraController.Instance.mainOrigRect, 1f).SetEase(Ease.OutQuart);
-        CameraController.Instance.miniCam.DORect(CameraController.Instance.miniOrigRect, 1f).SetEase(Ease.OutQuart);
+        CameraManager.Instance.mainCam.DORect(CameraManager.Instance.mainOrigRect, 1f).SetEase(Ease.OutQuart);
+        CameraManager.Instance.miniCam.DORect(CameraManager.Instance.miniOrigRect, 1f).SetEase(Ease.OutQuart);
     }
 
     public bool IsMiniGamePlaying() //미니게임이 실행 중인가?

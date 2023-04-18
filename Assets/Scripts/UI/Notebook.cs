@@ -76,7 +76,7 @@ public class Notebook : MonoBehaviour
         // questPage.SetActive(false);
         rectTransform.DOAnchorPosY(DefaultClosedYPos, 0.4f).SetEase(Ease.InSine); // 화면 밖으로 나가기
         yield return _waitForSeconds;
-        UIManager.Instance.ShowNoteBookButton();
+        UIManager.Instance.ShowNotebookButton();
         FalseActiveSelf();
     }
 

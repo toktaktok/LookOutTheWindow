@@ -3,7 +3,7 @@
         {
               "id":"1",
               "title":"사라진 마을의 보물",
-              "requestedVillager":"mayor",
+              "requestedVillager":"Mayor",
               "description":"사무소 오픈부터 촌장님이 찾아와서... 다짜고짜 보물을 찾아달라고? 첫 의뢰로는 나쁘지 않아 보인다.",
               "toDo1":"사무소 가까이 있는 주민들 정보 모으기",
               "toDo2":"광장에 있는 주민들과 말 트기",
@@ -14,7 +14,7 @@
         {
           "id":"2",
           "title":"사라진 마을의 보물",
-          "requestedVillager":"mayor",
+          "requestedVillager":"FlowerElephant",
           "description":"사무소 오픈부터 촌장님이 찾아와서... 다짜고짜 보물을 찾아달라고? 첫 의뢰로는 나쁘지 않아 보인다.",
           "toDo1":"사무소 가까이 있는 주민들 정보 모으기",
           "toDo2":"광장에 있는 주민들과 말 트기",

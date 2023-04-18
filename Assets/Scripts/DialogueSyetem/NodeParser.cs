@@ -12,11 +12,8 @@ public class NodeParser : MonoBehaviour
 {
     public DialogueGraph graph;
     private BaseNode bNode;
-    // private Coroutine _parser;
-    // public TextMeshProUGUI speaker;
     public TextMeshProUGUI dialogueText;
-    // public Image speakerImage;
-    
+
     private IEnumerator parser;
 
     private void Start()
@@ -26,12 +23,12 @@ public class NodeParser : MonoBehaviour
         GameManager.Input.keyAction += OnResumeNode;
     }
 
-    public Coroutine NodeParse(DialogueGraph curGraph) //읽을 시작 노드를 찾는다.
+    public Coroutine FindStartNode(DialogueGraph curGraph) 
     {
         graph = curGraph;
-        foreach (BaseNode b in graph.nodes)
+        
+        foreach (BaseNode b in graph.nodes)     //읽을 시작 노드를 찾는다.
         {
-            // Debug.Log(graph.nodes[0].GetType());
             if( graph.nodes[0].GetType().ToString() == "StartNode")
             {
                 graph.current = b;
@@ -40,10 +37,11 @@ public class NodeParser : MonoBehaviour
             }
         }
 
-        if (!bNode)
+        if (!bNode)     //베이스 노드 못 찾으면 종료
         {
             return null;
         }
+        
         parser = ParseNode();
         return StartCoroutine(parser);
     }
@@ -51,12 +49,13 @@ public class NodeParser : MonoBehaviour
     private IEnumerator ParseNode() //노드의 정보를 읽어온다.
     {
         yield return new WaitForEndOfFrame();
-        var b = graph.current; //그래프의 현재 노드.
-        string data = b.GetString(); //노드 유형, 대사 받음
-        string[] dataParts = data.Split('/');   //slash 기준으로 분할하기.
+        
+        var baseNode = graph.current;      //그래프의 현재 노드.
+        string data = baseNode.GetString();        //노드 유형, 대사 받음
+        string[] dataParts = data.Split('/');       //slash 기준으로 분할하기.
+        
+        
         //[0] - 노드 유형 / [1] - 노드 대사
-        
-        
         switch (dataParts[0])
         {
             case "Start": //시작 노드
@@ -70,7 +69,7 @@ public class NodeParser : MonoBehaviour
             case "Dialogue": //대사 노드
                 dialogueText.text = dataParts[2]; // 대사
             
-                if (b.IsBasicState()) //기본 상태인지 확인한다. -> 기본 대화 선택지 제시
+                if (baseNode.IsBasicState()) //기본 상태인지 확인한다. -> 기본 대화 선택지 제시
                 {
                     if (CharacterManager.Instance.FirstInteractCheck()) //최초 대화 시, 선택 창 열기 X
                     {

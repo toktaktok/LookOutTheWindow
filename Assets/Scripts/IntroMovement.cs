@@ -8,33 +8,46 @@ public class IntroMovement : MonoBehaviour
 {
     public GameObject snowman;
     public GameObject bus;
+    [SerializeField] private CameraManager cameraManager;
     private Player player;
-    
+
     private void Start()
     {
         player = snowman.GetComponent<Player>();
         StartCoroutine(IntroAnimation());
+        cameraManager.isCutscene = true;
     }
 
     IEnumerator IntroAnimation()
     {
-        WaitForSeconds waitFor4Seconds = new WaitForSeconds(4);
-        Debug.Log("인트로 컷신 시작");
         
         // Move 1
+        cameraManager.ModifyZoomRange(8);
+        cameraManager.MoveCamInstant(new Vector3(-1, -1.7f, -8));  //고정 카메라 앵글
+        Debug.Log("1");
+
         bus.transform.position = new Vector3(50, -1.5f, -9);    //버스 시작 위치
         snowman.transform.position = new Vector3(46, 4.8f, -8);  //눈사람 시작 위치
-        CameraController.Instance.MoveCamInstant(new Vector3(-1.19f, 10, -5));  //고정 카메라 앵글
-        
+        cameraManager.MoveCamInstant(new Vector3(-1, -1.7f, -8));  //고정 카메라 앵글
+        Debug.Log("2");
+
+
         bus.transform.DOMoveX(0f, 3f);                 // 버스 이동
         snowman.transform.DOMoveX(-4, 3f);             // 눈사람 이동
-        yield return waitFor4Seconds;
+        cameraManager.MoveCamInstant(new Vector3(-1, -1.7f, -8));  //고정 카메라 앵글
+        Debug.Log("3");
+
+
+        yield return new WaitForSeconds(4);
+        cameraManager.MoveCamInstant(new Vector3(-1, -1.7f, -8));  //고정 카메라 앵글
+        Debug.Log("4");
+
         
         
         // Move 2
         player.SetIntroAnim();
         player.StartWalkAnim();
-        player.MoveToDestLinear( new Vector3(-11, 2f, 0f), 10 );
+        player.MoveToDestLinear(new Vector3(-11, 2f, 0f), 10);
         
         yield return new WaitForSeconds(1);
         player.StopWalkAnim();  //눈사람 걸음 멈춤

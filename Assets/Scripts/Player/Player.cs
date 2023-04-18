@@ -203,7 +203,7 @@ public class Player : MonoBehaviour
     #endregion
     
     // 이름 : IsMoving
-    // 기능 : moveValue가 0인지 체크하고, bool 반환
+    // 기능 : moveValue가 0인지 체크하고 bool 반환
     private bool IsMoving() => moveDir != Vector2.zero;
     
     //interactingObject를 지운다.
@@ -364,12 +364,12 @@ public class Player : MonoBehaviour
             }
             if (interactingObject.TryGetComponent(out Villager interacting)) //상호작용 성공했을 시
             {
+                CameraManager.Instance.ModifyZoomRange(2);
                 StopWalkAnim();
                 GameManager.Instance.curGameFlowState = GameFlowState.Interacting; //게임 상태 상호작용으로 바꿈
                 GameManager.Instance.isInteracted = true; // 상호작용 시 대화창 읽기 바로 시작 안 되도록
                 CharacterManager.Instance.curInteractingVillager = interacting;
                 interacting.Interact(); //Villager/Item.cs 의 함수
-                CameraController.Instance.SaveZoomRange(0.19f);
                 UIManager.Instance.StartCoroutine( "OpenDialoguePopup" );
             }
             moveDir = Vector3.zero;
