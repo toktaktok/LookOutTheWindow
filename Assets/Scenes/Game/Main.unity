@@ -848,6 +848,17 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 15.04, y: 1, z: 18.46}
   m_Center: {x: 0, y: -0.26, z: 0}
+--- !u!114 &142045338 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5502740499550333400, guid: b030992f497c14b4e8ae0b8ddf4e6e98, type: 3}
+  m_PrefabInstance: {fileID: 1565699889}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd1dad47cfa74f1495076d3ab90860bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &181577091
 GameObject:
   m_ObjectHideFlags: 0
@@ -10680,6 +10691,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6546747761355838755, guid: b030992f497c14b4e8ae0b8ddf4e6e98, type: 3}
+      propertyPath: moveController
+      value: 
+      objectReference: {fileID: 142045338}
     - target: {fileID: 6546747761355838764, guid: b030992f497c14b4e8ae0b8ddf4e6e98, type: 3}
       propertyPath: m_RootOrder
       value: 16
@@ -12637,7 +12652,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &307250596095402991
 RectTransform:
   m_ObjectHideFlags: 0

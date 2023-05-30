@@ -290,6 +290,7 @@ GameObject:
   - component: {fileID: 4871813234472994489}
   - component: {fileID: 1565699892}
   - component: {fileID: 6546747761355838755}
+  - component: {fileID: 5502740499550333400}
   m_Layer: 6
   m_Name: Snowman
   m_TagString: Player
@@ -374,10 +375,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d723cc6baa352f04ca8fc582aa91e2e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveController: {fileID: 0}
   hMoveSpeed: 0
   interactingObject: {fileID: 0}
   moveDir: {x: 0, y: 0}
   anim: {fileID: 0}
+--- !u!114 &5502740499550333400
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6546747761355838767}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd1dad47cfa74f1495076d3ab90860bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hMoveSpeed: 0
+  interactingObject: {fileID: 0}
+  moveDir: {x: 0, y: 0}
 --- !u!1 &7874794941902987557
 GameObject:
   m_ObjectHideFlags: 0
