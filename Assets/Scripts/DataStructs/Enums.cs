@@ -70,7 +70,14 @@ namespace EnumTypes
         BarPider
         
         //이후 오브젝트는 1001번부터
-        
+    }
+
+    public enum Direction
+    {
+        Up,
+        Down,
+        Left,
+        Right
     }
     
 }

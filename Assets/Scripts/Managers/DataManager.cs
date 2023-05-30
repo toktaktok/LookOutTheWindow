@@ -6,6 +6,7 @@ using System.IO;
 using EnumTypes;
 using Structs;
 using System.Linq;
+using System.Web.UI;
 using SimpleJSON;
 // using newtonsoft;
 
@@ -13,23 +14,38 @@ public class SerializedDictionary : SerializableDictionary<string, string>{}
 
 public class DataManager : Singleton<DataManager>
 {
-    public List<string> bDialogueList; //기본 대사 리스트
-    public List<string> gDialogueList; //기본 대사 리스트
-    public Dictionary<string, Quest> qList = new Dictionary<string, Quest>();
-    public SerializedDictionary sDialogueDic;
+    [SerializeField] private List<string> bDialogueList; //기본 대사 리스트
+    [SerializeField] private List<string> gDialogueList; //기본 대사 리스트
+    [SerializeField] private Dictionary<string, Quest> qList = new Dictionary<string, Quest>();
+    [SerializeField] private SerializedDictionary sDialogueDic;
 
     private void Start()
     {
         LoadDataFromJson();
-        
     }
+    
+    //id 값에 따라 대사 return.
+    public string GetDialogueData(int id = 0, string type = "b")
+    {
+        switch (type)
+        {
+            case "basic":
+                return bDialogueList[id];
+            case "general":
+                return gDialogueList[id];
+            default:
+                return "찾는 대사 없음";
 
+        }
+    }
+    
     [ContextMenu("From Json Data")]
     private void LoadDataFromJson()
     {
         bDialogueList = Enumerable.Repeat("null", 300).ToList();
         gDialogueList = Enumerable.Repeat("null", 300).ToList();
 
+        
         //기본 대화 대사 데이터
         var path1 = Path.Combine(Application.dataPath, "Resources/Json/basicDialogueData.json");
         var jsonData1 = File.ReadAllText(path1);
@@ -52,24 +68,24 @@ public class DataManager : Singleton<DataManager>
         //의뢰 데이터 추가
         QuestJsonParse();
 
-        // Debug.Log("Json 파일 읽기 완료");
-
     }
 
     public void JsonParse()
     {
-        var root = ParseJson("storyData", "storyDialogues");
+        var root = FindRootJsonNode("storyData", "storyDialogues");
         foreach (var item in root)
         {
             sDialogueDic.Add(item.Key, item.Value);
         }
 
     }
+
+
     
     [ContextMenu("Quest Json Parse")]
     public void QuestJsonParse()
     {
-        var root = ParseJson("questData", "quests");
+        var root = FindRootJsonNode("questData", "quests");
         
         foreach (var item in root)
         {
@@ -105,31 +121,13 @@ public class DataManager : Singleton<DataManager>
         return qList[id];
     }
     
-    //id 값에 따라 대사 return.
-    public string GetDialogueData(int id = 0, string type = "b")
-    {
-        switch (type)
-        {
-            case "basic":
-                return bDialogueList[id];
-            case "general":
-                return gDialogueList[id];
-            default:
-                return "찾는 대사 없음";
 
-        }
-    }
 
-    
-    public JSONNode ParseJson(string filePath, string fileName)
+    private JSONNode FindRootJsonNode(string filePath, string fileName)
     {
         var path = Path.Combine(Application.dataPath, "Resources/Json/", filePath + ".json");
         var jsonData =  File.ReadAllText(path);
-        JSONNode text = JSON.Parse(jsonData);
-        return text[fileName];
-
+        return JSON.Parse(jsonData)[fileName];
     }
-
-
 
 }

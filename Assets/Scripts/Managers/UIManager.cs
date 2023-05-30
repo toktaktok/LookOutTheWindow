@@ -83,7 +83,7 @@ public class UIManager : Singleton<UIManager>
         _choiceContainer.SetActive(false);
         dialogueContainer.SetActive(false);
         _player.SwitchSpeed(false);
-        _player.EraseInteractingObject();
+        _player.InteractingObject = null;
         CameraManager.Instance.ReturnInteractionView();
         CharacterManager.Instance.StopTalk();
         ShowNotebookButton();
@@ -165,11 +165,12 @@ public class UIManager : Singleton<UIManager>
     public void ChangeUIState(UIState state) => _curUIState = state;
     
     public void OpenInteractionKey()  => interactKey.Open();
+    public void OpenMapMovingUI() =>  moveToUI.SetActive(true);
     public void CloseInteractionKey() => interactKey.Close();
-    
+    public void CloseMapMovingUI() =>  moveToUI.SetActive(false);
     public void MouseExitNotebookButton() => notebookButton.rectTransform.DOAnchorPosY(_noteButtonOrigPosY, 0.2f);
     public void HideNoteBookButton() => notebookButton.rectTransform.DOAnchorPosY(_noteButtonOrigPosY - 200, 0.3f);
 
-    public void OpenMapMovingUI(Passage passage) =>  moveToUI.SetActive(true);
-    public void CloseMapMovingUI() =>  moveToUI.SetActive(false);
+    
+    
 }
