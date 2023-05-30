@@ -77,7 +77,7 @@ public class PlayerMoveController : MonoBehaviour
     #endregion
   
 
-    private IEnumerator Jump(float time)
+    public IEnumerator Jump(float time)
     {
         _canJump = false;
         hMoveSpeed = 0;
@@ -133,17 +133,16 @@ public class PlayerMoveController : MonoBehaviour
     // 트리거에서 빠져나올 시 UIManager, CameraController가 가지고 있던 창, 뷰 원위치
     private void OnTriggerExit(Collider collider)
     {
-        interactingObject = null;
-        _player.InteractingObject = null;
-        switch (collider.gameObject.layer)
-        {
-            case GlobalVariables.LayerNumber.character:
-                UIManager.Instance.CloseInteractionKey();       //상호작용 UI 닫기
-                break;
-            case GlobalVariables.LayerNumber.map:               //Map 관련 트리거 진입
-                UIManager.Instance.CloseMapMovingUI();
-                break;
-        }
+        SetInteractingCollider(collider);
+        // switch (collider.gameObject.layer)
+        // {
+        //     case GlobalVariables.LayerNumber.character:
+        //         UIManager.Instance.CloseInteractionKey();       //상호작용 UI 닫기
+        //         break;
+        //     case GlobalVariables.LayerNumber.map:               //Map 관련 트리거 진입
+        //         UIManager.Instance.CloseMapMovingUI();
+        //         break;
+        // }
         
         // CameraController.Instance.ReturnInteractionView();  //카메라 줌 수치를 상호작용 전 시점으로 돌린다.
         

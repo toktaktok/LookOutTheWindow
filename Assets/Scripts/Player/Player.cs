@@ -265,18 +265,18 @@ public class Player : MonoBehaviour
     
     
     //해당 시간동안 스피드를 0으로 만든다. 점프할 시 속도 조정 위해
-    private IEnumerator Jump(float time)
-    {
-        _canJump = false;
-        hMoveSpeed = 0;
-        yield return new WaitForSeconds(time);
-        hMoveSpeed = _origSpeed + 2f;
-        yield return new WaitForSeconds(time * 2);
-        hMoveSpeed = _origSpeed;
-        yield return new WaitForSeconds(time * 2);
-        _canJump = true;
-        yield return null;
-    }
+    // private IEnumerator Jump(float time)
+    // {
+    //     _canJump = false;
+    //     hMoveSpeed = 0;
+    //     yield return new WaitForSeconds(time);
+    //     hMoveSpeed = _origSpeed + 2f;
+    //     yield return new WaitForSeconds(time * 2);
+    //     hMoveSpeed = _origSpeed;
+    //     yield return new WaitForSeconds(time * 2);
+    //     _canJump = true;
+    //     yield return null;
+    // }
 
 
     //상호작용 할 수 있는 트리거 진입
@@ -392,7 +392,7 @@ public class Player : MonoBehaviour
         {
             if (_canJump)
             {
-                StartCoroutine(Jump(0.2f));
+                StartCoroutine(moveController.Jump(0.2f));
                 anim.Play("Jump");
             }
         }
