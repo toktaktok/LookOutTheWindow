@@ -2,17 +2,16 @@ using System.Collections;
 using UnityEngine;
 using DG.Tweening;
 using EnumTypes;
-
+using static GlobalVariables.LayerNumber;
 
 //클래스 이름: Player
 //기능: 플레이어 캐릭터(Snowman)에게 붙는 스크립트.
 //캐릭터의 조작, 애니메이션, 특정 범위 안에서의 상호작용 등을 관리한다.
 public class Player : MonoBehaviour
 {
-    
+    [SerializeField] private PlayerMoveController moveController;
     [SerializeField] private float hMoveSpeed;                  //좌우 이동 속도
     [SerializeField] private Collider interactingObject;        //상호작용하는 오브젝트 콜라이더
-    
     private bool _isCollided;                                   //충돌했는가?
     private bool _canUsePassage = true;                         //통로로 이동할 수 있는가?
     private bool _canJump = true;                               //점프할 수 있는가?
@@ -23,13 +22,38 @@ public class Player : MonoBehaviour
     // private int _vMoveSpeed;                                 //상하 이동 속도
     private SpriteRenderer _sprite;
     private CharacterController _characterController;           //플레이어의 characterController
+    private Vector2 lastMoveDir;
     [SerializeField] private Vector2 moveDir;                   //이동 방향
-    // private int vertDir;
+    private Direction _direction;
     
     [HideInInspector] public Animator anim;
     private readonly int _isMoveId = Animator.StringToHash("isMove");
     private readonly int _isBackId = Animator.StringToHash("isBack");
 
+    public Collider InteractingObject
+    {
+        set
+        {
+            interactingObject = value;
+            if (value != null)
+            {
+                SwitchInteractingObject();
+            }
+            else
+            {
+                FinishInteracting();
+            }
+        }
+    }
+
+    public Direction CurrentDirection
+    {
+        set
+        {
+            _direction = value;
+            SwitchDirection();
+        }
+    }
 
     private void Awake()
     {
@@ -53,9 +77,7 @@ public class Player : MonoBehaviour
         
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)) //A,D 키를 누르면
         {
-            var hor = Input.GetAxis("Horizontal");                //수평 좌표 값 받기
-            moveDir = new Vector2(hor,0).normalized;                //normalize하기
-            
+
             _sprite.flipX = moveDir.x switch //방향에 따라 스프라이트 반전
             {
                 > 0 => false,
@@ -66,7 +88,6 @@ public class Player : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.D))
             {
                 StartWalkAnim();
-                // SwitchDir();
             }
         }
         else
@@ -89,6 +110,44 @@ public class Player : MonoBehaviour
         MoveHorizontal( hMoveSpeed * Time.deltaTime * moveDir ); // 먼저 이동
     }
 
+    private void SwitchDirection()
+    {
+        _sprite.flipX = _direction switch //방향에 따라 스프라이트 반전
+        {
+            Direction.Left => false,
+            Direction.Right => true,
+            _ => _sprite.flipX
+        };
+    }
+
+    private void SwitchInteractingObject()
+    {
+        var curGameObject = interactingObject.gameObject;
+        
+        switch (curGameObject.layer)
+        {
+            case character:                 //캐릭터 트리거
+                UIManager.Instance.OpenInteractionKey();                //Trigger와 접촉할 시 상호작용 키를 보이게 한다.
+                break;
+            case map:                       //Map 관련 트리거
+                UIManager.Instance.OpenMapMovingUI();
+                break;
+        }
+    }
+
+    private void FinishInteracting()
+    {
+        switch (interactingObject.gameObject.layer)
+        {
+            case character:
+                UIManager.Instance.CloseInteractionKey();       //상호작용 UI 닫기
+                break;
+            case map:               //Map 관련 트리거 진입
+                UIManager.Instance.CloseMapMovingUI();
+                break;
+        }
+    }
+    
     private void LateUpdate() //충돌 전 position 갱신
     {
         if (!_isCollided)
@@ -101,7 +160,6 @@ public class Player : MonoBehaviour
 
     
     #region 퍼블릭 이동 조작
-    
     
         //목표 지점으로 캐릭터를 움직인다. (컷신 용)
         public void MoveToDestLinear(Vector3 dest, float moveSpeed)
@@ -169,7 +227,6 @@ public class Player : MonoBehaviour
     
     #region 애니메이션 설정
     
-    
         // 기능 : 애니메이션의 isMove 프로퍼티 T/F set
         public void StartWalkAnim() => anim.SetBool(_isMoveId, true);
         public void StopWalkAnim() => anim.SetBool(_isMoveId, false);
@@ -206,9 +263,6 @@ public class Player : MonoBehaviour
     // 기능 : moveValue가 0인지 체크하고 bool 반환
     private bool IsMoving() => moveDir != Vector2.zero;
     
-    //interactingObject를 지운다.
-    public void EraseInteractingObject() => interactingObject = null;
-
     
     //해당 시간동안 스피드를 0으로 만든다. 점프할 시 속도 조정 위해
     private IEnumerator Jump(float time)
@@ -235,7 +289,7 @@ public class Player : MonoBehaviour
                 UIManager.Instance.OpenInteractionKey();                //Trigger와 접촉할 시 상호작용 키를 보이게 한다.
                 break;
             case GlobalVariables.LayerNumber.map:                       //Map 관련 트리거
-                UIManager.Instance.OpenMapMovingUI(interacted.gameObject.GetComponent<Passage>());
+                UIManager.Instance.OpenMapMovingUI();
                 break;
         }
     }
@@ -252,17 +306,7 @@ public class Player : MonoBehaviour
     // 트리거에서 빠져나올 시 UIManager, CameraController가 가지고 있던 창, 뷰 원위치
     private void OnTriggerExit(Collider interacted)
     {
-        interactingObject = null;
-        switch (interacted.gameObject.layer)
-        {
-            case GlobalVariables.LayerNumber.character:
-                UIManager.Instance.CloseInteractionKey();       //상호작용 UI 닫기
-                break;
-            case GlobalVariables.LayerNumber.map:               //Map 관련 트리거 진입
-                UIManager.Instance.CloseMapMovingUI();
-                break;
-        }
-        
+
         // CameraController.Instance.ReturnInteractionView();  //카메라 줌 수치를 상호작용 전 시점으로 돌린다.
         
         //미니게임이 실행중이었다면?
@@ -286,7 +330,6 @@ public class Player : MonoBehaviour
         _isCollided = true;
     }
 
-    
     //키보드 조작
     private void OnKeyboard()
     {
@@ -375,7 +418,6 @@ public class Player : MonoBehaviour
             moveDir = Vector3.zero;
             // _moveValue = Vector2.zero;
         }
-
     }
 
 
