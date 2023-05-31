@@ -55,6 +55,15 @@ public class Player : MonoBehaviour
         }
     }
 
+	public bool IsCollided
+	{
+		set
+		{
+			_isCollided = value;
+			Collided();
+		}
+	}
+
     private void Awake()
     {
         anim = gameObject.GetComponentInChildren<Animator>();   //child의 animator 컴포넌트.
@@ -75,22 +84,11 @@ public class Player : MonoBehaviour
     private void Update()
     {
         
-        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)) //A,D 키를 누르면
+        if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.D))
         {
-
-            _sprite.flipX = moveDir.x switch //방향에 따라 스프라이트 반전
-            {
-                > 0 => false,
-                < 0 => true,
-                _ => _sprite.flipX
-            };
-            
-            if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.D))
-            {
-                StartWalkAnim();
-            }
+            StartWalkAnim();
         }
-        else
+        else if(Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.D))
         {
             StopWalkAnim();
             moveDir = Vector2.zero;
@@ -147,8 +145,14 @@ public class Player : MonoBehaviour
                 break;
         }
     }
-    
-    private void LateUpdate() //충돌 전 position 갱신
+    public void Collided()
+	{
+		transform.position = _prevPos; // 이전 위치로 이동
+        _isCollided = false; // 충돌 처리 false
+	}
+
+    /*
+	private void LateUpdate() //충돌 전 position 갱신
     {
         if (!_isCollided)
         {
@@ -157,6 +161,7 @@ public class Player : MonoBehaviour
         transform.position = _prevPos; // 이전 위치로 이동
         _isCollided = false; // 충돌 처리 false
     }
+	*/
 
     
     #region 퍼블릭 이동 조작
